@@ -1,32 +1,169 @@
+@use "variables" as *;
+
+/*
+ * Fonts
+ */
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-Bold-01.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-BoldItalic-02.ttf");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-DemiBold-03.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-DemiBoldItalic-04.ttf");
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-Italic-05.ttf");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-Medium-06.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-MediumItalic-07.ttf");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-Regular-08.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-UltraLight-11.ttf");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("/fonts/AvenirNext/AvenirNext-UltraLightItalic-12.ttf");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+
+/*
+ * Global layout
+ */
 * {
   box-sizing: border-box; 
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: AvenirNext, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
   overflow-x: hidden;
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  min-height: 100vh;
+}
+
+/*
+ * Specific elements
+ */
+h1 {
+  color: $forest-green;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+h2 {
+  color: $forest-green;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+h3 {
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+h4 {
+  color: $forest-green;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+h5 {
+  color: $forest-green;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+h6 {
+  color: black;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+p {
+  color: black;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+strong {
+  font-weight: 600;
 }
 
 input:focus, button:focus, div:focus {
   outline: 0;
 }
 
-button {
+button, a {
   transition: opacity 0.3s;
+  border: 0;
   cursor: pointer;
 }
 
-button:hover {
+button:hover, a:hover {
   opacity: 0.7;
 }
 
-button:active {
+button:active, a:active {
   opacity: 0.5;
 }
 
@@ -40,18 +177,15 @@ a {
   text-decoration: none;
 }
 
-html {
-  font-size: 14px;
-}
+/*
+ * Responsive font sizing
+ */
+$min_width: 320px;
+$max_width: $container-width;
+$min_font: 14px;
+$max_font: 20px;
 
-@media screen and (min-width: 320px) {
-  html {
-      font-size: calc(14px + 8 * ((100vw - 320px) / 880));
-  }
-}
-@media screen and (min-width: 1200px) {
-  html {
-      font-size: 22px;
-  }
+html {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
