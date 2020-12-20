@@ -1,0 +1,84 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import React, { useState } from 'react';
+import { NavLinkType } from 'constants/types';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import useDelay from 'utils/useDelay';
+import { motion } from 'framer-motion';
+import { HamburgerMenu, Close, DropdownArrow } from './assets';
+import styles from './styles.module.scss';
+
+const ANIMATION_LENGTH = 300;
+const defaultPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+
+const Dropdown = ({ links, visible, onClick }) => {
+  return (
+    <motion.div className={styles['mobile-dropdown']} animate={{ height: visible ? 'auto' : 0 }} transition={{ duration: ANIMATION_LENGTH / 1000 }}>
+      {links.map(({ display, link = defaultPath }) => (
+        <Link href={link} passHref key={display}>
+          <a className={styles['nav-link']} onClick={onClick} role="button">
+            {display}
+          </a>
+        </Link>
+      ))}
+    </motion.div>
+  );
+};
+
+const NavLink = ({
+  display, link, dropdown, onClick,
+}) => {
+  const isDropdown = dropdown && dropdown.length > 0;
+  const [visibleDropdown, setVisibleDropdown] = useState(false);
+  const delayedVisible = useDelay(visibleDropdown, ANIMATION_LENGTH);
+
+  const toggle = () => setVisibleDropdown((vis) => !vis);
+
+  return (
+    <>
+      <div className={styles['mobile-nav-link-container']}>
+        <Link href={link} passHref key={display}>
+          <a className={styles['mobile-nav-link']} onClick={isDropdown ? toggle : onClick} role="button">
+            {display}
+            {isDropdown && <DropdownArrow width={45} height={45} />}
+          </a>
+        </Link>
+      </div>
+      {isDropdown && delayedVisible && <Dropdown links={dropdown} visible={visibleDropdown} onClick={onClick} />}
+    </>
+  );
+};
+
+const MobileBackdrop = ({ links, visible, onClick }) => {
+  return (
+    <motion.div className={styles['mobile-backdrop']} animate={{ opacity: visible ? 1 : 0 }} transition={{ duration: ANIMATION_LENGTH / 1000 }}>
+      {links.map(({ display, link = defaultPath, dropdown }) => (
+        <NavLink display={display} link={link} dropdown={dropdown} key={display} onClick={onClick} />
+      ))}
+    </motion.div>
+  );
+};
+
+const HeaderLinksMobile = ({ links }) => {
+  const [visible, setVisible] = useState(false);
+  const delayedVisible = useDelay(visible, ANIMATION_LENGTH);
+
+  const toggle = () => setVisible((vis) => !vis);
+
+  return (
+    <>
+      <button className="transparent" type="button" onClick={toggle}>
+        {visible ? <Close /> : <HamburgerMenu />}
+      </button>
+      {delayedVisible && <MobileBackdrop links={links} visible={visible} onClick={toggle} />}
+    </>
+  );
+};
+
+HeaderLinksMobile.propTypes = {
+  links: PropTypes.arrayOf(NavLinkType).isRequired,
+};
+
+export default HeaderLinksMobile;

@@ -12,7 +12,6 @@ const Page = ({ title, description }) => {
         title={`${title} | ${siteTitle}`}
         description={description}
       />
-      <button type="button">Test</button>
     </>
   );
 };

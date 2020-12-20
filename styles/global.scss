@@ -194,14 +194,26 @@ button {
   }
 }
 
+.transparent {
+  background: transparent;
+  padding: 0;
+  color: black;
+  
+  &:before {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+}
+
 a {
-  transition: opacity 0.3s; 
+  transition: all 0.3s; 
 
   &:hover {
-    opacity: 0.6;
+    color: $dartmouth-green;
   }
   &:active {
-    opacity: 0.4;
+    opacity: 0.7;
   }
 }
 
