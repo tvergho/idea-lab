@@ -1,10 +1,10 @@
 import React from 'react';
-import { NextSeo } from 'next-seo';
+import Page from 'components/Page';
 
 const Home = () => {
   return (
     <>
-      <NextSeo
+      <Page
         title="Home"
         description="Description."
       />
