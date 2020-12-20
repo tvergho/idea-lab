@@ -1,7 +1,9 @@
 import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
-import { getPageByTitle } from 'utils/sanityApi';
+import client from 'utils/client';
+
+const query = '*[_type == "page" && title == "Home"][0]';
 
 const Home = ({ title, description }) => {
   return (
@@ -15,7 +17,7 @@ const Home = ({ title, description }) => {
 };
 
 export const getStaticProps = async () => {
-  const { title, description } = await getPageByTitle('Home');
+  const { title, description } = await client.fetch(query) || {};
 
   return {
     props: { title, description },

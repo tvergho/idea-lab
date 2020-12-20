@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+.content, .header {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 20px;
+}
+
+.logo {
+  color: $forest-green;
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  .second-word {
+    color: $mid-green-3;
+  }
+}

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
+import ConfigContext from 'context/ConfigContext';
 
 const Page = ({ title, description }) => {
+  const { siteTitle } = useContext(ConfigContext);
+
   return (
     <>
       <NextSeo
-        title={title}
+        title={`${title} | ${siteTitle}`}
         description={description}
       />
+      <button type="button">Test</button>
     </>
   );
 };
