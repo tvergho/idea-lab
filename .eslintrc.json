@@ -14,7 +14,7 @@
         "no-else-return": 0,
         "new-cap": ["error", {"capIsNewExceptions": ["Router"]}],
         "no-console": 0,
-        "import/no-unresolved": [2, { "caseSensitive": false } ],
+        "import/no-unresolved": [2, { "caseSensitive": false, "ignore": ["^(all|part):"] } ],
         "no-unused-vars": ["off", { "vars": "all", "args": "none" }],
         "no-use-before-define":"warn",
         "no-underscore-dangle": 0,

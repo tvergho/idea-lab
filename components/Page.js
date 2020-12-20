@@ -6,7 +6,7 @@ const Page = ({ title, description }) => {
   return (
     <>
       <NextSeo
-        title={`${title} | IDEA Lab`}
+        title={title}
         description={description}
       />
     </>

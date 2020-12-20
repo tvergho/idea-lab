@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 /*
- * Fonts
+ * Fonts.
  */
 @font-face {
   font-family: "AvenirNext";
@@ -84,7 +84,7 @@
 }
 
 /*
- * Global layout
+ * Global layout.
  */
 * {
   box-sizing: border-box; 
@@ -101,7 +101,7 @@ html, body {
 }
 
 /*
- * Specific elements
+ * Specific elements.
  */
 h1 {
   color: $forest-green;
@@ -178,14 +178,9 @@ a {
 }
 
 /*
- * Responsive font sizing
+ * Responsive font sizing.
  */
-$min_width: 320px;
-$max_width: $container-width;
-$min_font: 14px;
-$max_font: 20px;
-
 html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  @include fluid-type($min-width, $container-width, $min-font, $max-font);
 }
 

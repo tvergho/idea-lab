@@ -1,9 +1,12 @@
-// Colors
+// Colors.
 $forest-green: #12312B;
 
-// Constants
+// Constants.
 $container-width: 1200px;
 $mobile-width: 768px;
+$min-width: 320px;
+$min-font: 14px;
+$max-font: 20px;
 
 // Responsive font sizing.
 @function strip-unit($value) {
