@@ -42,6 +42,10 @@ export const getStaticProps = async () => {
 Home.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  pageBuilder: PropTypes.arrayOf(PropTypes.shape({
+    _key: PropTypes.string,
+    _type: PropTypes.string,
+  })),
 };
 
 export default Home;
