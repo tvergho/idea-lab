@@ -5,6 +5,6 @@ module.exports = withPlugins([
   [optimizedImages],
 ], {
   images: {
-    domains: ['https://cdn.sanity.io'],
+    domains: ['cdn.sanity.io'],
   },
 });

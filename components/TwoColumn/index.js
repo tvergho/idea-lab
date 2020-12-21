@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ImageReferenceType } from 'constants/types';
 import imageUrlBuilder from '@sanity/image-url';
 import client from 'utils/client';
+import Image from 'next/image';
 import styles from './styles.module.scss';
 
 const builder = imageUrlBuilder(client);
@@ -17,7 +18,9 @@ const TwoColumn = ({
   const iconUrl = urlFor(icon).url();
 
   return (
-    <div className={styles['two-column']} />
+    <div className={styles['two-column']}>
+      <Image src={imageUrl} layout="fill" objectFit="contain" />
+    </div>
   );
 };
 
