@@ -40,6 +40,7 @@
 .text-row {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .title {
@@ -55,4 +56,46 @@
 
 .cta-button, .content {
   margin-top: 30px;
+}
+
+@media screen and (max-width: $container-width) {
+  .two-column {
+    padding: 110px 5vw;
+  }
+  .text {
+    padding-top: 0px;
+  }
+  .main-image {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .two-column {
+    padding: 70px 5vw;
+    padding-top: 60px;
+    flex-direction: column-reverse !important;
+  }
+  .main-image, .text {
+    width: 90%;
+  }
+  .two-column {
+    align-items: center;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .divider {
+    display: none;
+  }
+  .cta-button, .content {
+    margin-top: 20px;
+  }
+  .title {
+    margin-left: 10px;
+  }
 }

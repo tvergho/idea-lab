@@ -6,6 +6,7 @@ import client from 'utils/client';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import BlockContent from '@sanity/block-content-to-react';
+import useWindowSize from 'utils/useWindowSize';
 import styles from './styles.module.scss';
 
 const builder = imageUrlBuilder(client);
@@ -17,15 +18,15 @@ const TwoColumn = ({
   button, content, icon, image, side, title, buttonPage,
 }) => {
   const router = useRouter();
+  const isReversed = side === 'right';
   const imageUrl = urlFor(image).width(600).url();
   const iconUrl = urlFor(icon).url();
-  const isReversed = side === 'right';
-  const buttonUrl = buttonPage || '/';
+  const buttonUrl = buttonPage?.current || '/';
 
   return (
     <div className={styles['two-column']} style={{ flexDirection: isReversed ? 'row-reverse' : 'row' }}>
       <div className={styles['main-image']}>
-        <Image src={imageUrl} layout="responsive" width={540} height={360} />
+        <Image src={imageUrl} layout="responsive" width={540} height={360} objectFit="cover" />
       </div>
 
       <div className={styles.text}>
