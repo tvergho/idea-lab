@@ -2,20 +2,9 @@ import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import client from 'utils/client';
-import { HeroHome } from 'components/Home';
+import { homeResolver } from 'resolvers';
 
 const query = '*[_type == "page" && title == "Home"][0]';
-
-const homeResolver = (props) => {
-  const { _type, _key } = props;
-
-  switch (_type) {
-  case 'heroHome':
-    return <HeroHome key={_key} title={props.title} subtitle={props.subtitle} />;
-  default:
-    return null;
-  }
-};
 
 const Home = ({ title, description, pageBuilder }) => {
   return (

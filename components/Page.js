@@ -2,29 +2,12 @@ import React, { useContext } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import ConfigContext from 'context/ConfigContext';
-
-const defaultResolver = (props) => {
-  const { _type } = props;
-
-  switch (_type) {
-  default:
-    return null;
-  }
-};
+import { defaultResolver, combineResolvers } from 'resolvers';
 
 const Page = ({
   title, description, pageBuilder, resolver,
 }) => {
   const { siteTitle } = useContext(ConfigContext);
-
-  const combineResolvers = (item) => {
-    let element = null;
-
-    if (resolver) element = resolver(item);
-    if (!element) element = defaultResolver(item);
-
-    return element;
-  };
 
   return (
     <>
@@ -34,7 +17,7 @@ const Page = ({
       />
 
       {pageBuilder && pageBuilder.map((item) => {
-        return combineResolvers(item);
+        return combineResolvers(resolver, defaultResolver)(item);
       })}
     </>
   );

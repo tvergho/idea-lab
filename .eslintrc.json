@@ -62,7 +62,8 @@
             ["styles", "./styles"],
             ["context", "./context"],
             ["constants", "./constants"],
-            ["public", "./public"]
+            ["public", "./public"],
+            ["resolvers", "./resolvers"]
           ]
         }
       }
