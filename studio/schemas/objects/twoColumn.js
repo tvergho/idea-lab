@@ -35,7 +35,6 @@ export default {
       title: 'Image',
       name: 'image',
       type: 'image',
-      options: { hotspot: true },
       description: 'Aspect ratio should be roughly 3x2.',
     },
     {

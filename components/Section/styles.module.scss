@@ -1,11 +1,18 @@
 @use "variables" as *;
 
-.light-section {
-  background-color: $background-gray;
+.section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.light {
+  background-color: $background-gray;
+}
+
+.emphasis {
+  background-color: $forest-green;
 }
 
 .container {

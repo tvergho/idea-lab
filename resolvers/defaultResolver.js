@@ -1,5 +1,5 @@
 import React from 'react';
-import LightSection from 'components/LightSection';
+import Section from 'components/Section';
 import TwoColumn from 'components/TwoColumn';
 
 const defaultResolver = (props) => {
@@ -7,7 +7,7 @@ const defaultResolver = (props) => {
 
   switch (_type) {
   case 'lightSection':
-    return <LightSection elements={props.elements} key={_key} />;
+    return <Section elements={props.elements} color={props.color} key={_key} />;
   case 'twoColumn': {
     const {
       button, content, icon, image, side, title, buttonPage,
