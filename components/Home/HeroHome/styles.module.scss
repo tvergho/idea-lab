@@ -24,14 +24,23 @@
 @media screen and (max-width: $container-width) {
   .hero-section {
     svg {
+      width: 70%;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hero-section {
+    svg {
       width: 90%;
     }
   }
 }
 
-@media screen and (max-width: $mobile-width) {
+@media screen and (max-width: 600px) {
   .hero-text {
-    margin-bottom: 0;
+    max-width: 80%;
   }
 }
 
@@ -39,6 +48,9 @@
   .hero-text {
     margin-top: 2vh;
   }
+}
+
+@media screen and (max-height: 568px) {
   .hero-section {
     height: auto;
   }
