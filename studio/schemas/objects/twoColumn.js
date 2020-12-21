@@ -26,6 +26,12 @@ export default {
       type: 'string',
     },
     {
+      title: 'Button Link',
+      name: 'buttonPage',
+      type: 'slug',
+      description: 'URL slug for the page that the button links to. Must be paired with a value for the button text field.',
+    },
+    {
       title: 'Image',
       name: 'image',
       type: 'image',

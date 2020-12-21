@@ -10,7 +10,7 @@ const defaultResolver = (props) => {
     return <LightSection elements={props.elements} key={_key} />;
   case 'twoColumn': {
     const {
-      button, content, icon, image, side, title,
+      button, content, icon, image, side, title, buttonPage,
     } = props;
     return (
       <TwoColumn
@@ -20,6 +20,7 @@ const defaultResolver = (props) => {
         image={image}
         side={side}
         title={title}
+        buttonPage={buttonPage}
         key={_key}
       />
     );

@@ -5,12 +5,13 @@ import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 
 const LightSection = ({ elements }) => {
-  console.log(elements);
   return (
     <section className={styles['light-section']}>
-      {elements.map((element) => {
-        return defaultResolver(element);
-      })}
+      <div className={styles.container}>
+        {elements.map((element) => {
+          return defaultResolver(element);
+        })}
+      </div>
     </section>
   );
 };

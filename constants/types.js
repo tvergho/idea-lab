@@ -1,6 +1,12 @@
 /* eslint-disable consistent-return */
 import PropTypes from 'prop-types';
 
+const validateValueFunction = (value) => {
+  return (props, propName) => {
+    if (props[propName] !== value) return new Error(`Invalid ${value} prop type supplied to component.`);
+  };
+};
+
 export const NavLinkType = PropTypes.shape({
   display: PropTypes.string,
   link: PropTypes.string,
@@ -16,13 +22,14 @@ export const ElementType = PropTypes.shape({
 });
 
 export const ImageReferenceType = PropTypes.shape({
-  _type: (props, propName) => {
-    if (props[propName] !== 'image') return new Error('Invalid image prop type supplied to component.');
-  },
+  _type: validateValueFunction('image'),
   asset: PropTypes.shape({
-    _type: (props, propName) => {
-      if (props[propName] !== 'reference') return new Error('Invalid reference prop type supplied to component.');
-    },
+    _type: validateValueFunction('reference'),
     _ref: PropTypes.string,
   }),
+});
+
+export const SlugType = PropTypes.shape({
+  _type: validateValueFunction('slug'),
+  current: PropTypes.string,
 });

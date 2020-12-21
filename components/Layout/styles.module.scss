@@ -1,11 +1,17 @@
 @use "variables" as *;
 
 .content, .header {
-  max-width: $container-width;
   margin: 0 auto;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header {
+  max-width: $container-width;
   display: flex;
   flex-direction: row;
   align-items: center;
