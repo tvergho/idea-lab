@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import ConfigContext from 'context/ConfigContext';
 import { defaultResolver, combineResolvers } from 'resolvers';
+import { ElementType } from 'constants/types';
 
 const Page = ({
   title, description, pageBuilder, resolver,
@@ -16,8 +17,8 @@ const Page = ({
         description={description}
       />
 
-      {pageBuilder && pageBuilder.map((item) => {
-        return combineResolvers(resolver, defaultResolver)(item);
+      {pageBuilder && pageBuilder.map((element) => {
+        return combineResolvers(resolver, defaultResolver)(element);
       })}
     </>
   );
@@ -26,10 +27,7 @@ const Page = ({
 Page.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  pageBuilder: PropTypes.arrayOf(PropTypes.shape({
-    _key: PropTypes.string,
-    _type: PropTypes.string,
-  })),
+  pageBuilder: PropTypes.arrayOf(ElementType),
   resolver: PropTypes.func,
 };
 

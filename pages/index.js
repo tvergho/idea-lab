@@ -3,6 +3,7 @@ import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import client from 'utils/client';
 import { homeResolver } from 'resolvers';
+import { ElementType } from 'constants/types';
 
 const query = '*[_type == "page" && title == "Home"][0]';
 
@@ -31,10 +32,7 @@ export const getStaticProps = async () => {
 Home.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  pageBuilder: PropTypes.arrayOf(PropTypes.shape({
-    _key: PropTypes.string,
-    _type: PropTypes.string,
-  })),
+  pageBuilder: PropTypes.arrayOf(ElementType),
 };
 
 export default Home;

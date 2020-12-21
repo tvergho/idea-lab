@@ -3,4 +3,8 @@ const optimizedImages = require('next-optimized-images');
 
 module.exports = withPlugins([
   [optimizedImages],
-]);
+], {
+  images: {
+    domains: ['https://cdn.sanity.io'],
+  },
+});
