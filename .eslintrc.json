@@ -61,7 +61,8 @@
             ["utils", "./utils"],
             ["styles", "./styles"],
             ["context", "./context"],
-            ["constants", "./constants"]
+            ["constants", "./constants"],
+            ["public", "./public"]
           ]
         }
       }

@@ -227,6 +227,12 @@ a {
   text-decoration: none;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 /*
  * Responsive font sizing.
  */

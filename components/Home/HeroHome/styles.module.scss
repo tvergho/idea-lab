@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+.hero-section {
+  align-items: center;
+  height: calc(100vh - 100px);
+  margin-bottom: 50px;
+}
+
+.hero-text {
+  max-width: 60%;
+  text-align: center;
+  margin: 4vh auto;
+}
+
+.title {
+  line-height: 3.25rem;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: $container-width) {
+  .hero-section {
+    svg {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .hero-text {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .hero-text {
+    margin-top: 2vh;
+  }
+  .hero-section {
+    height: auto;
+  }
+}

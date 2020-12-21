@@ -26,5 +26,13 @@ export default {
           .slice(0, 200),
       },
     },
+    {
+      name: 'pageBuilder',
+      type: 'array',
+      title: 'Page Builder',
+      of: [
+        { type: 'heroHome' },
+      ],
+    },
   ],
 };
