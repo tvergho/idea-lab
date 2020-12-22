@@ -35,7 +35,7 @@ export default {
       title: 'Image',
       name: 'image',
       type: 'image',
-      description: 'Aspect ratio should be roughly 3x2.',
+      description: 'Aspect ratio should be roughly 5x4.',
     },
     {
       title: 'Image Side',

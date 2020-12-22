@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
-const PersonItem = () => {
+const Template = () => {
   return (
     <div />
   );
 };
 
-export default PersonItem;
+export default Template;

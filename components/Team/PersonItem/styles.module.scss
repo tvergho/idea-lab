@@ -1,1 +1,44 @@
 @use "variables" as *;
+
+.item {
+  width: 25%;
+  padding: 0 20px;
+  margin: 40px 0;
+  transition: opacity 0.3s;
+
+  h5 {
+    color: $mid-green-3;
+  }
+
+  &:last-child {
+    margin-bottom: 80px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.name {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: $container-width) {
+  .item {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .item {
+    width: 51%;
+
+    h5 {
+      font-size: 1.3rem;
+    }
+  }
+}
