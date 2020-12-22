@@ -3,6 +3,7 @@ import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
 import { PersonItem } from 'components/Team';
+import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
 
 const defaultResolver = (props, extra = {}) => {
@@ -48,6 +49,14 @@ const defaultResolver = (props, extra = {}) => {
         image, name, linkedin, _id,
       }) => {
         items.push(<PersonItem image={image} name={name} linkedin={linkedin} key={_id} />);
+      });
+      return <Grid items={items} key={_key} />;
+    }
+    case 'usefulLink': {
+      elements.forEach(({
+        image, display, url, _id,
+      }) => {
+        items.push(<UsefulLink image={image} display={display} url={url} key={_id} />);
       });
       return <Grid items={items} key={_key} />;
     }

@@ -34,6 +34,7 @@ export default {
         { type: 'heroHome' },
         { type: 'lightSection' },
         { type: 'twoColumn' },
+        { type: 'grid' },
       ],
     },
     {

@@ -1,0 +1,38 @@
+@use "variables" as *;
+
+.useful-link {
+  width: 30%;
+  margin: 20px;
+  background: white;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.02), 0px 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+
+  p {
+    font-size: 0.9rem;
+    margin: 5px 5%;
+    margin-top: 5%;
+  }
+  h6 {
+    font-size: 0.8rem;
+    margin: 0 5%;
+    margin-bottom: 5%;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .useful-link {
+    width: 28%;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .useful-link {
+    width: 60%;
+  }
+}

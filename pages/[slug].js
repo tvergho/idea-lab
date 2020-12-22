@@ -53,7 +53,7 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const data = await client.fetch(query, { slug }) || {};
   const {
-    title, description, pageBuilder, showTitle,
+    title = null, description = null, pageBuilder = null, showTitle = null,
   } = data;
 
   return {

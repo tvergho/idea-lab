@@ -9,6 +9,7 @@ export default {
       type: 'array',
       of: [
         { type: 'reference', to: [{ type: 'person' }], name: 'people' },
+        { type: 'usefulLink' },
       ],
     },
   ],

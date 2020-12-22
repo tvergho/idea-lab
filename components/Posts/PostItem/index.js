@@ -31,11 +31,9 @@ const PostItem = ({
             <Image src={imageUrl} layout="responsive" width={350} height={233} objectFit="cover" />
           </div>
 
-          <div className={styles.text}>
-            <h4>{title}</h4>
-            <p>{description}</p>
-            <h6>{calcDate(createdAt)}</h6>
-          </div>
+          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.desc}>{description}</p>
+          <h6 className={styles.date}>{calcDate(createdAt)}</h6>
         </a>
       </Link>
     </div>

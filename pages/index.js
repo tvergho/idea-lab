@@ -22,7 +22,7 @@ const Home = ({ title, description, pageBuilder }) => {
 
 export const getStaticProps = async () => {
   const data = await client.fetch(query) || {};
-  const { title, description, pageBuilder } = data;
+  const { title = null, description = null, pageBuilder = null } = data;
 
   return {
     props: { title, description, pageBuilder },
