@@ -18,6 +18,7 @@ const TwoColumn = ({
   const router = useRouter();
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [paddingTop, setPaddingTop] = useState('110px');
   const scrolled = useScrollPosition(ref, 200);
   const { isMobile } = useWindowSize();
 
@@ -30,6 +31,11 @@ const TwoColumn = ({
   useEffect(() => {
     if (scrolled) setVisible(true);
   }, [scrolled]);
+
+  useEffect(() => {
+    if (fullPage) setPaddingTop(isMobile ? '25px' : '50px');
+    else setPaddingTop(isMobile ? '60px' : '110px');
+  }, [isMobile]);
 
   const imageComponent = () => {
     return (
@@ -90,15 +96,10 @@ const TwoColumn = ({
     );
   };
 
-  const paddingTop = () => {
-    if (fullPage) return isMobile ? '25px' : '50px';
-    else return isMobile ? '60px' : '110px';
-  };
-
   return (
     <div
       className={styles['two-column']}
-      style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop: paddingTop() }}
+      style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop }}
       ref={ref}
     >
       {imageComponent()}

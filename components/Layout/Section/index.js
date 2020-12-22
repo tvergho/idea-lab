@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ElementType } from 'constants/types';
 import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 
 const Section = ({ elements, color }) => {
-  const className = () => {
+  const [className, setClassName] = useState(styles.section);
+
+  useEffect(() => {
     switch (color) {
     case 'light':
-      return `${styles.light} ${styles.section}`;
+      setClassName(`${styles.light} ${styles.section}`);
+      break;
     case 'emphasis':
-      return `${styles.emphasis} ${styles.section}`;
+      setClassName(`${styles.emphasis} ${styles.section}`);
+      break;
     default:
-      return styles.section;
+      setClassName(styles.section);
+      break;
     }
-  };
+  }, [color]);
 
   return (
-    <section className={className()}>
+    <section className={className}>
       <div className={styles.container}>
         {elements.map((element) => {
           return defaultResolver(element);
