@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { SlugType, ImageReferenceType } from 'constants/types';
 import { urlFor } from 'utils/client';
@@ -20,12 +20,11 @@ const calcDate = (date) => {
 const PostItem = ({
   createdAt, slug, image, description, title,
 }) => {
-  const [hovering, setHovering] = useState(false);
   const imageUrl = urlFor(image).width(350).url();
   const toUrl = slug?.current || '/';
 
   return (
-    <div className={styles['post-item']} style={{ opacity: hovering ? 0.7 : 1 }} onMouseEnter={() => { setHovering(true); }} onMouseLeave={() => { setHovering(false); }}>
+    <div className={styles['post-item']}>
       <Link href={toUrl} passHref>
         <a>
           <div className={styles.image}>

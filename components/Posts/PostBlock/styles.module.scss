@@ -11,3 +11,13 @@
   justify-content: center;
   margin-bottom: 60px;
 }
+
+@media screen and (max-width: $mobile-width) {
+  .post-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .header {
+    margin-bottom: 0px;
+  }
+}
