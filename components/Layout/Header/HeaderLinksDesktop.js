@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 import { DropdownArrow } from '../assets';
 
 const ANIMATION_LENGTH = 300;
-const defaultPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+const defaultPath = '/';
 
 const NavLink = ({ link, display, dropdown }) => {
   const [hovering, setHovering] = useState(false);
@@ -32,11 +32,13 @@ const NavLink = ({ link, display, dropdown }) => {
 const Dropdown = ({ links, hovering }) => {
   return (
     <motion.div className={styles.dropdown} animate={{ opacity: hovering ? 1 : 0 }} transition={{ duration: ANIMATION_LENGTH / 1000 }}>
-      {links.map(({ link = defaultPath, display }) => {
-        return (
-          <NavLink link={link} display={display} key={display} />
-        );
-      })}
+      <div className={styles['dropdown-inner']}>
+        {links.map(({ link = defaultPath, display }) => {
+          return (
+            <NavLink link={link} display={display} key={display} />
+          );
+        })}
+      </div>
     </motion.div>
   );
 };

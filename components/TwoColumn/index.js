@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import BlockContent from '@sanity/block-content-to-react';
 import { motion } from 'framer-motion';
 import useScrollPosition from 'utils/useScrollPosition';
+import useWindowSize from 'utils/useWindowSize';
 import styles from './styles.module.scss';
 
 const ANIMATION_DURATION = 400;
@@ -18,6 +19,7 @@ const TwoColumn = ({
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const scrolled = useScrollPosition(ref, 200);
+  const { isMobile } = useWindowSize();
 
   const isReversed = side === 'right';
 
@@ -88,10 +90,15 @@ const TwoColumn = ({
     );
   };
 
+  const paddingTop = () => {
+    if (fullPage) return isMobile ? '25px' : '50px';
+    else return isMobile ? '60px' : '110px';
+  };
+
   return (
     <div
       className={styles['two-column']}
-      style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop: fullPage ? '50px' : '110px' }}
+      style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop: paddingTop() }}
       ref={ref}
     >
       {imageComponent()}

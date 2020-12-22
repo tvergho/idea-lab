@@ -23,6 +23,7 @@
 
 .nav-link-container {
   position: relative;
+  z-index: 100;
 }
 
 .nav-link {
@@ -30,6 +31,7 @@
   font-size: 0.9rem;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .links, .mobile-nav-link {
@@ -38,17 +40,26 @@
 
 .no-hover:active, .no-hover:hover { opacity: 1; }
 
+.dropdown-inner {
+  position: relative;
+  background-color: white;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
 .dropdown {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: transparent;
   min-width: 180px;
   top: 20px;
   left: -10px;
   padding-top: 30px;
-  padding-bottom: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
   opacity: 0;
+  z-index: 100;
 
   .nav-link {
     padding: 5px 10px;
@@ -64,6 +75,7 @@
     right: 8px;
     bottom: 0;
     box-shadow: 0 0 28px rgba(6,67,117,.3);
+    z-index: 1;
   }
 
   &:after {
@@ -76,6 +88,7 @@
     top: 10px;
     left: 50px;
     background: white;
+    z-index: 100;
   }
 }
 
@@ -88,6 +101,7 @@
   background-color: white;
   padding: 8vw;
   opacity: 0;
+  z-index: 100;
 }
 
 .mobile-nav-link-container {
@@ -106,4 +120,8 @@
   .nav-link {
     margin: 5px 15px;
   }
+}
+
+.toggle {
+  z-index: 101;
 }

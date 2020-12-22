@@ -243,6 +243,12 @@ p {
   margin: 0.5rem 0;
 }
 
+.page-not-found {
+  width: $container-width;
+  max-height: calc(100vh - 350px);
+  max-width: calc(100vw - 100px);
+}
+
 /*
  * Responsive font sizing.
  */

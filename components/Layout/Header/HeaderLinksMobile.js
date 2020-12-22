@@ -11,7 +11,7 @@ import { HamburgerMenu, Close, DropdownArrow } from '../assets';
 import styles from './styles.module.scss';
 
 const ANIMATION_LENGTH = 300;
-const defaultPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+const defaultPath = '/';
 
 const Dropdown = ({ links, visible, onClick }) => {
   return (
@@ -81,7 +81,7 @@ const HeaderLinksMobile = ({ links }) => {
 
   return (
     <>
-      <button className="transparent" type="button" onClick={toggle}>
+      <button className={`transparent ${styles.toggle}`} type="button" onClick={toggle}>
         {visible ? <Close /> : <HamburgerMenu />}
       </button>
       {delayedVisible && <MobileBackdrop links={links} visible={visible} onClick={toggle} />}

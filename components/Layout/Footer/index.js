@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { NavLinkType } from 'constants/types';
 import styles from './styles.module.scss';
 
-const defaultPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+const defaultPath = '/';
 
 const Footer = ({ links }) => {
   return (
