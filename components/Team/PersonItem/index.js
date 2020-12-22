@@ -49,7 +49,9 @@ const PersonItem = ({ image, name, linkedin }) => {
       transition={{ duration: (ANIMATION_DURATION) / 1000, ease: 'easeOut' }}
       ref={ref}
     >
-      {withLinkedin(content())}
+      <div className={styles['opacity-control']}>
+        {withLinkedin(content())}
+      </div>
     </motion.div>
   );
 };
