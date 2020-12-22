@@ -33,3 +33,13 @@ export const SlugType = PropTypes.shape({
   _type: validateValueFunction('slug'),
   current: PropTypes.string,
 });
+
+export const PostType = PropTypes.shape({
+  _type: validateValueFunction('post'),
+  _createdAt: PropTypes.string,
+  slug: SlugType,
+  image: ImageReferenceType,
+  description: PropTypes.string,
+  body: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string,
+});

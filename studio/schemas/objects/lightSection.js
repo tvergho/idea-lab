@@ -20,6 +20,7 @@ export default {
       type: 'array',
       of: [
         { type: 'twoColumn' },
+        { type: 'customBlock' },
       ],
     },
   ],

@@ -13,6 +13,9 @@
 
 .emphasis {
   background-color: $forest-green;
+  * {
+    color: white !important;
+  }
 }
 
 .container {

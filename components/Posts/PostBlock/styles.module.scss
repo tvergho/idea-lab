@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+.post-container {
+  padding-top: 40px;
+  padding-bottom: 140px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}

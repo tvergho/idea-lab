@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ImageReferenceType, SlugType } from 'constants/types';
-import imageUrlBuilder from '@sanity/image-url';
-import client from 'utils/client';
+import { urlFor } from 'utils/client';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import BlockContent from '@sanity/block-content-to-react';
@@ -10,12 +9,7 @@ import { motion } from 'framer-motion';
 import useScrollPosition from 'utils/useScrollPosition';
 import styles from './styles.module.scss';
 
-const builder = imageUrlBuilder(client);
-const urlFor = (source) => {
-  return builder.image(source);
-};
-
-const ANIMATION_DURATION = 500;
+const ANIMATION_DURATION = 400;
 
 const TwoColumn = ({
   button, content, icon, image, side, title, buttonPage,
@@ -69,7 +63,7 @@ const TwoColumn = ({
       <motion.div
         className={styles.content}
         animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 15 }}
-        transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.3 }}
+        transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.2 }}
       >
         <BlockContent blocks={content} />
       </motion.div>
@@ -81,7 +75,7 @@ const TwoColumn = ({
       <motion.div
         className={styles['button-animator']}
         animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 15 }}
-        transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.3 }}
+        transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.2 }}
       >
         {button && <button onClick={() => { router.push(buttonUrl); }} type="button" className={styles['cta-button']}>{button}</button>}
       </motion.div>

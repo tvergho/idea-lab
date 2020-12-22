@@ -1,6 +1,7 @@
 import React from 'react';
-import Section from 'components/Section';
+import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
+import { PostBlock } from 'components/Posts';
 
 const defaultResolver = (props) => {
   const { _type, _key } = props;
@@ -24,6 +25,15 @@ const defaultResolver = (props) => {
         key={_key}
       />
     );
+  }
+  case 'customBlock': {
+    const { type } = props;
+    switch (type) {
+    case 'Press Releases':
+      return <PostBlock key={_key} />;
+    default:
+      return null;
+    }
   }
   default:
     return null;

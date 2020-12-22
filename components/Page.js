@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
-import ConfigContext from 'context/ConfigContext';
+import GlobalContext from 'context/GlobalContext';
 import { defaultResolver, combineResolvers } from 'resolvers';
 import { ElementType } from 'constants/types';
 
 const Page = ({
   title, description, pageBuilder, resolver,
 }) => {
-  const { siteTitle } = useContext(ConfigContext);
+  const { siteTitle } = useContext(GlobalContext);
 
   return (
     <>

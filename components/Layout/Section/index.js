@@ -4,7 +4,7 @@ import { ElementType } from 'constants/types';
 import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 
-const LightSection = ({ elements, color }) => {
+const Section = ({ elements, color }) => {
   const className = () => {
     switch (color) {
     case 'light':
@@ -27,9 +27,9 @@ const LightSection = ({ elements, color }) => {
   );
 };
 
-LightSection.propTypes = {
+Section.propTypes = {
   elements: PropTypes.arrayOf(ElementType),
   color: PropTypes.string,
 };
 
-export default LightSection;
+export default Section;

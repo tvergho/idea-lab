@@ -1,0 +1,20 @@
+@use "variables" as *;
+
+.post-item {
+  width: 33%;
+  padding: 0 2.5%;
+  border-right: 0.5px solid rgba(255,255,255,0.5);
+  transition: opacity 0.3s;
+
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.text {
+  margin-top: 20px;
+
+  p {
+    font-size: 0.9rem;
+  }
+}
