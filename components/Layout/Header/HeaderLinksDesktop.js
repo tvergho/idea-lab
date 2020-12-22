@@ -14,7 +14,7 @@ const defaultPath = '/';
 const NavLink = ({ link, display, dropdown }) => {
   const [hovering, setHovering] = useState(false);
   const visible = useDelay(hovering, ANIMATION_LENGTH, false, true, true);
-  const isDropdown = dropdown && dropdown.length > 0;
+  const isDropdown = !!dropdown && dropdown.length > 0;
 
   return (
     <div className={styles['nav-link-container']} onMouseEnter={() => { setHovering(true); }} onMouseLeave={() => { setHovering(false); }}>

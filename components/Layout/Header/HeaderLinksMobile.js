@@ -30,7 +30,7 @@ const Dropdown = ({ links, visible, onClick }) => {
 const NavLink = ({
   display, link, dropdown, onClick, index,
 }) => {
-  const isDropdown = dropdown && dropdown.length > 0;
+  const isDropdown = !!dropdown && dropdown.length > 0;
   const [visibleDropdown, setVisibleDropdown] = useState(false);
   const delayedVisible = useDelay(visibleDropdown, ANIMATION_LENGTH);
 
@@ -44,12 +44,22 @@ const NavLink = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: ANIMATION_LENGTH / 1000, ease: 'easeOut', delay: ((ANIMATION_LENGTH - 100) / 1000) + (0.12 * index) }}
       >
-        <Link href={link} passHref key={display}>
-          <a className={styles['mobile-nav-link']} onClick={isDropdown ? toggle : onClick} role="button">
-            {display}
-            {isDropdown && <DropdownArrow width={45} height={45} />}
-          </a>
-        </Link>
+        {isDropdown
+          ? (
+            <a className={styles['mobile-nav-link']} onClick={toggle} role="button">
+              {display}
+              {isDropdown && <DropdownArrow width={45} height={45} />}
+            </a>
+          )
+          : (
+            <Link href={link} passHref key={display}>
+              <a className={styles['mobile-nav-link']} onClick={onClick} role="button">
+                {display}
+                {isDropdown && <DropdownArrow width={45} height={45} />}
+              </a>
+            </Link>
+          )}
+
       </motion.div>
       {isDropdown && delayedVisible && <Dropdown links={dropdown} visible={visibleDropdown} onClick={onClick} />}
     </>
