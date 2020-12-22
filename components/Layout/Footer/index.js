@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { NavLinkType } from 'constants/types';
+import { appendSlash } from '../index';
 import styles from './styles.module.scss';
 
 const defaultPath = '/';
@@ -18,7 +19,7 @@ const Footer = ({ links }) => {
       <div className={styles.links}>
         {links && links.map(({ display, link = defaultPath }) => {
           return (
-            <Link href={link} passHref key={display}>
+            <Link href={appendSlash(link)} passHref key={display}>
               <a className={styles['nav-link']}>{display}</a>
             </Link>
           );

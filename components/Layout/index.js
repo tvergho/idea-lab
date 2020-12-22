@@ -5,6 +5,11 @@ import Header from './Header';
 import Footer from './Footer';
 import styles from './styles.module.scss';
 
+export const appendSlash = (link) => {
+  if (link.indexOf('/') > -1) return link;
+  return `/${link}`;
+};
+
 const Layout = ({ children, header, footer }) => {
   return (
     <>

@@ -9,6 +9,7 @@ import useDelay from 'utils/useDelay';
 import { motion } from 'framer-motion';
 import { HamburgerMenu, Close, DropdownArrow } from '../assets';
 import styles from './styles.module.scss';
+import { appendSlash } from '../index';
 
 const ANIMATION_LENGTH = 300;
 const defaultPath = '/';
@@ -17,7 +18,7 @@ const Dropdown = ({ links, visible, onClick }) => {
   return (
     <motion.div className={styles['mobile-dropdown']} animate={{ height: visible ? 'auto' : 0 }} transition={{ duration: ANIMATION_LENGTH / 1000 }}>
       {links.map(({ display, link = defaultPath }) => (
-        <Link href={link} passHref key={display}>
+        <Link href={appendSlash(link)} passHref key={display}>
           <a className={styles['nav-link']} onClick={onClick} role="button">
             {display}
           </a>
@@ -52,7 +53,7 @@ const NavLink = ({
             </a>
           )
           : (
-            <Link href={link} passHref key={display}>
+            <Link href={appendSlash(link)} passHref key={display}>
               <a className={styles['mobile-nav-link']} onClick={onClick} role="button">
                 {display}
                 {isDropdown && <DropdownArrow width={45} height={45} />}

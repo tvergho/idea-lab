@@ -2,6 +2,8 @@ import React from 'react';
 import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
+import { PersonItem } from 'components/Team';
+import Grid from 'components/Layout/Grid';
 
 const defaultResolver = (props, extra = {}) => {
   const { _type, _key } = props;
@@ -32,6 +34,23 @@ const defaultResolver = (props, extra = {}) => {
     switch (type) {
     case 'Press Releases':
       return <PostBlock key={_key} />;
+    default:
+      return null;
+    }
+  }
+  case 'grid': {
+    const { elements } = props;
+    const items = [];
+    if (!elements || elements.length === 0) return null;
+    switch (elements[0]._type) {
+    case 'person': {
+      elements.forEach(({
+        image, name, linkedin, _id,
+      }) => {
+        items.push(<PersonItem image={image} name={name} linkedin={linkedin} key={_id} />);
+      });
+      return <Grid items={items} key={_key} />;
+    }
     default:
       return null;
     }

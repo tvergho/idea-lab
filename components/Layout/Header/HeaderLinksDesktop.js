@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import useDelay from 'utils/useDelay';
 import styles from './styles.module.scss';
 import { DropdownArrow } from '../assets';
+import { appendSlash } from '../index';
 
 const ANIMATION_LENGTH = 300;
 const defaultPath = '/';
@@ -18,7 +19,7 @@ const NavLink = ({ link, display, dropdown }) => {
 
   return (
     <div className={styles['nav-link-container']} onMouseEnter={() => { setHovering(true); }} onMouseLeave={() => { setHovering(false); }}>
-      <Link href={link} passHref key={display}>
+      <Link href={appendSlash(link)} passHref key={display}>
         <a className={styles['nav-link']}>
           {display}
           {isDropdown && <DropdownArrow />}

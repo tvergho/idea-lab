@@ -28,8 +28,6 @@ const TwoColumn = ({
   const buttonUrl = buttonPage?.current || '/';
 
   useEffect(() => {
-    console.log(scrolled);
-
     if (scrolled) setVisible(true);
   }, [scrolled]);
 
