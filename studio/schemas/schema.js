@@ -1,9 +1,11 @@
 import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-import { page, siteSettings, post } from './documents';
 import {
-  navLink, heroHome, lightSection, twoColumn, customBlock,
+  page, siteSettings, post, person,
+} from './documents';
+import {
+  navLink, heroHome, lightSection, twoColumn, customBlock, grid,
 } from './objects';
 
 export default createSchema({
@@ -12,10 +14,12 @@ export default createSchema({
     page,
     siteSettings,
     post,
+    person,
     navLink,
     heroHome,
     lightSection,
     twoColumn,
     customBlock,
+    grid,
   ]),
 });

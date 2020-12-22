@@ -24,6 +24,10 @@
   }
 }
 
+.unbordered:after {
+  border-bottom: 0px;
+}
+
 .main-image {
   width: 50%;
 }

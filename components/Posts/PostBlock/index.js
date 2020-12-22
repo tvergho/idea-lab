@@ -12,16 +12,13 @@ const PostBlock = () => {
 
   return (
     <div className={styles['post-container']}>
-      <div className={styles.header}>
-        <h3>Press Releases</h3>
+      <Link href={UPDATES_PAGE}>
+        <button className={`transparent opacity-toggle ${styles['see-all']}`} type="button">
+          <span>See all</span>
+          <ForwardArrow />
+        </button>
+      </Link>
 
-        <Link href={UPDATES_PAGE}>
-          <button className={`transparent opacity-toggle ${styles['see-all']}`} type="button">
-            <span>See all</span>
-            <ForwardArrow />
-          </button>
-        </Link>
-      </div>
       <PostGrid posts={recentPosts} />
     </div>
   );

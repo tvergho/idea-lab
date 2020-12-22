@@ -7,6 +7,13 @@
   align-items: center;
 }
 
+.header {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .light {
   background-color: $background-gray;
 }
@@ -20,4 +27,10 @@
 
 .container {
   width: $container-width;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .header {
+    margin-top: 60px;
+  }
 }

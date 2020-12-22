@@ -15,22 +15,30 @@ export default {
       },
     },
     {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+    {
       title: 'Elements',
       name: 'elements',
       type: 'array',
       of: [
         { type: 'twoColumn' },
         { type: 'customBlock' },
+        { type: 'grid' },
       ],
     },
   ],
   preview: {
     select: {
+      title: 'title',
       color: 'color',
     },
     prepare(selection) {
       const { color } = selection;
-      const title = color ? `${color.slice(0, 1).toUpperCase()}${color.slice(1)} Section` : 'Section';
+      let title = color ? `${color.slice(0, 1).toUpperCase()}${color.slice(1)} Section` : 'Section';
+      if (selection.title) title = selection.title;
       return {
         title,
       };

@@ -1,15 +1,8 @@
 @use "variables" as *;
 
 .post-container {
-  padding-top: 40px;
   padding-bottom: 140px;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
+  padding-top: 60px;
   position: relative;
 }
 
@@ -18,16 +11,20 @@
   flex-direction: row;
   align-items: center;
   position: absolute;
-  right: 2.5%;
+  right: 1.25%;
+  top: -30px;
+}
+
+@media screen and (max-width: $container-width) {
+  .see-all {
+    right: 2.5%;
+  }
 }
 
 @media screen and (max-width: $mobile-width) {
   .post-container {
-    padding-top: 60px;
     padding-bottom: 60px;
-  }
-  .header {
-    margin-bottom: 0px;
+    padding-top: 0px;
   }
   .see-all {
     right: 3vw;

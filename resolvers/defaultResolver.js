@@ -8,7 +8,7 @@ const defaultResolver = (props, extra = {}) => {
 
   switch (_type) {
   case 'lightSection':
-    return <Section elements={props.elements} color={props.color} key={_key} />;
+    return <Section elements={props.elements} color={props.color} title={props.title} key={_key} />;
   case 'twoColumn': {
     const {
       button, content, icon, image, side, title, buttonPage,

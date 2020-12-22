@@ -9,7 +9,21 @@ const pathsQuery = `
     "link": slug.current
   }
 `;
-const query = '*[_type == "page" && slug.current == $slug][0]';
+const query = `
+  *[_type == "page" && slug.current == $slug]{
+    ..., 
+    pageBuilder[]{
+      ...,
+      elements[]{
+        ...,
+        _type == "grid" => {
+          ...,
+          elements[]->
+        }
+      }
+    }
+  }[0]
+`;
 
 const CustomPage = ({ title, description, pageBuilder }) => {
   return (

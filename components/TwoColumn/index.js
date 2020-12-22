@@ -28,6 +28,8 @@ const TwoColumn = ({
   const buttonUrl = buttonPage?.current || '/';
 
   useEffect(() => {
+    console.log(scrolled);
+
     if (scrolled) setVisible(true);
   }, [scrolled]);
 
@@ -38,7 +40,7 @@ const TwoColumn = ({
 
   return (
     <div
-      className={styles['two-column']}
+      className={fullPage ? `${styles['two-column']} ${styles.unbordered}` : styles['two-column']}
       style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop }}
       ref={ref}
     >

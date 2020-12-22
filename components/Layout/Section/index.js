@@ -4,7 +4,7 @@ import { ElementType } from 'constants/types';
 import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 
-const Section = ({ elements, color }) => {
+const Section = ({ elements, color, title }) => {
   const [className, setClassName] = useState(styles.section);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Section = ({ elements, color }) => {
 
   return (
     <section className={className}>
+      {title && <h3 className={styles.header}>{title}</h3>}
       <div className={styles.container}>
         {elements.map((element) => {
           return defaultResolver(element);
@@ -35,6 +36,7 @@ const Section = ({ elements, color }) => {
 Section.propTypes = {
   elements: PropTypes.arrayOf(ElementType),
   color: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default Section;
