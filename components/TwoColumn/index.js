@@ -21,7 +21,7 @@ const TwoColumn = ({
 
   const isReversed = side === 'right';
 
-  const imageUrl = urlFor(image).width(600).url();
+  const imageUrl = image ? urlFor(image).width(600).url() : '/';
   const iconUrl = urlFor(icon).url();
   const buttonUrl = buttonPage?.current || '/';
 

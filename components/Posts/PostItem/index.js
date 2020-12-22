@@ -20,7 +20,7 @@ const calcDate = (date) => {
 const PostItem = ({
   createdAt, slug, image, description, title,
 }) => {
-  const imageUrl = urlFor(image).width(350).url();
+  const imageUrl = image ? urlFor(image).width(350).url() : '/';
   const toUrl = slug?.current || '/';
 
   return (
