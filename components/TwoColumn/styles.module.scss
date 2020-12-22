@@ -1,11 +1,12 @@
 @use "variables" as *;
 
 .two-column {
-  width: 100%;
+  width: $container-width;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 110px 0;
+  padding-top: 50px;
+  padding-bottom: 110px;
   position: relative;
 
   &:after {
@@ -25,7 +26,7 @@
 }
 
 .main-image {
-  width: 45%;
+  width: 50%;
 }
 
 .text {
@@ -35,16 +36,14 @@
 
 .icon {
   display: inline;
+  margin-right: 15px;
+
 }
 
 .text-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.title {
-  margin-left: 15px;
 }
 
 .divider {

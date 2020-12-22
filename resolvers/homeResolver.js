@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroHome } from 'components/Home';
 
-const homeResolver = (props) => {
+const homeResolver = (props, extra = {}) => {
   const { _type, _key } = props;
 
   switch (_type) {

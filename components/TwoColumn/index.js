@@ -12,7 +12,7 @@ import styles from './styles.module.scss';
 const ANIMATION_DURATION = 400;
 
 const TwoColumn = ({
-  button, content, icon, image, side, title, buttonPage,
+  button, content, icon, image, side, title, buttonPage, fullPage,
 }) => {
   const router = useRouter();
   const ref = useRef(null);
@@ -34,9 +34,11 @@ const TwoColumn = ({
       <motion.div
         className={styles['main-image']}
         animate={{ opacity: visible ? 1 : 0 }}
+        initial={{ opacity: 0 }}
         transition={{ duration: (ANIMATION_DURATION + 200) / 1000, ease: 'easeOut' }}
+        style={{ width: fullPage ? '50%' : '45%' }}
       >
-        <Image src={imageUrl} layout="responsive" width={540} height={360} objectFit="cover" />
+        <Image src={imageUrl} layout="responsive" width={540} height={360} />
       </motion.div>
     );
   };
@@ -49,7 +51,11 @@ const TwoColumn = ({
         transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.1 }}
       >
         <div className={styles['text-row']}>
-          {icon && <Image src={iconUrl} layout="fixed" width={55} height={55} className={styles.icon} />}
+          {icon && (
+            <div className={styles.icon}>
+              <Image src={iconUrl} layout="fixed" width={55} height={55} />
+            </div>
+          )}
           <h2 className={styles.title}>{title}</h2>
         </div>
 
@@ -83,7 +89,11 @@ const TwoColumn = ({
   };
 
   return (
-    <div className={styles['two-column']} style={{ flexDirection: isReversed ? 'row-reverse' : 'row' }} ref={ref}>
+    <div
+      className={styles['two-column']}
+      style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop: fullPage ? '50px' : '110px' }}
+      ref={ref}
+    >
       {imageComponent()}
       <div className={styles.text}>
         {headerComponent()}
@@ -102,6 +112,7 @@ TwoColumn.propTypes = {
   image: ImageReferenceType,
   icon: ImageReferenceType,
   buttonPage: SlugType,
+  fullPage: PropTypes.bool,
 };
 
 export default TwoColumn;

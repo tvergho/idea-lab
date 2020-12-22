@@ -17,6 +17,7 @@ const useScrollPosition = (ref, offset = 0) => {
   };
 
   useLayoutEffect(() => {
+    onScroll();
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);

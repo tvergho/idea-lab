@@ -3,7 +3,7 @@ import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
 
-const defaultResolver = (props) => {
+const defaultResolver = (props, extra = {}) => {
   const { _type, _key } = props;
 
   switch (_type) {
@@ -23,6 +23,7 @@ const defaultResolver = (props) => {
         title={title}
         buttonPage={buttonPage}
         key={_key}
+        fullPage={extra.fullPage}
       />
     );
   }

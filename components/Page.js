@@ -18,7 +18,7 @@ const Page = ({
       />
 
       {pageBuilder && pageBuilder.map((element) => {
-        return combineResolvers(resolver, defaultResolver)(element);
+        return combineResolvers(resolver, defaultResolver)(element, { fullPage: true });
       })}
     </>
   );

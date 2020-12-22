@@ -33,6 +33,7 @@ export default {
       of: [
         { type: 'heroHome' },
         { type: 'lightSection' },
+        { type: 'twoColumn' },
       ],
     },
   ],
