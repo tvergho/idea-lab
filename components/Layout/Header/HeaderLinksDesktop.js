@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import useDelay from 'utils/useDelay';
 import styles from './styles.module.scss';
-import { DropdownArrow } from './assets';
+import { DropdownArrow } from '../assets';
 
 const ANIMATION_LENGTH = 300;
 const defaultPath = typeof window !== 'undefined' ? window.location.pathname : '/';
@@ -44,7 +44,7 @@ const Dropdown = ({ links, hovering }) => {
 const HeaderLinksDesktop = ({ links }) => {
   return (
     <div className={styles.links}>
-      {links.map(({ link = defaultPath, display, dropdown }) => {
+      {links && links.map(({ link = defaultPath, display, dropdown }) => {
         return (
           <NavLink link={link} display={display} dropdown={dropdown} key={display} />
         );

@@ -16,6 +16,10 @@ const query = `
         display,
         "link": page->slug.current,
       }
+    },
+    "footer": footer[]{
+      display,
+      "link": page->slug.current
     }
   }[0]
 `;
@@ -25,11 +29,11 @@ const postsQuery = `
 `;
 
 function MyApp({
-  Component, pageProps, title, header, recentPosts,
+  Component, pageProps, title, header, footer, recentPosts,
 }) {
   return (
     <GlobalContext.Provider value={{ siteTitle: title, recentPosts }}>
-      <Layout header={header}>
+      <Layout header={header} footer={footer}>
         <Component {...pageProps} />
       </Layout>
     </GlobalContext.Provider>
@@ -37,12 +41,13 @@ function MyApp({
 }
 
 MyApp.getInitialProps = async () => {
-  const { title, header } = await client.fetch(query) || {};
+  const { title, header, footer } = await client.fetch(query) || {};
   const recentPosts = await client.fetch(postsQuery) || [];
 
   return {
     title,
     header,
+    footer,
     recentPosts,
   };
 };
@@ -52,6 +57,7 @@ MyApp.propTypes = {
   pageProps: PropTypes.object,
   title: PropTypes.string,
   header: PropTypes.arrayOf(NavLinkType),
+  footer: PropTypes.arrayOf(NavLinkType),
   recentPosts: PropTypes.arrayOf(PostType),
 };
 

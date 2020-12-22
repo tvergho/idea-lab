@@ -1,0 +1,47 @@
+@use "variables" as *;
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 135px; 
+  width: $container-width;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  color: $forest-green;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  .second-word {
+    color: $mid-green-3;
+  }
+}
+
+.second-line {
+  color: $forest-green;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .footer {
+    flex-direction: column;
+    padding: 30px;
+  }
+  .logo, .second-line {
+    text-align: center;
+  }
+  .links {
+    margin-top: 20px;
+  }
+}

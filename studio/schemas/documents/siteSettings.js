@@ -14,5 +14,11 @@ export default {
       type: 'array',
       of: [{ type: 'navLink' }],
     },
+    {
+      title: 'Footer',
+      name: 'footer',
+      type: 'array',
+      of: [{ type: 'navLink' }],
+    },
   ],
 };

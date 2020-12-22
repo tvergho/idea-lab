@@ -1,0 +1,109 @@
+@use "variables" as *;
+
+.header {
+  margin: 0 auto;
+  max-width: $container-width;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 20px;
+}
+
+.logo {
+  color: $forest-green;
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  .second-word {
+    color: $mid-green-3;
+  }
+}
+
+.nav-link-container {
+  position: relative;
+}
+
+.nav-link {
+  margin: 0px 15px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.links, .mobile-nav-link {
+  display: flex;
+}
+
+.no-hover:active, .no-hover:hover { opacity: 1; }
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  min-width: 180px;
+  top: 20px;
+  left: -10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  opacity: 0;
+
+  .nav-link {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 8px;
+    right: 8px;
+    bottom: 0;
+    box-shadow: 0 0 28px rgba(6,67,117,.3);
+  }
+
+  &:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg) translateY(50%);
+    box-shadow: -2px -2px 4px rgba(6,67,117,.05);
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    background: white;
+  }
+}
+
+.mobile-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding: 8vw;
+  opacity: 0;
+}
+
+.mobile-nav-link-container {
+  margin: 20px 0px;
+  font-weight: 700;
+  font-size: 2rem;
+  opacity: 0;
+}
+
+.mobile-dropdown {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+
+  .nav-link {
+    margin: 5px 15px;
+  }
+}

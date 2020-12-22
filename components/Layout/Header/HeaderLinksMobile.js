@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import useDelay from 'utils/useDelay';
 import { motion } from 'framer-motion';
-import { HamburgerMenu, Close, DropdownArrow } from './assets';
+import { HamburgerMenu, Close, DropdownArrow } from '../assets';
 import styles from './styles.module.scss';
 
 const ANIMATION_LENGTH = 300;
@@ -59,7 +59,7 @@ const NavLink = ({
 const MobileBackdrop = ({ links, visible, onClick }) => {
   return (
     <motion.div className={styles['mobile-backdrop']} animate={{ opacity: visible ? 1 : 0 }} transition={{ duration: ANIMATION_LENGTH / 1000 }}>
-      {links.map(({ display, link = defaultPath, dropdown }, index) => (
+      {links && links.map(({ display, link = defaultPath, dropdown }, index) => (
         <NavLink
           display={display}
           link={link}

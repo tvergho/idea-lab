@@ -18,7 +18,7 @@ export default {
       title: 'Dropdown Options',
       name: 'dropdown',
       type: 'array',
-      description: 'Optional.',
+      description: 'Optional. A dropdown is only supported for top-level menu items in the header.',
       of: [{ type: 'navLink' }],
     },
   ],

@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLinkType } from 'constants/types';
 import Header from './Header';
+import Footer from './Footer';
 import styles from './styles.module.scss';
 
-const Layout = ({ children, header }) => {
+const Layout = ({ children, header, footer }) => {
   return (
     <>
       <Header links={header} />
       <main className={styles.content}>
         {children}
       </main>
+      <Footer links={footer} />
     </>
   );
 };
@@ -18,6 +20,7 @@ const Layout = ({ children, header }) => {
 Layout.propTypes = {
   children: PropTypes.node,
   header: PropTypes.arrayOf(NavLinkType),
+  footer: PropTypes.arrayOf(NavLinkType),
 };
 
 export default Layout;
