@@ -14,7 +14,7 @@ const ImagePart = ({ visible, fullPage, imageUrl }) => {
       transition={{ duration: (ANIMATION_DURATION + 200) / 1000, ease: 'easeOut' }}
       style={{ width: fullPage ? '50%' : '45%' }}
     >
-      <Image src={imageUrl} layout="responsive" width={600} height={400} objectFit="scale-down" />
+      <Image src={imageUrl} layout="responsive" width={600} height={480} objectFit={fullPage ? 'contain' : 'cover'} />
     </motion.div>
   );
 };
