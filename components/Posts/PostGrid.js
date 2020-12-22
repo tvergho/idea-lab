@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PostType } from 'constants/types';
+import { PostType } from 'lib/types';
 import Grid from 'components/Layout/Grid';
 import PostItem from './PostItem';
 

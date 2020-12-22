@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NextSeo } from 'next-seo';
-import GlobalContext from 'context/GlobalContext';
+import GlobalContext from 'lib/GlobalContext';
 import PageNotFound from '../public/page-not-found.svg';
 
 const FourZeroFour = () => {

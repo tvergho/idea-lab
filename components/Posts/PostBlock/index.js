@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import GlobalContext from 'context/GlobalContext';
+import GlobalContext from 'lib/GlobalContext';
 import Link from 'next/link';
 import PostGrid from '../PostGrid';
 import { ForwardArrow } from './assets';

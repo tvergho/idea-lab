@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
-import { NavLinkType } from 'constants/types';
+import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import useDelay from 'utils/useDelay';

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
-import GlobalContext from 'context/GlobalContext';
+import GlobalContext from 'lib/GlobalContext';
 import { defaultResolver, combineResolvers } from 'resolvers';
-import { ElementType } from 'constants/types';
+import { ElementType } from 'lib/types';
 
 const Page = ({
   title, description, pageBuilder, resolver,

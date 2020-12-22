@@ -2,7 +2,7 @@ import React from 'react';
 import client from 'utils/client';
 import PropTypes from 'prop-types';
 import Page from 'components/Page';
-import { ElementType } from 'constants/types';
+import { ElementType } from 'lib/types';
 
 const pathsQuery = `
   *[_type == "page"]{

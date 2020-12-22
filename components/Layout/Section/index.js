@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ElementType } from 'constants/types';
+import { ElementType } from 'lib/types';
 import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 

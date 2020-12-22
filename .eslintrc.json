@@ -60,10 +60,9 @@
             ["components", "./components"],
             ["utils", "./utils"],
             ["styles", "./styles"],
-            ["context", "./context"],
-            ["constants", "./constants"],
             ["public", "./public"],
-            ["resolvers", "./resolvers"]
+            ["resolvers", "./resolvers"],
+            ["lib", "./lib"]
           ]
         }
       }

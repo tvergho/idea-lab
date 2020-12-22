@@ -3,7 +3,7 @@ import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import client from 'utils/client';
 import { homeResolver } from 'resolvers';
-import { ElementType } from 'constants/types';
+import { ElementType } from 'lib/types';
 
 const query = '*[_type == "page" && title == "Home"][0]';
 

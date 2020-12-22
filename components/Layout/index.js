@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLinkType } from 'constants/types';
+import { NavLinkType } from 'lib/types';
 import Header from './Header';
 import Footer from './Footer';
 import styles from './styles.module.scss';

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
-import { NavLinkType } from 'constants/types';
+import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
 import useWindowSize from 'utils/useWindowSize';
 import styles from './styles.module.scss';

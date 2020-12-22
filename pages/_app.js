@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import GlobalContext from 'context/GlobalContext';
+import GlobalContext from 'lib/GlobalContext';
 import client from 'utils/client';
 import PropTypes from 'prop-types';
-import { NavLinkType, PostType } from 'constants/types';
+import { NavLinkType, PostType } from 'lib/types';
 import 'styles/global.scss';
 
 const query = `

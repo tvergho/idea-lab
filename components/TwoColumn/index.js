@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ImageReferenceType, SlugType } from 'constants/types';
+import { ImageReferenceType, SlugType } from 'lib/types';
 import { urlFor } from 'utils/client';
 import useScrollPosition from 'utils/useScrollPosition';
 import useWindowSize from 'utils/useWindowSize';

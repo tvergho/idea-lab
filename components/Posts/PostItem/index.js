@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SlugType, ImageReferenceType } from 'constants/types';
+import { SlugType, ImageReferenceType } from 'lib/types';
 import { urlFor } from 'utils/client';
 import Image from 'next/image';
 import Link from 'next/link';
