@@ -1,0 +1,70 @@
+@use "variables" as *;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  min-height: 60vh;
+
+  * {
+    color: $forest-green;
+  }
+  h4 {
+    font-weight: 400;
+  }
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  * {
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    * {
+      color: $dartmouth-green;
+    }
+  }
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.icon {
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10vh;
+}
+
+.phone {
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: $container-width) {
+  .contact {
+    padding: 2vw;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .contact-item {
+    margin: 60px auto;
+  }
+}

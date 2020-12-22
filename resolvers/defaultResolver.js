@@ -5,6 +5,7 @@ import { PostBlock } from 'components/Posts';
 import { PersonItem } from 'components/Team';
 import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
+import Contact from 'components/Contact';
 
 const defaultResolver = (props, extra = {}) => {
   const { _type, _key } = props;
@@ -63,6 +64,12 @@ const defaultResolver = (props, extra = {}) => {
     default:
       return null;
     }
+  }
+  case 'contactInfo': {
+    const {
+      email, phone, address1, address2,
+    } = props;
+    return <Contact email={email} phone={phone} address1={address1} address2={address2} />;
   }
   default:
     return null;

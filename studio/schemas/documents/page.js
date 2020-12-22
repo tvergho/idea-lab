@@ -35,6 +35,7 @@ export default {
         { type: 'lightSection' },
         { type: 'twoColumn' },
         { type: 'grid' },
+        { type: 'contactInfo' },
       ],
     },
     {

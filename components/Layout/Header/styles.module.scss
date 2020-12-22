@@ -23,7 +23,7 @@
 
 .nav-link-container {
   position: relative;
-  z-index: 100;
+  z-index: 999;
 }
 
 .nav-link {
@@ -59,7 +59,7 @@
   padding-left: 8px;
   padding-right: 8px;
   opacity: 0;
-  z-index: 100;
+  z-index: 999;
 
   .nav-link {
     padding: 5px 10px;
@@ -88,7 +88,7 @@
     top: 10px;
     left: 50px;
     background: white;
-    z-index: 100;
+    z-index: 999;
   }
 }
 
@@ -101,7 +101,7 @@
   background-color: white;
   padding: 8vw;
   opacity: 0;
-  z-index: 100;
+  z-index: 999;
 }
 
 .mobile-nav-link-container {
@@ -123,5 +123,5 @@
 }
 
 .toggle {
-  z-index: 101;
+  z-index: 1000;
 }
