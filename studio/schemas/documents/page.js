@@ -36,5 +36,11 @@ export default {
         { type: 'twoColumn' },
       ],
     },
+    {
+      name: 'showTitle',
+      type: 'boolean',
+      title: 'Show Title',
+      description: 'Show the title at the top of the page.',
+    },
   ],
 };

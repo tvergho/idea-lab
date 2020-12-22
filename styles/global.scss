@@ -249,6 +249,25 @@ p {
   max-width: calc(100vw - 100px);
 }
 
+.page-title {
+  margin-top: 20px;
+  margin-left: calc((100vw - #{$container-width}) / 2 + 20px);
+  align-self: flex-start;
+}
+
+@media screen and (max-width: $container-width) {
+  .page-title {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .page-title {
+    align-self: center;
+    margin-left: 0;
+  }
+}
+
 /*
  * Responsive font sizing.
  */

@@ -6,7 +6,7 @@ import { defaultResolver, combineResolvers } from 'resolvers';
 import { ElementType } from 'lib/types';
 
 const Page = ({
-  title, description, pageBuilder, resolver,
+  title, description, pageBuilder, resolver, showTitle,
 }) => {
   const { siteTitle } = useContext(GlobalContext);
 
@@ -16,7 +16,7 @@ const Page = ({
         title={`${title} | ${siteTitle}`}
         description={description}
       />
-
+      {showTitle && <h4 className="page-title">{title}</h4>}
       {pageBuilder && pageBuilder.map((element) => {
         return combineResolvers(resolver, defaultResolver)(element, { fullPage: true });
       })}
@@ -29,6 +29,7 @@ Page.propTypes = {
   description: PropTypes.string,
   pageBuilder: PropTypes.arrayOf(ElementType),
   resolver: PropTypes.func,
+  showTitle: PropTypes.bool,
 };
 
 export default Page;

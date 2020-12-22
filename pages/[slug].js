@@ -25,13 +25,16 @@ const query = `
   }[0]
 `;
 
-const CustomPage = ({ title, description, pageBuilder }) => {
+const CustomPage = ({
+  title, description, pageBuilder, showTitle,
+}) => {
   return (
     <>
       <Page
         title={title}
         description={description}
         pageBuilder={pageBuilder}
+        showTitle={showTitle}
       />
     </>
   );
@@ -49,10 +52,14 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const data = await client.fetch(query, { slug }) || {};
-  const { title, description, pageBuilder } = data;
+  const {
+    title, description, pageBuilder, showTitle,
+  } = data;
 
   return {
-    props: { title, description, pageBuilder },
+    props: {
+      title, description, pageBuilder, showTitle,
+    },
   };
 };
 
@@ -60,6 +67,7 @@ CustomPage.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   pageBuilder: PropTypes.arrayOf(ElementType),
+  showTitle: PropTypes.bool,
 };
 
 export default CustomPage;
