@@ -5,6 +5,7 @@ import client from 'utils/client';
 import PropTypes from 'prop-types';
 import { NavLinkType, PostType } from 'lib/types';
 import 'styles/global.scss';
+import 'styles/hamburgers.scss';
 
 const query = `
   *[_type == "siteSettings"]{

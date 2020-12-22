@@ -92,8 +92,10 @@ const HeaderLinksMobile = ({ links }) => {
 
   return (
     <>
-      <button className={`transparent ${styles.toggle}`} type="button" onClick={toggle}>
-        {visible ? <Close /> : <HamburgerMenu />}
+      <button className={`hamburger hamburger--elastic ${visible ? 'is-active' : ''} transparent ${styles.toggle}`} type="button" onClick={toggle}>
+        <span className="hamburger-box">
+          <span className="hamburger-inner" />
+        </span>
       </button>
       {delayedVisible && <MobileBackdrop links={links} visible={visible} onClick={toggle} />}
     </>
