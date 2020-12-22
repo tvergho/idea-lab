@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .item {
-  width: 25%;
+  width: 25.5%;
   padding: 0 20px;
   margin: 40px 0;
   transition: opacity 0.3s;
@@ -35,7 +35,7 @@
 
 @media screen and (max-width: $mobile-width) {
   .item {
-    width: 51%;
+    width: 40%;
 
     h5 {
       font-size: 1.3rem;
