@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import useDelay from 'utils/useDelay';
 import { motion } from 'framer-motion';
-import { HamburgerMenu, Close, DropdownArrow } from '../assets';
+import { DropdownArrow } from '../assets';
 import styles from './styles.module.scss';
 import { appendSlash } from '../index';
 
@@ -89,6 +89,14 @@ const HeaderLinksMobile = ({ links }) => {
   const delayedVisible = useDelay(visible, ANIMATION_LENGTH);
 
   const toggle = () => setVisible((vis) => !vis);
+
+  useEffect(() => {
+    if (visible) {
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = 'visible';
+    }
+  }, [visible]);
 
   return (
     <>
