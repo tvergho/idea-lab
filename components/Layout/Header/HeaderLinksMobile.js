@@ -100,7 +100,7 @@ const HeaderLinksMobile = ({ links }) => {
 
   return (
     <>
-      <button className={`hamburger hamburger--elastic ${visible ? 'is-active' : ''} transparent ${styles.toggle}`} type="button" onClick={toggle}>
+      <button className={`hamburger hamburger--squeeze ${visible ? 'is-active' : ''} transparent ${styles.toggle}`} type="button" onClick={toggle}>
         <span className="hamburger-box">
           <span className="hamburger-inner" />
         </span>
