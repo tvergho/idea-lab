@@ -57,8 +57,36 @@
   margin-top: 8px;
 }
 
-.cta-button, .content {
+.cta-button, .content, .text-button {
   margin-top: 30px;
+}
+
+.text-button {
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+
+    &:after {
+      width: 100%;
+    }
+  }
+  &:active {
+    opacity: 0.5;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 65%;  
+    border-bottom: 0.5px solid;
+    transition: all 0.5s;
+  }
 }
 
 @media screen and (max-width: $container-width) {
@@ -99,5 +127,10 @@
   }
   .icon {
     margin-right: 10px;
+  }
+  .text-button {
+    &:after {
+      width: 100%;
+    }
   }
 }

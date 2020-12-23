@@ -5,10 +5,24 @@ import { useRouter } from 'next/router';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
 
-const ButtonPart = ({ visible, button, buttonUrl }) => {
+const ButtonPart = ({
+  visible, button, buttonUrl, isTextButton,
+}) => {
   const router = useRouter();
 
   if (!button) return null;
+
+  const regularButton = () => {
+    return (
+      <button onClick={() => { router.push(buttonUrl); }} type="button" className={styles['cta-button']}>{button}</button>
+    );
+  };
+
+  const textButton = () => {
+    return (
+      <button onClick={() => { router.push(buttonUrl); }} type="button" className={`${styles['text-button']} transparent`}>{button}</button>
+    );
+  };
 
   return (
     <motion.div
@@ -16,7 +30,7 @@ const ButtonPart = ({ visible, button, buttonUrl }) => {
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 15 }}
       transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.2 }}
     >
-      <button onClick={() => { router.push(buttonUrl); }} type="button" className={styles['cta-button']}>{button}</button>
+      {isTextButton ? textButton() : regularButton()}
     </motion.div>
   );
 };

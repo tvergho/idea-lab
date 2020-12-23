@@ -4,7 +4,9 @@ import { ElementType } from 'lib/types';
 import { defaultResolver } from 'resolvers';
 import styles from './styles.module.scss';
 
-const Section = ({ elements, color, title }) => {
+const Section = ({
+  elements, color, title, children,
+}) => {
   const [className, setClassName] = useState(styles.section);
 
   useEffect(() => {
@@ -25,7 +27,8 @@ const Section = ({ elements, color, title }) => {
     <section className={className}>
       {title && <h3 className={styles.header}>{title}</h3>}
       <div className={styles.container}>
-        {elements.map((element) => {
+        {children}
+        {elements && elements.map((element) => {
           return defaultResolver(element);
         })}
       </div>

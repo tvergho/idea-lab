@@ -6,6 +6,10 @@
   border-right: 0.5px solid rgba(255,255,255,0.5);
   transition: opacity 0.3s;
 
+  * {
+    color: $forest-green;
+  }
+
   h4 {
     line-height: 1.5rem;
   }

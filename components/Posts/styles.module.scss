@@ -1,0 +1,11 @@
+@use "variables" as *;
+
+.post-container {
+  padding: 80px 0px;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .post-container {
+    padding: 40px 0px;
+  }
+}

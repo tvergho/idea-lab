@@ -12,14 +12,14 @@ const ContentPart = ({ visible, content }) => {
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 15 }}
       transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.2 }}
     >
-      <BlockContent blocks={content} />
+      {typeof content === 'string' ? <p>{content}</p> : <BlockContent blocks={content} />}
     </motion.div>
   );
 };
 
 ContentPart.propTypes = {
   visible: PropTypes.bool,
-  content: PropTypes.arrayOf(PropTypes.object),
+  content: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]),
 };
 
 export default ContentPart;
