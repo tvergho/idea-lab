@@ -7,7 +7,7 @@ import { ElementType } from 'lib/types';
 
 const query = '*[_type == "page" && title == "Home"][0]';
 
-const Home = ({ title, description, pageBuilder }) => {
+const Home = ({ title = '', description = '', pageBuilder }) => {
   return (
     <>
       <Page

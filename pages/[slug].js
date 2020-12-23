@@ -26,7 +26,7 @@ const query = `
 `;
 
 const CustomPage = ({
-  title, description, pageBuilder, showTitle,
+  title = '', description = '', pageBuilder, showTitle,
 }) => {
   return (
     <>
