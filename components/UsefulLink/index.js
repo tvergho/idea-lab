@@ -6,7 +6,7 @@ import { urlFor } from 'utils/client';
 import styles from './styles.module.scss';
 
 const UsefulLink = ({ display, url, image }) => {
-  const imageUrl = image ? urlFor(image).width(400).url() : '/';
+  const imageUrl = image ? urlFor(image).width(800).url() : '/';
   return (
     <div className={styles['useful-link']}>
       <a href={url} className="no-hover" target="_blank" rel="noreferrer">

@@ -16,12 +16,6 @@
   &:last-child {
     border: 0;
   }
-  &:hover {
-    opacity: 0.7;
-  }
-  &:active {
-    opacity: 0.5 !important;
-  }
 }
 
 .title {
@@ -30,6 +24,18 @@
 
 .desc, .date {
   font-size: 0.9rem;
+}
+
+.post-link {
+  * {
+    transition: all 0.3s;
+  }
+  img:hover, h4:hover {
+    opacity: 0.7;
+  }
+  img:active, h4:active {
+    opacity: 0.5;
+  }
 }
 
 @media screen and (max-width: $mobile-width) {

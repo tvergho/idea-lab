@@ -20,22 +20,22 @@ const calcDate = (date) => {
 const PostItem = ({
   createdAt, slug, image, description, title,
 }) => {
-  const imageUrl = image ? urlFor(image).width(350).url() : '/';
+  const imageUrl = image ? urlFor(image).width(700).url() : '/';
   const toUrl = slug?.current || '/';
 
   return (
     <div className={styles['post-item']}>
       <Link href={toUrl} passHref>
-        <a>
+        <a className={styles['post-link']}>
           <div className={styles.image}>
             <Image src={imageUrl} layout="responsive" width={350} height={233} objectFit="cover" />
           </div>
 
           <h4 className={styles.title}>{title}</h4>
-          <p className={styles.desc}>{description}</p>
-          <h6 className={styles.date}>{calcDate(createdAt)}</h6>
         </a>
       </Link>
+      <p className={styles.desc}>{description}</p>
+      <h6 className={styles.date}>{calcDate(createdAt)}</h6>
     </div>
   );
 };

@@ -23,7 +23,7 @@ const TwoColumn = ({
   const { isMobile } = useWindowSize();
   const isReversed = side === 'right';
 
-  const imageUrl = image ? urlFor(image).width(700).url() : '/';
+  const imageUrl = image ? urlFor(image).width(1200).url() : '/';
   const iconUrl = urlFor(icon).url();
   const buttonUrl = buttonPage?.current || '/';
 
