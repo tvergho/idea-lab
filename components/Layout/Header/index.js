@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
@@ -23,12 +23,34 @@ const Logo = () => {
 const Header = ({ links }) => {
   const { width } = useWindowSize();
   const isMobile = !(width > 768);
+  const [visible, setVisible] = useState(true);
+  let lastPos = 0;
+
+  const onScroll = () => {
+    const scrollPos = window.scrollY;
+
+    if (scrollPos > 100 && scrollPos > lastPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    lastPos = window.scrollY;
+  };
+
+  useEffect(() => {
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className={styles.header}>
-      <Logo />
-      {isMobile ? <HeaderLinksMobile links={links} /> : <HeaderLinksDesktop links={links} />}
-    </nav>
+    <div className={visible ? styles['header-container'] : `${styles['header-container']} ${styles['scroll-up']}`}>
+      <nav className={visible ? styles.header : `${styles.header} ${styles['scroll-up']}`}>
+        <Logo />
+        {isMobile ? <HeaderLinksMobile links={links} /> : <HeaderLinksDesktop links={links} />}
+      </nav>
+    </div>
   );
 };
 

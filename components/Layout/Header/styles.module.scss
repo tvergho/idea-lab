@@ -1,7 +1,25 @@
 @use "variables" as *;
 
+.scroll-up {
+  transform: translateY(-100px);
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  height: 100px;
+  transition: all 0.4s;
+}
+
 .header {
   margin: 0 auto;
+  width: $container-width;
   max-width: $container-width;
   display: flex;
   flex-direction: row;
@@ -9,6 +27,11 @@
   justify-content: space-between;
   height: 100px;
   padding: 0px 20px;
+  position: fixed;
+  top: 0px;
+  background: white;
+  z-index: 1;
+  transition: all 0.4s;
 }
 
 .logo {
@@ -124,4 +147,10 @@
 
 .toggle {
   z-index: 1000;
+}
+
+@media screen and (max-width: $container-width) {
+  .header {
+    width: 100%;
+  }
 }
