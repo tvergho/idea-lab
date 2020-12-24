@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
 
@@ -11,7 +13,7 @@ const HeaderPart = ({
   const withLink = (el) => {
     if (!linkTitle || !buttonUrl) return el;
     return (
-      <a href={buttonUrl} target="_blank" rel="noreferrer">{el}</a>
+      <Link href={buttonUrl} passHref><a>{el}</a></Link>
     );
   };
 
