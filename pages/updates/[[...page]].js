@@ -2,7 +2,9 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import { PostType } from 'lib/types';
-import { FeaturedPost, PostGrid, SearchBar } from 'components/Posts';
+import {
+  FeaturedPost, PostGrid, SearchBar, Pagination,
+} from 'components/Posts';
 import client from 'utils/client';
 import { useRouter } from 'next/router';
 import styles from 'components/Posts/styles.module.scss';
@@ -14,7 +16,7 @@ const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
 const searchQuery = '*[_type == "post" && [title, description, body] match $query]';
 
 const Updates = ({
-  title = '', description = '', showTitle = true, posts, featuredPost,
+  title = '', description = '', showTitle = true, posts, featuredPost, numPages, pageNum,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchPosts, setSearchPosts] = useState([]);
@@ -50,6 +52,8 @@ const Updates = ({
     }
   }, [searchTerm]);
 
+  const isSearch = useSearch || searchPosts.length > 0;
+
   return (
     <>
       <Page
@@ -63,9 +67,13 @@ const Updates = ({
         slug={featuredPost.slug}
         description={featuredPost.description}
       />
-      <SearchBar value={searchTerm} onChange={setSearchTerm} search={search} />
+      <div className={styles.header}>
+        <SearchBar value={searchTerm} onChange={setSearchTerm} search={search} />
+        <Pagination numPages={isSearch ? 1 : numPages} page={pageNum} />
+      </div>
       <div className={styles['post-container']}>
-        <PostGrid posts={useSearch || searchPosts.length > 0 ? searchPosts : posts} />
+        <PostGrid posts={isSearch ? searchPosts : posts} />
+        <Pagination numPages={isSearch ? 1 : numPages} page={pageNum} />
       </div>
     </>
   );
@@ -91,13 +99,17 @@ export const getStaticProps = async (context) => {
   const page = context?.params?.page;
   if (page) pageNum = parseInt(page[0], 10);
   if (!pageNum) pageNum = 1;
+
   const start = (pageNum - 1) * 10;
   const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + 9 });
   const featuredPost = await client.fetch(featuredPostQuery);
 
+  const allPosts = await client.fetch(allPostsQuery) || [];
+  const numPages = Math.ceil(allPosts.length / 10);
+
   return {
     props: {
-      title, description, showTitle, posts, featuredPost,
+      title, description, showTitle, posts, featuredPost, numPages, pageNum,
     },
   };
 };
@@ -108,6 +120,8 @@ Updates.propTypes = {
   showTitle: PropTypes.bool,
   posts: PropTypes.arrayOf(PostType),
   featuredPost: PostType,
+  numPages: PropTypes.number,
+  pageNum: PropTypes.number,
 };
 
 export default Updates;

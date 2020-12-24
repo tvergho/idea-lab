@@ -25,6 +25,7 @@ const SearchBar = ({ search, value, onChange }) => {
           inputProps={{ className: classes.root }}
           value={value}
           onChange={(e) => { onChange(e.target.value); }}
+          onKeyPress={(e) => { if (e.key === 'Enter') search(); }}
         />
       </div>
 

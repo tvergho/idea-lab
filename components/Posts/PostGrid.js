@@ -11,7 +11,7 @@ const PostGrid = ({ posts }) => {
   posts.forEach(({
     _createdAt, slug, image, description, title,
   }) => {
-    postItems.push(<PostItem createdAt={_createdAt} slug={slug} image={image} description={description} title={title} key={title} />);
+    postItems.push(<PostItem createdAt={_createdAt} slug={slug} image={image} description={description} title={title} key={_createdAt} />);
   });
 
   return (

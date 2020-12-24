@@ -1,0 +1,43 @@
+@use "variables" as *;
+
+.pagination {
+  color: $forest-green;
+  text-align: right;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.nav-button {
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+  &:active {
+    opacity: 0.5;
+  }
+  
+  margin: 0 10px;
+  padding-top: 5px;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: $container-width) {
+  .pagination {
+    padding-right: 5%;
+  }
+}
+
+@media screen and (max-width: $mobile-width) {
+  .pagination {
+    padding-right: 10%;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}

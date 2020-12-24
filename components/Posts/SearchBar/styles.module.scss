@@ -4,7 +4,7 @@ $icon-size: 22px;
 $border-radius: 0.5;
 
 .search {
-  width: $container-width;
+  width: 50%;
   padding: calc(0.025 * 1200px);
   display: flex;
   flex-direction: row;
@@ -12,7 +12,7 @@ $border-radius: 0.5;
 }
 
 .text-container {
-  width: 30%;
+  width: 60%;
 }
 
 // Adapted from https://codepen.io/ishaansaxena/pen/WoJGRK.
@@ -65,7 +65,6 @@ $border-radius: 0.5;
 
 @media screen and (max-width: $container-width) {
   .search {
-    width: $container-width;
     padding: calc(0.025 * 100vw);
   }
 }
@@ -73,9 +72,9 @@ $border-radius: 0.5;
 @media screen and (max-width: $mobile-width) {
   .search {
     justify-content: center;
-    margin-top: 40px;
     padding-top: 0;
     padding-bottom: 0;
+    width: 100%;
   }
   .text-container {
     width: 70%;

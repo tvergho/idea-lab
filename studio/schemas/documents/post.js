@@ -26,7 +26,7 @@ export default {
           .replace(/\s+/g, '-')
           .slice(0, 200),
       },
-      validation: (Rule) => Rule.required().error('A URL is required.'),
+      validation: (Rule) => Rule.required().error('A unique URL is required.'),
     },
     {
       title: 'Image',
