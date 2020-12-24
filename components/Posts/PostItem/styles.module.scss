@@ -1,8 +1,9 @@
 @use "variables" as *;
 
 .post-item {
-  width: 33%;
+  width: 33.33%;
   padding: 0 2.5%;
+  padding-bottom: 2.5%;
   border-right: 0.5px solid rgba(255,255,255,0.5);
   transition: opacity 0.3s;
 

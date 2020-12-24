@@ -1,19 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import { PostType } from 'lib/types';
 import { FeaturedPost, PostGrid, SearchBar } from 'components/Posts';
 import client from 'utils/client';
+import { useRouter } from 'next/router';
 import styles from 'components/Posts/styles.module.scss';
 
 const pageQuery = '*[_type == "page" && slug.current == "updates"][0]';
 const postsQuery = '*[_type == "post"] | order(_createdAt desc)[$start..$end]';
 const featuredPostQuery = '*[_type == "post"] | order(_createdAt desc)[0]';
 const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
+const searchQuery = '*[_type == "post" && [title, description, body] match $query]';
 
 const Updates = ({
   title = '', description = '', showTitle = true, posts, featuredPost,
 }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchPosts, setSearchPosts] = useState([]);
+  const [useSearch, setUseSearch] = useState(false);
+  const [searched, setSearched] = useState(false);
+  const router = useRouter();
+
+  const search = async (query) => {
+    const term = query || searchTerm;
+    router.push(`/updates?query=${term}`, undefined, { shallow: true });
+    const result = await client.fetch(searchQuery, { query: term }) || [];
+    setSearchPosts(result);
+
+    setSearched(true);
+    setUseSearch(true);
+  };
+
+  useEffect(() => {
+    if (router?.query?.query && router?.query?.query !== searchTerm) {
+      const { query } = router.query;
+      router.push(`/updates?query=${query}`, undefined, { shallow: true });
+      setUseSearch(true);
+      setSearchTerm(query);
+      search(query);
+    }
+  }, [router]);
+
+  useLayoutEffect(() => {
+    if (searchTerm.length === 0 && searched) {
+      router.push('/updates', undefined, { shallow: true });
+      setSearchPosts([]);
+      setUseSearch(false);
+    }
+  }, [searchTerm]);
+
   return (
     <>
       <Page
@@ -27,9 +63,9 @@ const Updates = ({
         slug={featuredPost.slug}
         description={featuredPost.description}
       />
-      <SearchBar />
+      <SearchBar value={searchTerm} onChange={setSearchTerm} search={search} />
       <div className={styles['post-container']}>
-        <PostGrid posts={posts} />
+        <PostGrid posts={useSearch || searchPosts.length > 0 ? searchPosts : posts} />
       </div>
     </>
   );
@@ -55,7 +91,6 @@ export const getStaticProps = async (context) => {
   const page = context?.params?.page;
   if (page) pageNum = parseInt(page[0], 10);
   if (!pageNum) pageNum = 1;
-
   const start = (pageNum - 1) * 10;
   const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + 9 });
   const featuredPost = await client.fetch(featuredPostQuery);

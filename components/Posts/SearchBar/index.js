@@ -7,11 +7,11 @@ import styles from './styles.module.scss';
 
 const useStyles = makeStyles({
   root: {
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
   },
 });
 
-const SearchBar = () => {
+const SearchBar = ({ search, value, onChange }) => {
   const classes = useStyles();
 
   return (
@@ -22,10 +22,13 @@ const SearchBar = () => {
           fullWidth
           size="small"
           InputLabelProps={{ className: classes.root }}
+          inputProps={{ className: classes.root }}
+          value={value}
+          onChange={(e) => { onChange(e.target.value); }}
         />
       </div>
 
-      <button className={`transparent ${styles.icon} ${styles['icon-fill']}`} type="button">
+      <button className={`transparent ${styles.icon} ${styles['icon-fill']}`} type="button" onClick={() => { search(); }}>
         <MagnifyingGlass />
       </button>
     </div>

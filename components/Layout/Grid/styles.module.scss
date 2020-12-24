@@ -10,6 +10,6 @@
 
 @media screen and (max-width: $mobile-width) {
   .grid {
-    justify-content: center;
+    justify-content: center !important;
   }
 }

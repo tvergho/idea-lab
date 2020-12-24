@@ -15,7 +15,7 @@ const PostGrid = ({ posts }) => {
   });
 
   return (
-    <Grid items={postItems} />
+    <Grid items={postItems} noEvenSpace />
   );
 };
 
