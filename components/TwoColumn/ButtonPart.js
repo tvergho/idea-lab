@@ -20,7 +20,7 @@ const ButtonPart = ({
 
   const textButton = () => {
     return (
-      <button onClick={() => { router.push(buttonUrl); }} type="button" className={`${styles['text-button']} transparent`}>{button}</button>
+      <a href={buttonUrl} className={`${styles['text-button']} transparent`}>{button}</a>
     );
   };
 

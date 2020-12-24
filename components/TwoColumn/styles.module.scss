@@ -69,9 +69,11 @@
 }
 
 .text-button {
+  display: inline-block;
   font-weight: 300;
   font-size: 0.8rem;
   padding-bottom: 10px;
+  position: relative;
   transition: all 0.3s;
 
   &:hover {
