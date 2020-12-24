@@ -4,6 +4,7 @@ import GlobalContext from 'lib/GlobalContext';
 import client from 'utils/client';
 import PropTypes from 'prop-types';
 import { NavLinkType, PostType } from 'lib/types';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import 'styles/global.scss';
 import 'styles/hamburgers.scss';
 
@@ -29,15 +30,42 @@ const postsQuery = `
   *[_type == "post"] | order(_createdAt desc)[0..2]
 `;
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#00693E',
+      dark: '#12312B',
+    },
+  },
+  typography: {
+    fontFamily: [
+      'AvenirNext',
+      'Avenir Next',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+});
+
 function MyApp({
   Component, pageProps, title, header, footer, recentPosts,
 }) {
   return (
-    <GlobalContext.Provider value={{ siteTitle: title, recentPosts }}>
-      <Layout header={header} footer={footer}>
-        <Component {...pageProps} />
-      </Layout>
-    </GlobalContext.Provider>
+    <ThemeProvider theme={theme}>
+      <GlobalContext.Provider value={{ siteTitle: title, recentPosts }}>
+        <Layout header={header} footer={footer}>
+          <Component {...pageProps} />
+        </Layout>
+      </GlobalContext.Provider>
+    </ThemeProvider>
   );
 }
 

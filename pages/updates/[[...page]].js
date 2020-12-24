@@ -2,7 +2,7 @@ import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import { PostType } from 'lib/types';
-import { FeaturedPost, PostGrid } from 'components/Posts';
+import { FeaturedPost, PostGrid, SearchBar } from 'components/Posts';
 import client from 'utils/client';
 import styles from 'components/Posts/styles.module.scss';
 
@@ -27,6 +27,7 @@ const Updates = ({
         slug={featuredPost.slug}
         description={featuredPost.description}
       />
+      <SearchBar />
       <div className={styles['post-container']}>
         <PostGrid posts={posts} />
       </div>
