@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+.about-item {
+  width: 33.33%;
+  padding: 3vw 4vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+.display {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .about-item {
+    width: 50%;
+    margin-top: 30px;
+  }
+}

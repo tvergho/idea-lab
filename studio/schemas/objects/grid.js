@@ -10,6 +10,7 @@ export default {
       of: [
         { type: 'reference', to: [{ type: 'person' }], name: 'people' },
         { type: 'usefulLink' },
+        { type: 'aboutIcon' },
       ],
     },
   ],

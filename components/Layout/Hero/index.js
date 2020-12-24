@@ -26,7 +26,7 @@ const Hero = ({
 Hero.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.object),
-  illustration: PropTypes.node,
+  illustration: PropTypes.elementType,
   small: PropTypes.bool,
   reverse: PropTypes.bool,
 };

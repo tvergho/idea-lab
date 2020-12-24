@@ -32,6 +32,13 @@
   width: $container-width;
 }
 
+.divider {
+  height: 0px;
+  width: 0px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(18, 49, 43, 0.5);
+}
+
 @media screen and (max-width: $mobile-width) {
   .header {
     margin-top: 60px;

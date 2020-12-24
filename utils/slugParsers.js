@@ -10,3 +10,7 @@ export const appendSlash = (link) => {
   if (link.indexOf('/') > -1) return link;
   return `/${link}`;
 };
+
+export const isSvg = (link) => {
+  return link.includes('svg');
+};

@@ -4,8 +4,12 @@ import Hero from 'components/Layout/Hero';
 import HeroIllustration from '../../public/about-hero.svg';
 
 const HeroAbout = ({ title, subtitle }) => {
+  const AboutIllustration = () => {
+    return <HeroIllustration width="100%" height="100%" />;
+  };
+
   return (
-    <Hero title={title} subtitle={subtitle} illustration={HeroIllustration} small reverse />
+    <Hero title={title} subtitle={subtitle} illustration={AboutIllustration} small reverse />
   );
 };
 

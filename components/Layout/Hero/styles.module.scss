@@ -21,7 +21,7 @@
   margin-bottom: 30px;
 }
 
-.title {
+.title-small {
   line-height: 2.6rem;
   margin-bottom: 15px;
 }
@@ -59,6 +59,14 @@
 @media screen and (max-height: 800px) {
   .hero-text {
     margin-top: 2vh;
+  }
+  .small {
+    height: auto;
+    margin-bottom: 10vh;
+
+    .hero-text {
+      margin-top: 4vh;
+    }
   }
 }
 

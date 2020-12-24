@@ -5,7 +5,7 @@ import {
   page, siteSettings, post, person,
 } from './documents';
 import {
-  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout,
+  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout, aboutIcon,
 } from './objects';
 
 export default createSchema({
@@ -24,5 +24,6 @@ export default createSchema({
     usefulLink,
     contactInfo,
     heroAbout,
+    aboutIcon,
   ]),
 });

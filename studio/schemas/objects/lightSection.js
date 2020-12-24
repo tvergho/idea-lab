@@ -20,6 +20,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Animated Underline',
+      name: 'animatedUnderline',
+      type: 'boolean',
+    },
+    {
       title: 'Elements',
       name: 'elements',
       type: 'array',

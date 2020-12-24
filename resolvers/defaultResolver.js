@@ -3,6 +3,7 @@ import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
 import { PersonItem } from 'components/Team';
+import { AboutItem } from 'components/About';
 import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
 import Contact from 'components/Contact';
@@ -12,7 +13,15 @@ const defaultResolver = (props, extra = {}) => {
 
   switch (_type) {
   case 'lightSection':
-    return <Section elements={props.elements} color={props.color} title={props.title} key={_key} />;
+    return (
+      <Section
+        elements={props.elements}
+        color={props.color}
+        title={props.title}
+        animatedUnderline={props.animatedUnderline}
+        key={_key}
+      />
+    );
   case 'twoColumn': {
     const {
       button, content, icon, image, side, title, buttonPage,
@@ -60,6 +69,14 @@ const defaultResolver = (props, extra = {}) => {
         items.push(<UsefulLink image={image} display={display} url={url} key={_id} />);
       });
       return <Grid items={items} key={_key} />;
+    }
+    case 'aboutIcon': {
+      elements.forEach(({
+        image, description, display, _key: key,
+      }) => {
+        items.push(<AboutItem image={image} display={display} description={description} key={key} />);
+      });
+      return <Grid items={items} key={_key} noEvenSpace />;
     }
     default:
       return null;

@@ -18,13 +18,11 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'subtitle',
     },
     prepare(selection) {
-      const { title, subtitle } = selection;
+      const { title } = selection;
       return {
         title,
-        subtitle,
       };
     },
   },

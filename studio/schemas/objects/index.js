@@ -7,7 +7,8 @@ import grid from './grid';
 import usefulLink from './usefulLink';
 import contactInfo from './contactInfo';
 import heroAbout from './heroAbout';
+import aboutIcon from './aboutIcon';
 
 export {
-  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout,
+  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout, aboutIcon,
 };
