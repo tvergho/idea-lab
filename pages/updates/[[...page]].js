@@ -15,6 +15,8 @@ const featuredPostQuery = '*[_type == "post"] | order(_createdAt desc)[0]';
 const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
 const searchQuery = '*[_type == "post" && [title, description, body] match $query]';
 
+const ITEMS_ON_PAGE = 15;
+
 const Updates = ({
   title = '', description = '', showTitle = true, posts, featuredPost, numPages, pageNum,
 }) => {
@@ -81,7 +83,7 @@ const Updates = ({
 
 export const getStaticPaths = async () => {
   const posts = await client.fetch(allPostsQuery) || [];
-  const numPages = Math.ceil(posts.length / 10);
+  const numPages = Math.ceil(posts.length / ITEMS_ON_PAGE);
   const paths = Array.from(Array(numPages).keys()).map((num) => ({ params: { page: [(num + 1).toString()] } }));
   paths.push({ params: { page: [] } });
 
@@ -100,12 +102,12 @@ export const getStaticProps = async (context) => {
   if (page) pageNum = parseInt(page[0], 10);
   if (!pageNum) pageNum = 1;
 
-  const start = (pageNum - 1) * 10;
-  const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + 9 });
+  const start = ((pageNum - 1) * ITEMS_ON_PAGE) + 1;
+  const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + 14 });
   const featuredPost = await client.fetch(featuredPostQuery);
 
   const allPosts = await client.fetch(allPostsQuery) || [];
-  const numPages = Math.ceil(allPosts.length / 10);
+  const numPages = Math.ceil(allPosts.length / ITEMS_ON_PAGE);
 
   return {
     props: {
