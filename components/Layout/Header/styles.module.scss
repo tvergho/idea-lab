@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  z-index: 1;
+  z-index: 998;
   position: fixed;
   top: 0px;
   height: 100px;
@@ -30,7 +30,7 @@
   position: fixed;
   top: 0px;
   background: white;
-  z-index: 1;
+  z-index: 998;
   transition: all 0.4s;
 }
 
