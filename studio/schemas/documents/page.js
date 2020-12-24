@@ -32,6 +32,7 @@ export default {
       title: 'Page Builder',
       of: [
         { type: 'heroHome' },
+        { type: 'heroAbout' },
         { type: 'lightSection' },
         { type: 'twoColumn' },
         { type: 'grid' },

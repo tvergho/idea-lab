@@ -1,5 +1,6 @@
 import homeResolver from './homeResolver';
 import defaultResolver from './defaultResolver';
+import aboutResolver from './aboutResolver';
 
 // Returns a resolver that attempts to apply to resolver1 first.
 // Then, if resolver 1 fails, resolver2 is attempted.
@@ -13,4 +14,6 @@ const combineResolvers = (resolver1, resolver2) => {
   };
 };
 
-export { homeResolver, defaultResolver, combineResolvers };
+export {
+  homeResolver, defaultResolver, aboutResolver, combineResolvers,
+};

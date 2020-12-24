@@ -42,7 +42,7 @@ const CustomPage = ({
 
 export const getStaticPaths = async () => {
   const pathsResult = await client.fetch(pathsQuery) || [];
-  const paths = pathsResult.map((item) => ({ params: { slug: item.link } }));
+  const paths = pathsResult.map((item) => ({ params: { slug: item.link.replace(/\//g, '') } }));
   return {
     paths,
     fallback: false,

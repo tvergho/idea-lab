@@ -6,6 +6,10 @@
   margin-bottom: 50px;
 }
 
+.small {
+  height: calc(100vh - 200px);
+}
+
 .hero-text {
   max-width: 60%;
   text-align: center;
@@ -17,8 +21,15 @@
   margin-bottom: 30px;
 }
 
+.title {
+  line-height: 2.6rem;
+  margin-bottom: 15px;
+}
+
 .subtitle {
-  font-size: 1.2rem;
+  p {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: $container-width) {
@@ -52,7 +63,7 @@
 }
 
 @media screen and (max-height: 568px) {
-  .hero-section {
+  .hero-section, .small {
     height: auto;
   }
 }

@@ -1,6 +1,6 @@
 export default {
-  title: 'Hero Image – Home',
-  name: 'heroHome',
+  title: 'Hero Image – About',
+  name: 'heroAbout',
   type: 'object',
   fields: [
     {
@@ -18,13 +18,11 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'subtitle',
     },
     prepare(selection) {
-      const { title, subtitle } = selection;
+      const { title } = selection;
       return {
         title,
-        subtitle,
       };
     },
   },

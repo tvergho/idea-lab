@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { NavLinkType } from 'lib/types';
-import { appendSlash } from '../index';
+import { appendSlash } from 'utils/slugParsers';
 import styles from './styles.module.scss';
 
 const defaultPath = '/';

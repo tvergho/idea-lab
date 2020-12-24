@@ -5,9 +5,9 @@ import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import useDelay from 'utils/useDelay';
+import { appendSlash } from 'utils/slugParsers';
 import styles from './styles.module.scss';
 import { DropdownArrow } from '../assets';
-import { appendSlash } from '../index';
 
 const ANIMATION_LENGTH = 300;
 const defaultPath = '/';

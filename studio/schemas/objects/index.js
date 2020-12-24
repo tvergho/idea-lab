@@ -6,7 +6,8 @@ import customBlock from './customBlock';
 import grid from './grid';
 import usefulLink from './usefulLink';
 import contactInfo from './contactInfo';
+import heroAbout from './heroAbout';
 
 export {
-  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo,
+  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout,
 };

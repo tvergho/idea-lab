@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import useDelay from 'utils/useDelay';
 import { motion } from 'framer-motion';
+import { appendSlash } from 'utils/slugParsers';
 import { DropdownArrow } from '../assets';
 import styles from './styles.module.scss';
-import { appendSlash } from '../index';
 
 const ANIMATION_LENGTH = 300;
 const defaultPath = '/';

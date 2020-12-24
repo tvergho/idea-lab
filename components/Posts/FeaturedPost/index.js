@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { ImageReferenceType, SlugType } from 'lib/types';
 import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
+import { appendPostsEnding } from 'utils/slugParsers';
 import styles from './styles.module.scss';
 
 const FeaturedPost = ({
   title, description, image, slug,
 }) => {
+  const normalizedSlug = { ...slug, current: appendPostsEnding(slug.current) };
+
   return (
     <Section color="emphasis">
       <h4 className={styles.header}>Updates</h4>
@@ -20,7 +23,7 @@ const FeaturedPost = ({
           content={description}
           button="Read more"
           isTextButton
-          buttonPage={slug}
+          buttonPage={normalizedSlug}
           linkTitle
         />
       </div>
