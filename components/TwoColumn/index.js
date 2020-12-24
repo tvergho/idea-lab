@@ -13,7 +13,7 @@ import styles from './styles.module.scss';
 export const ANIMATION_DURATION = 400;
 
 const TwoColumn = ({
-  button, content, icon, image, side, title, buttonPage, fullPage, isTextButton,
+  button, content, icon, image, side, title, buttonPage, fullPage, isTextButton, linkTitle,
 }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -44,7 +44,7 @@ const TwoColumn = ({
     >
       <ImagePart visible={visible} fullPage={fullPage} imageUrl={imageUrl} />
       <div className={styles.text}>
-        <HeaderPart visible={visible} iconUrl={iconUrl} title={title} />
+        <HeaderPart visible={visible} iconUrl={iconUrl} title={title} linkTitle={linkTitle} buttonUrl={buttonUrl} />
         <ContentPart visible={visible} content={content} />
         <ButtonPart visible={visible} button={button} buttonUrl={buttonUrl} isTextButton={isTextButton} />
       </div>
@@ -62,6 +62,7 @@ TwoColumn.propTypes = {
   buttonPage: SlugType,
   fullPage: PropTypes.bool,
   isTextButton: PropTypes.bool,
+  linkTitle: PropTypes.bool,
 };
 
 export default TwoColumn;

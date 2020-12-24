@@ -5,7 +5,16 @@ import Image from 'next/image';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
 
-const HeaderPart = ({ visible, iconUrl, title }) => {
+const HeaderPart = ({
+  visible, iconUrl, title, linkTitle, buttonUrl,
+}) => {
+  const withLink = (el) => {
+    if (!linkTitle || !buttonUrl) return el;
+    return (
+      <a href={buttonUrl} target="_blank" rel="noreferrer">{el}</a>
+    );
+  };
+
   return (
     <motion.div
       className={styles['header-animator']}
@@ -18,7 +27,7 @@ const HeaderPart = ({ visible, iconUrl, title }) => {
             <Image src={iconUrl} layout="fixed" width={55} height={55} />
           </div>
         )}
-        <h2 className={styles.title}>{title}</h2>
+        {withLink(<h2 className={styles.title}>{title}</h2>)}
       </div>
 
       <div className={styles.divider} />
@@ -30,6 +39,8 @@ HeaderPart.propTypes = {
   visible: PropTypes.bool,
   iconUrl: PropTypes.string,
   title: PropTypes.string,
+  buttonUrl: PropTypes.string,
+  linkTitle: PropTypes.bool,
 };
 
 export default HeaderPart;

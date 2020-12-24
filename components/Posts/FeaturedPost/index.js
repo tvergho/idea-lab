@@ -21,6 +21,7 @@ const FeaturedPost = ({
           button="Read more"
           isTextButton
           buttonPage={slug}
+          linkTitle
         />
       </div>
     </Section>
