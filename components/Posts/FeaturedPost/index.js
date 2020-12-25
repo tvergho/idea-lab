@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { ImageReferenceType, SlugType } from 'lib/types';
 import Section from 'components/Layout/Section';
 import TwoColumn from 'components/TwoColumn';
-import { appendPostsEnding } from 'utils/slugParsers';
+import { appendPrefix } from 'utils/slugParsers';
 import styles from './styles.module.scss';
 
 const FeaturedPost = ({
   title, description, image, slug,
 }) => {
-  const normalizedSlug = { ...slug, current: appendPostsEnding(slug.current) };
+  const normalizedSlug = { ...slug, current: appendPrefix(slug.current, 'posts') };
 
   return (
     <Section color="emphasis">

@@ -1,8 +1,8 @@
-export const appendPostsEnding = (slug) => {
+export const appendPrefix = (slug, prefix) => {
   let modifiedSlug = slug;
-  modifiedSlug = modifiedSlug.replace('posts/', '');
+  modifiedSlug = modifiedSlug.replace(`${prefix}/`, '');
   modifiedSlug = modifiedSlug.replace(/\//g, '');
-  modifiedSlug = `/posts/${modifiedSlug}`;
+  modifiedSlug = `/${prefix}/${modifiedSlug}`;
   return modifiedSlug;
 };
 

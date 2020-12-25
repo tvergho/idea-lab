@@ -5,7 +5,7 @@ import { SlugType, ImageReferenceType } from 'lib/types';
 import { urlFor } from 'utils/client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { appendPostsEnding } from 'utils/slugParsers';
+import { appendPrefix } from 'utils/slugParsers';
 import calcDate from 'utils/calcDate';
 import styles from './styles.module.scss';
 
@@ -13,7 +13,7 @@ const PostItem = ({
   createdAt, slug, image, description, title,
 }) => {
   const imageUrl = image ? urlFor(image).width(700).url() : '/';
-  const toUrl = appendPostsEnding(slug?.current) || '/';
+  const toUrl = appendPrefix(slug?.current, 'posts') || '/';
 
   return (
     <div className={styles['post-item']}>

@@ -2,7 +2,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 import {
-  page, siteSettings, post, person,
+  page, siteSettings, post, person, category,
 } from './documents';
 import {
   navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout, aboutIcon,
@@ -15,6 +15,7 @@ export default createSchema({
     siteSettings,
     post,
     person,
+    category,
     navLink,
     heroHome,
     lightSection,

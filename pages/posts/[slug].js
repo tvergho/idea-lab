@@ -1,17 +1,22 @@
 import React from 'react';
 import Page from 'components/Page';
-import { ImageReferenceType } from 'lib/types';
+import { ImageReferenceType, SlugType } from 'lib/types';
 import client from 'utils/client';
 import { TopSection } from 'components/Posts';
 import BlockContent from '@sanity/block-content-to-react';
 import PropTypes from 'prop-types';
 import styles from 'components/Posts/styles.module.scss';
 
-const postsQuery = '*[_type == "post" && slug.current == $slug][0]';
+const postsQuery = `
+*[_type == "post" && slug.current == $slug][0]{
+  ...,
+  "categories": categories[]->{title, slug}
+}
+`;
 const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
 
 const PostPage = ({
-  title, description, body, image, createdAt,
+  title, description, body, image, createdAt, categories,
 }) => {
   return (
     <>
@@ -19,7 +24,7 @@ const PostPage = ({
         title={title}
         description={description}
       />
-      <TopSection title={title} image={image} createdAt={createdAt} />
+      <TopSection title={title} image={image} createdAt={createdAt} categories={categories} />
 
       <article className={styles['body-container']}>
         <div className={styles['post-body']}>
@@ -44,12 +49,12 @@ export const getStaticProps = async (context) => {
   const slug = context?.params?.slug;
   const postData = await client.fetch(postsQuery, { slug }) || {};
   const {
-    title, description, image, body, _createdAt: createdAt,
+    title, description, image, body, _createdAt: createdAt, categories,
   } = postData;
 
   return {
     props: {
-      title, description, image, body, createdAt,
+      title, description, image, body, createdAt, categories,
     },
   };
 };
@@ -60,6 +65,10 @@ PostPage.propTypes = {
   body: PropTypes.arrayOf(PropTypes.object),
   image: ImageReferenceType,
   createdAt: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    slug: SlugType,
+  })),
 };
 
 export default PostPage;
