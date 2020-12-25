@@ -64,9 +64,9 @@ const defaultResolver = (props, extra = {}) => {
     }
     case 'usefulLink': {
       elements.forEach(({
-        image, display, url, _id,
+        image, display, url, _key: key,
       }) => {
-        items.push(<UsefulLink image={image} display={display} url={url} key={_id} />);
+        items.push(<UsefulLink image={image} display={display} url={url} key={key} />);
       });
       return <Grid items={items} key={_key} />;
     }

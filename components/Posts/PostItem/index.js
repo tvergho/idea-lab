@@ -6,17 +6,8 @@ import { urlFor } from 'utils/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { appendPostsEnding } from 'utils/slugParsers';
+import calcDate from 'utils/calcDate';
 import styles from './styles.module.scss';
-
-const calcDate = (date) => {
-  const dateObj = new Date(date);
-
-  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(dateObj);
-  const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(dateObj);
-  const da = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(dateObj);
-
-  return `${mo} ${da}, ${ye}`;
-};
 
 const PostItem = ({
   createdAt, slug, image, description, title,
