@@ -1,3 +1,7 @@
+[buid]
+  functions = "next-automatic-functions"
+  publish = "out"
+
 [[redirects]]
   from = "/studio*"
   to = "/studio"
