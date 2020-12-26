@@ -4,6 +4,7 @@ import { ElementType } from 'lib/types';
 import { motion } from 'framer-motion';
 import { defaultResolver } from 'resolvers';
 import useScrollPosition from 'utils/useScrollPosition';
+import useWindowSize from 'utils/useWindowSize';
 import styles from './styles.module.scss';
 
 const ANIMATION_DURATION = 600;
@@ -14,6 +15,9 @@ const Section = ({
   const [className, setClassName] = useState(styles.section);
   const ref = useRef(null);
   const scrolled = useScrollPosition(ref, 100);
+  const { width } = useWindowSize();
+
+  const underlineWidth = width > 1000 ? '15%' : '30%';
 
   useEffect(() => {
     switch (color) {
@@ -36,7 +40,7 @@ const Section = ({
         <motion.div
           className={styles.divider}
           initial={{ width: '0px' }}
-          animate={{ width: scrolled ? '30%' : '0px' }}
+          animate={{ width: scrolled ? underlineWidth : '0px' }}
           transition={{ duration: ANIMATION_DURATION / 1000, delay: 0.2 }}
         />
       )}

@@ -2,6 +2,9 @@ export default {
   title: 'Two Column Layout',
   name: 'twoColumn',
   type: 'object',
+  fieldsets: [
+    { name: 'button', title: 'Button Settings' },
+  ],
   fields: [
     {
       title: 'Title',
@@ -24,12 +27,21 @@ export default {
       title: 'Button Text',
       name: 'button',
       type: 'string',
+      fieldset: 'button',
     },
     {
       title: 'Button Link',
       name: 'buttonPage',
       type: 'slug',
       description: 'URL slug for the page that the button links to. Must be paired with a value for the button text field.',
+      fieldset: 'button',
+    },
+    {
+      title: 'Text Button',
+      name: 'isTextButton',
+      type: 'boolean',
+      description: 'Button renders as a text-only link.',
+      fieldset: 'button',
     },
     {
       title: 'Image',

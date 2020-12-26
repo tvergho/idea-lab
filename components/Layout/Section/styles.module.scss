@@ -23,8 +23,11 @@
   * {
     color: white !important;
   }
-  div {
+  div, a {
     border-bottom-color: rgba(255,255,255,0.5);
+    &:after {
+      border-bottom-color: rgba(255,255,255,0.5);
+    }
   }
 }
 

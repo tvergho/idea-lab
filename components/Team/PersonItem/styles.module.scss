@@ -1,13 +1,9 @@
 @use "variables" as *;
 
 .item {
-  width: 23%;
+  width: 24%;
   padding: 0 30px;
-  margin: 40px 60px;
-
-  h5 {
-    color: $dartmouth-green;
-  }
+  margin: 40px 50px;
 
   &:last-child {
     margin-bottom: 80px;
@@ -36,12 +32,28 @@
 }
 
 .name {
-  margin-top: 15px;
+  color: $dartmouth-green;
+  margin-top: 40px;
+}
+
+.divider {
+  margin-top: 5px;
+  width: 25%;
+  height: 1px;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.image {
+  img {
+    border-radius: 50%;
+    object-position: 0 10%;
+  }
 }
 
 @media screen and (max-width: $container-width) {
   .item {
-    width: 30%;
+    width: 28%;
+    margin: 40px 20px;
   }
 }
 

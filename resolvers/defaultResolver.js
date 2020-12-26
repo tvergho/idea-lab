@@ -24,7 +24,7 @@ const defaultResolver = (props, extra = {}) => {
     );
   case 'twoColumn': {
     const {
-      button, content, icon, image, side, title, buttonPage,
+      button, content, icon, image, side, title, buttonPage, isTextButton,
     } = props;
     return (
       <TwoColumn
@@ -35,6 +35,7 @@ const defaultResolver = (props, extra = {}) => {
         side={side}
         title={title}
         buttonPage={buttonPage}
+        isTextButton={isTextButton}
         key={_key}
         fullPage={extra.fullPage}
       />

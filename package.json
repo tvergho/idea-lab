@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "echo 'Building Sanity to public/studio…' && cd studio && sanity build ../public/studio -y && cd .. && next export"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",

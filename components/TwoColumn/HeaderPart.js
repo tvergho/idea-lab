@@ -32,7 +32,11 @@ const HeaderPart = ({
         {withLink(<h2 className={styles.title}>{title}</h2>)}
       </div>
 
-      <div className={styles.divider} />
+      <motion.div
+        className={styles.divider}
+        animate={{ width: visible ? '70px' : 0 }}
+        transition={{ duration: ANIMATION_DURATION / 1000, ease: 'easeOut', delay: 0.2 }}
+      />
     </motion.div>
   );
 };

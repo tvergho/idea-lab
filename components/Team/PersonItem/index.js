@@ -24,10 +24,16 @@ const PersonItem = ({ image, name, linkedin }) => {
     return (
       <>
         <div className={styles.image}>
-          <Image src={imageUrl} layout="responsive" width={300} height={400} objectFit="cover" />
+          <Image src={imageUrl} layout="responsive" width={300} height={300} objectFit="cover" />
         </div>
 
         <h5 className={styles.name}>{name}</h5>
+        <motion.div
+          className={styles.divider}
+          initial={{ width: 0 }}
+          animate={{ width: visible ? '25%' : 0 }}
+          transition={{ duration: (ANIMATION_DURATION) / 1000, ease: 'easeOut', delay: 0.7 }}
+        />
       </>
     );
   };
