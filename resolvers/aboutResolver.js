@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroAbout } from 'components/About';
 
 const aboutResolver = (props, extra = {}) => {
+  if (!props) return null;
   const { _type, _key } = props;
 
   switch (_type) {

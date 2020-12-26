@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroHome } from 'components/Home';
 
 const homeResolver = (props, extra = {}) => {
+  if (!props) return null;
   const { _type, _key } = props;
 
   switch (_type) {
