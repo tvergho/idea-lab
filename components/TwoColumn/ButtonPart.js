@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
 
@@ -20,7 +22,7 @@ const ButtonPart = ({
 
   const textButton = () => {
     return (
-      <a href={buttonUrl} className={`${styles['text-button']} transparent`}>{button}</a>
+      <Link passHref href={buttonUrl}><a className={`${styles['text-button']} transparent`}>{button}</a></Link>
     );
   };
 
