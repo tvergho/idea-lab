@@ -7,5 +7,5 @@ module.exports = withPlugins([
   images: {
     domains: ['cdn.sanity.io'],
   },
-  target: 'serverless',
+  target: 'experimental-serverless-trace',
 });
