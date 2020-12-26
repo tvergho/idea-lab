@@ -11,7 +11,7 @@ const UsefulLink = ({ display, url, image }) => {
     <div className={styles['useful-link']}>
       <a href={url} className="no-hover" target="_blank" rel="noreferrer">
         <div className={styles.image}>
-          <Image src={imageUrl} width="100%" height={250} objectFit="cover" square />
+          <Image src={imageUrl} width="100%" height={250} objectFit="cover" />
         </div>
 
         <p>{display}</p>
