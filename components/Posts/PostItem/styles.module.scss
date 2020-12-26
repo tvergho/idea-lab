@@ -6,6 +6,7 @@
   padding-bottom: 2.5%;
   border-right: 0.5px solid rgba(255,255,255,0.5);
   transition: opacity 0.3s;
+  margin-bottom: 20px;
 
   * {
     color: $forest-green;
@@ -13,9 +14,6 @@
 
   h4 {
     line-height: 1.5rem;
-  }
-  p {
-    margin: 1rem 0;
   }
   &:last-child {
     border: 0;
@@ -42,11 +40,32 @@
   }
 }
 
+.categories {
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.divider {
+  height: 1px;
+  width: 50px;
+  background-color: $forest-green;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: $container-width) {
+  .categories {
+    font-size: 0.8rem;
+  }
+}
+
 @media screen and (max-width: $mobile-width) {
   .post-item {
     width: 75%;
     border-right: 0;
     padding: 50px 0;
     border-bottom: 0.5px solid;
+    margin-bottom: 0;
   }
 }

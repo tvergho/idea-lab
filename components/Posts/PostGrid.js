@@ -9,9 +9,17 @@ const PostGrid = ({ posts }) => {
   if (!posts) return null;
 
   posts.forEach(({
-    _createdAt, slug, image, description, title,
+    _createdAt, slug, image, description, title, categories,
   }) => {
-    postItems.push(<PostItem createdAt={_createdAt} slug={slug} image={image} description={description} title={title} key={_createdAt} />);
+    postItems.push(<PostItem
+      createdAt={_createdAt}
+      slug={slug}
+      image={image}
+      description={description}
+      title={title}
+      key={_createdAt}
+      categories={categories.length > 0 && categories[0]?.slug?.current ? categories : null}
+    />);
   });
 
   return (

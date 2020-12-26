@@ -10,7 +10,10 @@ import { useRouter } from 'next/router';
 import styles from 'components/Posts/styles.module.scss';
 
 const pageQuery = '*[_type == "page" && slug.current == "updates"][0]';
-const postsQuery = '*[_type == "post"] | order(_createdAt desc)[$start..$end]';
+const postsQuery = `*[_type == "post"] | order(_createdAt desc){
+  ...,
+  "categories": categories[]->{title, slug}
+}[$start..$end]`;
 const featuredPostQuery = '*[_type == "post"] | order(_createdAt desc)[0]';
 const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
 const searchQuery = '*[_type == "post" && [title, description, body] match $query]';

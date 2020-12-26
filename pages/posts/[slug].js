@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from 'components/Page';
-import { ImageReferenceType, SlugType } from 'lib/types';
+import { CategoryType, ImageReferenceType, SlugType } from 'lib/types';
 import client from 'utils/client';
 import { TopSection } from 'components/Posts';
 import BlockContent from '@sanity/block-content-to-react';
@@ -65,10 +65,7 @@ PostPage.propTypes = {
   body: PropTypes.arrayOf(PropTypes.object),
   image: ImageReferenceType,
   createdAt: PropTypes.string,
-  categories: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    slug: SlugType,
-  })),
+  categories: PropTypes.arrayOf(CategoryType),
 };
 
 export default PostPage;

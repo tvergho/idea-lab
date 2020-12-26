@@ -26,7 +26,7 @@ const Contact = ({
   };
 
   const onPhoneClick = () => {
-    window.open(`tel:${phone.replace(/[^\d]/g, '')}`);
+    window.location.href = `tel:${phone.replace(/[^\d]/g, '')}`;
   };
 
   const onAddressClick = () => {

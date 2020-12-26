@@ -154,3 +154,9 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: $mobile-width) {
+  .header, .header-container {
+    height: 80px;
+  }
+}

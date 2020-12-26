@@ -6,7 +6,10 @@ import { PostGrid } from 'components/Posts';
 import PropTypes from 'prop-types';
 import styles from 'components/Posts/styles.module.scss';
 
-const postsQuery = '*[_type == "post" && $slug in categories[]->slug.current] | order(_createdAt desc)'; // Returns a list of posts for the current category.
+const postsQuery = `*[_type == "post" && $slug in categories[]->slug.current] | order(_createdAt desc){
+  ...,
+  "categories": categories[]->{title, slug}
+}`; // Returns a list of posts for the current category.
 const categoriesQuery = '*[_type == "category"]{"link": slug.current}'; // Returns the slugs of all the categories.
 const titleQuery = '*[_type == "category" && slug.current == $slug]{title, "link": slug.current}[0]'; // Returns info about one specific category.
 
