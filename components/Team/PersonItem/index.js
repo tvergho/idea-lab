@@ -11,9 +11,9 @@ import styles from './styles.module.scss';
 const ANIMATION_DURATION = 500;
 
 const PersonItem = ({ image, name, linkedin }) => {
-  const imageUrl = image ? urlFor(image).width(600).url() : '/';
+  const imageUrl = image ? urlFor(image).width(600).height(600).url() : '/';
   const ref = useRef(null);
-  const scrolled = useScrollPosition(ref, 100);
+  const scrolled = useScrollPosition(ref, 160);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
