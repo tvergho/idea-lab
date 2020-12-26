@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SlugType, ImageReferenceType, CategoryType } from 'lib/types';
 import { urlFor } from 'utils/client';
-import Image from 'next/image';
+import Image from 'components/Image';
 import Link from 'next/link';
 import { appendPrefix } from 'utils/slugParsers';
 import calcDate from 'utils/calcDate';
@@ -21,7 +21,7 @@ const PostItem = ({
       <Link href={toUrl} passHref>
         <a className={styles['post-link']}>
           <div className={styles.image}>
-            <Image src={imageUrl} layout="responsive" width={350} height={233} objectFit="cover" />
+            <Image src={imageUrl} width={350} height={233} objectFit="cover" square />
           </div>
 
           <h4 className={styles.title}>{title}</h4>

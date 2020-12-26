@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ImageReferenceType } from 'lib/types';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
+import Image from 'components/Image';
 import { urlFor } from 'utils/client';
 import useScrollPosition from 'utils/useScrollPosition';
 import styles from './styles.module.scss';
@@ -24,7 +24,7 @@ const PersonItem = ({ image, name, linkedin }) => {
     return (
       <>
         <div className={styles.image}>
-          <Image src={imageUrl} layout="responsive" width={300} height={300} objectFit="cover" />
+          <Image src={imageUrl} width={300} height={300} objectFit="cover" square />
         </div>
 
         <h5 className={styles.name}>{name}</h5>

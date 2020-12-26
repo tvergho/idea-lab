@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
+import Image from 'components/Image';
 import Link from 'next/link';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
@@ -26,7 +26,7 @@ const HeaderPart = ({
       <div className={styles['text-row']}>
         {!!iconUrl && (
           <div className={styles.icon}>
-            <Image src={iconUrl} layout="fixed" width={55} height={55} />
+            <Image src={iconUrl} width={55} height={55} />
           </div>
         )}
         {withLink(<h2 className={styles.title}>{title}</h2>)}

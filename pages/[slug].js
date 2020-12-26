@@ -25,6 +25,8 @@ const query = `
   }[0]
 `;
 
+const customPages = ['', '/', 'about', 'updates'];
+
 const CustomPage = ({
   title = '', description = '', pageBuilder, showTitle,
 }) => {
@@ -42,7 +44,7 @@ const CustomPage = ({
 
 export const getStaticPaths = async () => {
   const pathsResult = await client.fetch(pathsQuery) || [];
-  const paths = pathsResult.filter((item) => item.link !== '/').map((item) => ({ params: { slug: item.link.replace(/\//g, '') } }));
+  const paths = pathsResult.filter((item) => !(customPages.includes(item.link))).map((item) => ({ params: { slug: item.link.replace(/\//g, '') } }));
   return {
     paths,
     fallback: false,

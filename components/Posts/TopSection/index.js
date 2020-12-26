@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ImageReferenceType, SlugType, CategoryType } from 'lib/types';
+import { ImageReferenceType, CategoryType } from 'lib/types';
 import Section from 'components/Layout/Section';
 import calcDate from 'utils/calcDate';
-import Image from 'next/image';
+import Image from 'components/Image';
 import { urlFor } from 'utils/client';
 import Categories from '../Categories';
 import styles from './styles.module.scss';
@@ -29,7 +29,7 @@ const TopSection = ({
       <section className={styles['image-background']}>
         <div className={styles['image-container']}>
           <div className={styles.image}>
-            <Image src={imageUrl} objectFit="contain" layout="responsive" width={700} height={466} />
+            <Image src={imageUrl} objectFit="contain" responsive />
           </div>
         </div>
       </section>

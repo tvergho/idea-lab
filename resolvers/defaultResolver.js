@@ -55,7 +55,7 @@ const defaultResolver = (props, extra = {}) => {
     const { elements } = props;
     const items = [];
     if (!elements || elements.length === 0) return null;
-    switch (elements[0]._type) {
+    switch (elements[0]?._type) {
     case 'person': {
       elements.forEach(({
         image, name, linkedin, _id,
