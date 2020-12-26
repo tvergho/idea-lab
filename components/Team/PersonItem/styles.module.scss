@@ -60,9 +60,12 @@
 @media screen and (max-width: $mobile-width) {
   .item {
     width: 40%;
+    margin: 40px 0;
+    padding: 0 20px;
 
     h5 {
       font-size: 1.3rem;
+      margin-top: 20px;
     }
 
     .name {
