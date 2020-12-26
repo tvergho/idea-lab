@@ -9,6 +9,7 @@ import Grid from 'components/Layout/Grid';
 import Contact from 'components/Contact';
 
 const defaultResolver = (props, extra = {}) => {
+  if (!props) return null;
   const { _type, _key } = props;
 
   switch (_type) {
