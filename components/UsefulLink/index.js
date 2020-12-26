@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import PageContext from 'lib/PageContext';
 import PropTypes from 'prop-types';
 import { ImageReferenceType } from 'lib/types';
 import Image from 'components/Image';
@@ -6,7 +7,8 @@ import { urlFor } from 'utils/client';
 import styles from './styles.module.scss';
 
 const UsefulLink = ({ display, url, image }) => {
-  const imageUrl = image ? urlFor(image).width(800).url() : '/';
+  const { preview } = useContext(PageContext);
+  const imageUrl = image ? urlFor(image, preview).width(800).url() : '/';
   return (
     <div className={styles['useful-link']}>
       <a href={url} className="no-hover" target="_blank" rel="noreferrer">

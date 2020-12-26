@@ -5,7 +5,9 @@ import Header from './Header';
 import Footer from './Footer';
 import styles from './styles.module.scss';
 
-const Layout = ({ children, header, footer }) => {
+const Layout = ({
+  children, header, footer,
+}) => {
   return (
     <>
       <Header links={header} />

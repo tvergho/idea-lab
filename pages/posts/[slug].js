@@ -1,14 +1,14 @@
 import React from 'react';
 import Page from 'components/Page';
-import { CategoryType, ImageReferenceType, SlugType } from 'lib/types';
-import client from 'utils/client';
+import { CategoryType, ImageReferenceType } from 'lib/types';
+import client, { getClient } from 'utils/client';
 import { TopSection } from 'components/Posts';
 import BlockContent from '@sanity/block-content-to-react';
 import PropTypes from 'prop-types';
 import styles from 'components/Posts/styles.module.scss';
 
 const postsQuery = `
-*[_type == "post" && slug.current == $slug][0]{
+*[_type == "post" && slug.current == $slug]{
   ...,
   "categories": categories[]->{title, slug}
 }
@@ -16,13 +16,14 @@ const postsQuery = `
 const allPostsQuery = '*[_type == "post"] | order(_createdAt desc)';
 
 const PostPage = ({
-  title, description, body, image, createdAt, categories,
+  title, description, body, image, createdAt, categories, preview,
 }) => {
   return (
     <>
       <Page
         title={title}
         description={description}
+        preview={preview}
       />
       <TopSection title={title} image={image} createdAt={createdAt} categories={categories} />
 
@@ -46,15 +47,16 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
+  const { preview = false } = context;
   const slug = context?.params?.slug;
-  const postData = await client.fetch(postsQuery, { slug }) || {};
+  const postData = await getClient(preview).fetch(postsQuery, { slug }) || {};
   const {
     title, description, image, body, _createdAt: createdAt, categories,
-  } = postData;
+  } = postData[postData.length - 1];
 
   return {
     props: {
-      title, description, image, body, createdAt, categories,
+      title, description, image, body, createdAt, categories, preview,
     },
   };
 };
@@ -66,6 +68,7 @@ PostPage.propTypes = {
   image: ImageReferenceType,
   createdAt: PropTypes.string,
   categories: PropTypes.arrayOf(CategoryType),
+  preview: PropTypes.bool,
 };
 
 export default PostPage;

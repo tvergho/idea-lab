@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ImageReferenceType, CategoryType } from 'lib/types';
+import PageContext from 'lib/PageContext';
 import Section from 'components/Layout/Section';
 import calcDate from 'utils/calcDate';
 import Image from 'components/Image';
@@ -11,8 +12,9 @@ import styles from './styles.module.scss';
 const TopSection = ({
   title, createdAt, image, categories,
 }) => {
+  const { preview } = useContext(PageContext);
   const date = calcDate(createdAt);
-  const imageUrl = urlFor(image).width(1200).url();
+  const imageUrl = urlFor(image, preview).width(1200).url();
 
   return (
     <>

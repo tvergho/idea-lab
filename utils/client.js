@@ -4,14 +4,24 @@ import imageUrlBuilder from '@sanity/image-url';
 const client = sanityClient({
   projectId: 'i2fgqm8n',
   dataset: 'production',
-  useCdn: false,
+  useCdn: true,
 });
 
-export default client;
+const clientForPreview = sanityClient({
+  projectId: 'i2fgqm8n',
+  dataset: 'production',
+  useCdn: false,
+  token: process.env.SANITY_READ_TOKEN,
+});
 
-const builder = imageUrlBuilder(client);
-const urlFor = (source) => {
+const getClient = (preview) => {
+  return preview ? clientForPreview : client;
+};
+
+const urlFor = (source, preview = false) => {
+  const builder = imageUrlBuilder(getClient(preview));
   return builder.image(source);
 };
 
-export { urlFor };
+export default client;
+export { urlFor, clientForPreview, getClient };

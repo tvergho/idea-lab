@@ -1,13 +1,15 @@
 import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
-import client from 'utils/client';
+import { getClient } from 'utils/client';
 import { homeResolver } from 'resolvers';
 import { ElementType } from 'lib/types';
 
-const query = '*[_type == "page" && title == "Home"][0]';
+const query = '*[_type == "page" && title == "Home"]';
 
-const Home = ({ title = '', description = '', pageBuilder }) => {
+const Home = ({
+  title = '', description = '', pageBuilder, preview,
+}) => {
   return (
     <>
       <Page
@@ -15,17 +17,21 @@ const Home = ({ title = '', description = '', pageBuilder }) => {
         description={description}
         pageBuilder={pageBuilder}
         resolver={homeResolver}
+        preview={preview}
       />
     </>
   );
 };
 
-export const getStaticProps = async () => {
-  const data = await client.fetch(query) || {};
-  const { title = null, description = null, pageBuilder = null } = data;
+export const getStaticProps = async (context) => {
+  const { preview = false } = context;
+  const data = await getClient(preview).fetch(query) || {};
+  const { title = null, description = null, pageBuilder = null } = data[data.length - 1];
 
   return {
-    props: { title, description, pageBuilder },
+    props: {
+      title, description, pageBuilder, preview,
+    },
   };
 };
 
@@ -33,6 +39,7 @@ Home.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   pageBuilder: PropTypes.arrayOf(ElementType),
+  preview: PropTypes.bool,
 };
 
 export default Home;

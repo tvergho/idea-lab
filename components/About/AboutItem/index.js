@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import PageContext from 'lib/PageContext';
 import { ImageReferenceType } from 'lib/types';
 import Image from 'components/Image';
 import { urlFor } from 'utils/client';
 import styles from './styles.module.scss';
 
 const AboutItem = ({ image, display, description }) => {
-  const imageUrl = urlFor(image).width(200).url();
+  const { preview } = useContext(PageContext);
+  const imageUrl = urlFor(image, preview).width(200).url();
 
   return (
     <div className={styles['about-item']}>

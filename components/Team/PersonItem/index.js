@@ -1,5 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState, useEffect, useRef, useContext,
+} from 'react';
+import PageContext from 'lib/PageContext';
 import { motion } from 'framer-motion';
 import { ImageReferenceType } from 'lib/types';
 import PropTypes from 'prop-types';
@@ -11,7 +14,8 @@ import styles from './styles.module.scss';
 const ANIMATION_DURATION = 500;
 
 const PersonItem = ({ image, name, linkedin }) => {
-  const imageUrl = image ? urlFor(image).width(600).height(600).url() : '/';
+  const { preview } = useContext(PageContext);
+  const imageUrl = image ? urlFor(image, preview).width(600).height(600).url() : '/';
   const ref = useRef(null);
   const scrolled = useScrollPosition(ref, 160);
   const [visible, setVisible] = useState(false);

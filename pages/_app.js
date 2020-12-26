@@ -72,7 +72,7 @@ function MyApp({
   );
 }
 
-MyApp.getInitialProps = async () => {
+MyApp.getInitialProps = async (context) => {
   const { title, header, footer } = await client.fetch(query) || {};
   const recentPosts = await client.fetch(postsQuery) || [];
 

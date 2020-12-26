@@ -264,6 +264,23 @@ p {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.preview {
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 998;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 2.5%;
+  width: 100%;
+  bottom: 0px;
+}
+
+.preview-button {
+  color: white;
+  font-size: 0.8rem;
+}
+
 @media screen and (max-width: $container-width) {
   .page-title {
     margin-left: 20px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import client from 'utils/client';
+import client, { getClient } from 'utils/client';
 import PropTypes from 'prop-types';
 import Page from 'components/Page';
 import { ElementType } from 'lib/types';
@@ -22,13 +22,13 @@ const query = `
         }
       }
     }
-  }[0]
+  }
 `;
 
 const customPages = ['', '/', 'about', 'updates'];
 
 const CustomPage = ({
-  title = '', description = '', pageBuilder, showTitle,
+  title = '', description = '', pageBuilder, showTitle, preview,
 }) => {
   return (
     <>
@@ -37,6 +37,7 @@ const CustomPage = ({
         description={description}
         pageBuilder={pageBuilder}
         showTitle={showTitle}
+        preview={preview}
       />
     </>
   );
@@ -52,15 +53,17 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
+  const { preview = false } = context;
   const { slug } = context.params;
-  const data = await client.fetch(query, { slug }) || {};
+  const data = await getClient(preview).fetch(query, { slug }) || {};
+
   const {
     title = null, description = null, pageBuilder = null, showTitle = null,
-  } = data;
+  } = data[data.length - 1];
 
   return {
     props: {
-      title, description, pageBuilder, showTitle,
+      title, description, pageBuilder, showTitle, preview,
     },
   };
 };
@@ -70,6 +73,7 @@ CustomPage.propTypes = {
   description: PropTypes.string,
   pageBuilder: PropTypes.arrayOf(ElementType),
   showTitle: PropTypes.bool,
+  preview: PropTypes.bool,
 };
 
 export default CustomPage;

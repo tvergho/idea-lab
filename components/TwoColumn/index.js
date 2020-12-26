@@ -1,4 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState, useEffect, useRef, useContext,
+} from 'react';
+import PageContext from 'lib/PageContext';
 import PropTypes from 'prop-types';
 import { ImageReferenceType, SlugType } from 'lib/types';
 import { urlFor } from 'utils/client';
@@ -15,6 +18,7 @@ export const ANIMATION_DURATION = 400;
 const TwoColumn = ({
   button, content, icon, image, side, title, buttonPage, fullPage, isTextButton, linkTitle,
 }) => {
+  const { preview } = useContext(PageContext);
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const [paddingTop, setPaddingTop] = useState('110px');
@@ -23,8 +27,8 @@ const TwoColumn = ({
   const { isMobile } = useWindowSize();
   const isReversed = side === 'right';
 
-  const imageUrl = image ? urlFor(image).width(1200).url() : '/';
-  const iconUrl = urlFor(icon).url();
+  const imageUrl = image ? urlFor(image, preview).width(1200).url() : '/';
+  const iconUrl = urlFor(icon, preview).url();
   const buttonUrl = buttonPage?.current || '/';
 
   useEffect(() => {

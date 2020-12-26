@@ -1,13 +1,15 @@
 import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
-import client from 'utils/client';
+import { getClient } from 'utils/client';
 import { aboutResolver } from 'resolvers';
 import { ElementType } from 'lib/types';
 
-const query = '*[_type == "page" && slug.current == "about"][0]';
+const query = '*[_type == "page" && slug.current == "about"]';
 
-const About = ({ title = '', description = '', pageBuilder }) => {
+const About = ({
+  title = '', description = '', pageBuilder, preview,
+}) => {
   return (
     <>
       <Page
@@ -15,14 +17,16 @@ const About = ({ title = '', description = '', pageBuilder }) => {
         description={description}
         pageBuilder={pageBuilder}
         resolver={aboutResolver}
+        preview={preview}
       />
     </>
   );
 };
 
-export const getStaticProps = async () => {
-  const data = await client.fetch(query) || {};
-  const { title = null, description = null, pageBuilder = null } = data;
+export const getStaticProps = async (context) => {
+  const { preview = false } = context;
+  const data = await getClient(preview).fetch(query) || {};
+  const { title = null, description = null, pageBuilder = null } = data[data.length - 1];
 
   return {
     props: { title, description, pageBuilder },
@@ -33,6 +37,7 @@ About.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   pageBuilder: PropTypes.arrayOf(ElementType),
+  preview: PropTypes.bool,
 };
 
 export default About;

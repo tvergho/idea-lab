@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import PageContext from 'lib/PageContext';
 import { SlugType, ImageReferenceType, CategoryType } from 'lib/types';
 import { urlFor } from 'utils/client';
 import Image from 'components/Image';
@@ -13,7 +14,8 @@ import styles from './styles.module.scss';
 const PostItem = ({
   createdAt, slug, image, description, title, categories,
 }) => {
-  const imageUrl = image ? urlFor(image).width(700).url() : '/';
+  const { preview } = useContext(PageContext);
+  const imageUrl = image ? urlFor(image, preview).width(700).url() : '/';
   const toUrl = appendPrefix(slug?.current, 'posts') || '/';
 
   return (
