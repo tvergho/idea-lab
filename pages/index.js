@@ -5,7 +5,7 @@ import { getClient } from 'utils/client';
 import { homeResolver } from 'resolvers';
 import { ElementType } from 'lib/types';
 
-const query = '*[_type == "page" && title == "Home"]';
+const query = '*[_type == "page" && slug.current == "/"]';
 
 const Home = ({
   title = '', description = '', pageBuilder, preview,
@@ -26,6 +26,7 @@ const Home = ({
 export const getStaticProps = async (context) => {
   const { preview = false } = context;
   const data = await getClient(preview).fetch(query) || {};
+  console.log(preview, data);
   const { title = null, description = null, pageBuilder = null } = data[data.length - 1];
 
   return {
