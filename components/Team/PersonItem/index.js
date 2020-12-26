@@ -24,7 +24,7 @@ const PersonItem = ({ image, name, linkedin }) => {
     return (
       <>
         <div className={styles.image}>
-          <Image src={imageUrl} width={300} height={300} objectFit="cover" square />
+          <Image src={imageUrl} width={300} height={300} objectFit="cover" square responsive />
         </div>
 
         <h5 className={styles.name}>{name}</h5>

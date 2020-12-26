@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/studio*"
+  to = "/studio"
   status = 200

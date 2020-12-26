@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from 'components/Layout';
 import GlobalContext from 'lib/GlobalContext';
 import client from 'utils/client';
+import useRouterScroll from 'utils/useRouterScroll';
 import PropTypes from 'prop-types';
 import { NavLinkType, PostType } from 'lib/types';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -58,6 +59,8 @@ const theme = createMuiTheme({
 function MyApp({
   Component, pageProps, title, header, footer, recentPosts,
 }) {
+  useRouterScroll();
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalContext.Provider value={{ siteTitle: title, recentPosts }}>
