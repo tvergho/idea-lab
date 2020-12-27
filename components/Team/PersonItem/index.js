@@ -17,7 +17,7 @@ const PersonItem = ({ image, name, linkedin }) => {
   const { preview } = useContext(PageContext);
   const imageUrl = image ? urlFor(image, preview).width(600).height(600).url() : '/';
   const ref = useRef(null);
-  const scrolled = useScrollPosition(ref, 160);
+  const scrolled = useScrollPosition(ref, 180);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

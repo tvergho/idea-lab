@@ -26,7 +26,6 @@ const Home = ({
 export const getStaticProps = async (context) => {
   const { preview = false } = context;
   const data = await getClient(preview).fetch(query) || {};
-  console.log(preview, data);
   const { title = null, description = null, pageBuilder = null } = data[data.length - 1];
 
   return {
