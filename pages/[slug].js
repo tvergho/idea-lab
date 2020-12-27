@@ -59,7 +59,7 @@ export const getStaticProps = async (context) => {
 
   const {
     title = null, description = null, pageBuilder = null, showTitle = null,
-  } = data[data.length - 1];
+  } = data[data.length - 1] || {};
 
   return {
     props: {
