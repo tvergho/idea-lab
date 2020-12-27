@@ -7,3 +7,9 @@
   align-items: center;
   margin-top: 100px;
 }
+
+@media screen and (max-width: $mobile-width) {
+  .content {
+    margin-top: 80px;
+  }
+}
