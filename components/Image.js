@@ -6,7 +6,6 @@ const Image = ({
 }) => {
   const { width: windowWidth } = useWindowSize();
   const heightLocked = heightConstrained && windowWidth > 1200;
-  console.log(height);
 
   if (square) {
     return (
