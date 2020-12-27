@@ -6,6 +6,7 @@ const Image = ({
 }) => {
   const { width: windowWidth } = useWindowSize();
   const heightLocked = heightConstrained && windowWidth > 1200;
+  console.log(height);
 
   if (square) {
     return (
@@ -30,8 +31,8 @@ const Image = ({
     <img src={src}
       style={{
         objectFit,
-        width: responsive && !widthConstrained ? '100%' : width,
-        height: responsive && !heightLocked ? '100%' : height,
+        width: (responsive && !widthConstrained) ? '100%' : width,
+        height: (responsive && !heightLocked) ? '100%' : height,
         maxWidth: responsive ? '100%' : 'auto',
         maxHeight: responsive ? '100%' : 'auto',
         minHeight,

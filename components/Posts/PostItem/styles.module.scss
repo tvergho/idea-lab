@@ -54,6 +54,10 @@
   align-self: flex-start;
 }
 
+.image {
+  height: 230px;
+}
+
 @media screen and (max-width: $container-width) {
   .categories {
     font-size: 0.8rem;
@@ -67,5 +71,8 @@
     padding: 50px 0;
     border-bottom: 0.5px solid;
     margin-bottom: 0;
+  }
+  .image {
+    height: 350px;
   }
 }

@@ -6,13 +6,15 @@ export default function useWindowSize() {
     width: isSSR ? 1200 : window.innerWidth,
     height: isSSR ? 800 : window.innerHeight,
   });
-  const isMobile = windowSize.width <= 768;
+  const [isMobile, setIsMobile] = React.useState(windowSize.width <= 768);
 
   function changeWindowSize() {
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    setIsMobile(window.innerWidth <= 768);
   }
 
   React.useEffect(() => {
+    changeWindowSize();
     window.addEventListener('resize', changeWindowSize, { passive: true });
 
     return () => {
