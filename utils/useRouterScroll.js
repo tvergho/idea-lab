@@ -15,14 +15,14 @@ import { useEffect } from 'react';
  * @param {number} [options.left=0] Specifies the number of pixels along the X axis to scroll the window.
  * @param {number} [options.top=0] Specifies the number of pixels along the Y axis to scroll the window.
  */
-function useRouterScroll({ left = 0, top = 0 } = {}) {
+function useRouterScroll({ left = 0, top = 0 } = {}, toNotScroll = () => { return false; }) {
   const router = useRouter();
   useEffect(() => {
     // Scroll to given coordinates when router finishes navigating
     // This fixes an inconsistent behaviour between `<Link/>` and `next/router`
     // See https://github.com/vercel/next.js/issues/3249
-    const handleRouteChangeComplete = () => {
-      window.scrollTo({ top, left });
+    const handleRouteChangeComplete = (url) => {
+      if (!toNotScroll(url)) window.scrollTo({ top, left });
     };
 
     router.events.on('routeChangeComplete', handleRouteChangeComplete);

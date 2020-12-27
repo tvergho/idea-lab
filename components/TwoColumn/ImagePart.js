@@ -11,7 +11,6 @@ const ImagePart = ({ visible, fullPage, imageUrl }) => {
     <motion.div
       className={styles['main-image']}
       animate={{ opacity: visible ? 1 : 0 }}
-      initial={{ opacity: 0 }}
       transition={{ duration: (ANIMATION_DURATION + 200) / 1000, ease: 'easeOut' }}
       style={{ width: fullPage ? '50%' : '45%' }}
     >

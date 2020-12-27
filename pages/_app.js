@@ -59,7 +59,10 @@ const theme = createMuiTheme({
 function MyApp({
   Component, pageProps, title, header, footer, recentPosts,
 }) {
-  useRouterScroll();
+  useRouterScroll({ top: 0, left: 0 }, (url) => {
+    if (url.includes('query')) return true;
+    return false;
+  });
 
   return (
     <ThemeProvider theme={theme}>
