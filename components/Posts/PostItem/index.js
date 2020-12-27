@@ -8,12 +8,14 @@ import Image from 'components/Image';
 import Link from 'next/link';
 import { appendPrefix } from 'utils/slugParsers';
 import calcDate from 'utils/calcDate';
+import useWindowSize from 'utils/useWindowSize';
 import Categories from '../Categories';
 import styles from './styles.module.scss';
 
 const PostItem = ({
   createdAt, slug, image, description, title, categories,
 }) => {
+  const { isMobile } = useWindowSize();
   const { preview } = useContext(PageContext);
   const imageUrl = image ? urlFor(image, preview).width(700).url() : '/';
   const toUrl = appendPrefix(slug?.current, 'posts') || '/';
@@ -23,7 +25,7 @@ const PostItem = ({
       <Link href={toUrl} passHref>
         <a className={styles['post-link']}>
           <div className={styles.image}>
-            <Image src={imageUrl} width={350} height={233} objectFit="cover" square />
+            <Image src={imageUrl} width="100%" height={isMobile ? 350 : 230} objectFit="cover" />
           </div>
 
           <h4 className={styles.title}>{title}</h4>
