@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 const Grid = ({ items, className, noEvenSpace }) => {
+  let finalClass = styles.grid;
+  if (className) finalClass += ` ${className}`;
+  if (noEvenSpace) finalClass += ` ${styles['no-even-space']}`;
   return (
-    <div className={className ? `${styles.grid} ${className}` : styles.grid} style={{ justifyContent: noEvenSpace ? 'flex-start' : 'space-between' }}>
+    <div className={finalClass}>
       {items.map((item) => item)}
     </div>
   );

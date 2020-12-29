@@ -8,8 +8,21 @@
   width: $container-width;
 }
 
+.no-even-space {
+  &:after {
+    content: "";
+    flex: auto;
+  }
+}
+
 @media screen and (max-width: $mobile-width) {
   .grid {
     justify-content: center !important;
+  }
+  .no-even-space {
+    &:after {
+      content: "";
+      flex: 0;
+    }
   }
 }

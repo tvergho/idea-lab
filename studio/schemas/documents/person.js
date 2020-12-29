@@ -9,6 +9,12 @@ export default {
       title: 'Name',
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle',
+      description: 'Titles/short bio of this person (optional).',
+    },
+    {
       name: 'linkedin',
       type: 'url',
       title: 'Linkedin Profile',

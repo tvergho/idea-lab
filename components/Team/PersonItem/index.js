@@ -13,7 +13,9 @@ import styles from './styles.module.scss';
 
 const ANIMATION_DURATION = 500;
 
-const PersonItem = ({ image, name, linkedin }) => {
+const PersonItem = ({
+  image, name, linkedin, subtitle,
+}) => {
   const { preview } = useContext(PageContext);
   const imageUrl = image ? urlFor(image, preview).width(600).height(600).url() : '/';
   const ref = useRef(null);
@@ -38,6 +40,7 @@ const PersonItem = ({ image, name, linkedin }) => {
           animate={{ width: visible ? '25%' : 0 }}
           transition={{ duration: (ANIMATION_DURATION) / 1000, ease: 'easeOut', delay: 0.7 }}
         />
+        {subtitle && <h6 className={styles.subtitle}>{subtitle}</h6>}
       </>
     );
   };
@@ -70,6 +73,7 @@ PersonItem.propTypes = {
   image: ImageReferenceType,
   name: PropTypes.string,
   linkedin: PropTypes.string,
+  subtitle: PropTypes.string,
 };
 
 export default PersonItem;

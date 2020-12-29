@@ -4,10 +4,19 @@
   align-items: center;
   height: calc(100vh - 100px);
   margin-bottom: 50px;
+
+  svg {
+    max-width: 80%;
+  }
 }
 
 .small {
-  height: calc(100vh - 200px);
+  height: auto;
+  max-height: calc(100vh - 150px);
+
+  .title {
+    margin-bottom: 15px;
+  }
 }
 
 .hero-text {
@@ -19,11 +28,6 @@
 .title {
   line-height: 3.25rem;
   margin-bottom: 30px;
-}
-
-.title-small {
-  line-height: 2.6rem;
-  margin-bottom: 15px;
 }
 
 .subtitle {
@@ -44,6 +48,7 @@
 @media screen and (max-width: 750px) {
   .hero-section {
     margin-bottom: 0;
+    
     svg {
       width: 90%;
     }
@@ -61,7 +66,6 @@
     margin-top: 2vh;
   }
   .small {
-    height: auto;
     margin-bottom: 10vh;
 
     .hero-text {
@@ -73,5 +77,9 @@
 @media screen and (max-height: 568px) {
   .hero-section, .small {
     height: auto;
+
+    svg {
+      max-width: 60%;
+    }
   }
 }

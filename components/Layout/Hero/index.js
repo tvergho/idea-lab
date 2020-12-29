@@ -12,7 +12,7 @@ const Hero = ({
       style={{ flexDirection: reverse ? 'column-reverse' : 'column', justifyContent: reverse ? 'flex-end' : 'flex-start' }}
     >
       <div className={styles['hero-text']}>
-        {small ? <h2 className={styles['title-small']}>{title}</h2> : <h1 className={styles.title}>{title}</h1>}
+        <h1 className={styles.title}>{title}</h1>
         <div className={styles.subtitle}>
           <BlockContent className={styles.subtitle} blocks={subtitle} />
         </div>

@@ -58,11 +58,11 @@ const defaultResolver = (props, extra = {}) => {
     switch (elements[0]?._type) {
     case 'person': {
       elements.forEach(({
-        image, name, linkedin, _id,
+        image, name, linkedin, subtitle, _id,
       }) => {
-        items.push(<PersonItem image={image} name={name} linkedin={linkedin} key={_id} />);
+        items.push(<PersonItem image={image} name={name} linkedin={linkedin} key={_id} subtitle={subtitle} />);
       });
-      return <Grid items={items} key={_key} />;
+      return <Grid items={items} key={_key} noEvenSpace />;
     }
     case 'usefulLink': {
       elements.forEach(({
