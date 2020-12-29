@@ -33,6 +33,7 @@ export default {
       of: [
         { type: 'heroHome' },
         { type: 'heroAbout' },
+        { type: 'textBlock' },
         { type: 'lightSection' },
         { type: 'twoColumn' },
         { type: 'grid' },

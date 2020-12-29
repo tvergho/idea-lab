@@ -8,7 +8,8 @@ import usefulLink from './usefulLink';
 import contactInfo from './contactInfo';
 import heroAbout from './heroAbout';
 import aboutIcon from './aboutIcon';
+import textBlock from './textBlock';
 
 export {
-  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout, aboutIcon,
+  navLink, heroHome, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, heroAbout, aboutIcon, textBlock,
 };

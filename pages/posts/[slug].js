@@ -3,7 +3,7 @@ import Page from 'components/Page';
 import { CategoryType, ImageReferenceType } from 'lib/types';
 import client, { getClient } from 'utils/client';
 import { TopSection } from 'components/Posts';
-import BlockContent from '@sanity/block-content-to-react';
+import TextContent from 'components/TextBlock/TextContent';
 import PropTypes from 'prop-types';
 import styles from 'components/Posts/styles.module.scss';
 
@@ -29,7 +29,7 @@ const PostPage = ({
 
       <article className={styles['body-container']}>
         <div className={styles['post-body']}>
-          <BlockContent blocks={body} />
+          <TextContent content={body} />
         </div>
       </article>
     </>

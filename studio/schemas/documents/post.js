@@ -38,7 +38,7 @@ export default {
       name: 'body',
       title: 'Post Body',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'block' }, { type: 'image' }],
     },
     {
       name: 'categories',

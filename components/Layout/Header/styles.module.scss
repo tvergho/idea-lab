@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  font-weight: 400;
 }
 
 .links, .mobile-nav-link {
@@ -129,9 +130,12 @@
 
 .mobile-nav-link-container {
   margin: 20px 0px;
-  font-weight: 700;
   font-size: 2rem;
   opacity: 0;
+  
+  a {
+    font-weight: 700;
+  }
 }
 
 .mobile-dropdown {

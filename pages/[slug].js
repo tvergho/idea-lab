@@ -19,6 +19,16 @@ const query = `
         _type == "grid" => {
           ...,
           elements[]->
+        },
+        _type == "textBlock" => {
+          ...,
+          text[]{
+            ..., 
+            asset->{
+              ...,
+              "_key": _id
+            }
+          }
         }
       }
     }

@@ -7,6 +7,7 @@ import { AboutItem } from 'components/About';
 import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
 import Contact from 'components/Contact';
+import TextBlock from 'components/TextBlock';
 
 const defaultResolver = (props, extra = {}) => {
   if (!props) return null;
@@ -89,6 +90,10 @@ const defaultResolver = (props, extra = {}) => {
       email, phone, address1, address2,
     } = props;
     return <Contact email={email} phone={phone} address1={address1} address2={address2} />;
+  }
+  case 'textBlock': {
+    const { text, _key: key } = props;
+    return <TextBlock content={text} key={key} />;
   }
   default:
     return null;
