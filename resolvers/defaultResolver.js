@@ -86,9 +86,9 @@ const defaultResolver = (props, extra = {}) => {
   }
   case 'contactInfo': {
     const {
-      email, phone, address1, address2,
+      email, phone, address1, address2, _key: key,
     } = props;
-    return <Contact email={email} phone={phone} address1={address1} address2={address2} />;
+    return <Contact email={email} phone={phone} address1={address1} address2={address2} key={key} />;
   }
   case 'textBlock': {
     const { text, _key: key } = props;

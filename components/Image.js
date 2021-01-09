@@ -2,12 +2,12 @@ import React from 'react';
 import useWindowSize from 'utils/useWindowSize';
 
 const Image = ({
-  width, height, objectFit, src, alt, responsive, heightConstrained, widthConstrained, square, minHeight, minWidth, style,
+  width, height, objectFit, src, alt, responsive, heightConstrained, widthConstrained, aspectConstrained, minHeight, minWidth, style,
 }) => {
   const { width: windowWidth } = useWindowSize();
   const heightLocked = heightConstrained && windowWidth > 1200;
 
-  if (square) {
+  if (aspectConstrained) {
     return (
       <div style={{ position: 'relative', overflow: 'hidden', paddingBottom: `${(height / width) * 100}%` }}>
         <img src={src}

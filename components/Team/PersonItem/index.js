@@ -30,7 +30,7 @@ const PersonItem = ({
     return (
       <>
         <div className={styles.image}>
-          <Image src={imageUrl} width={300} height={300} objectFit="cover" square responsive />
+          <Image src={imageUrl} width={300} height={300} objectFit="cover" aspectConstrained responsive />
         </div>
 
         <h5 className={styles.name}>{name}</h5>

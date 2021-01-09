@@ -5,7 +5,7 @@ import PageContext from 'lib/PageContext';
 import Section from 'components/Layout/Section';
 import calcDate from 'utils/calcDate';
 import Image from 'components/Image';
-import { urlFor } from 'utils/client';
+import { urlFor, dimensionsFor } from 'utils/client';
 import Categories from '../Categories';
 import styles from './styles.module.scss';
 
@@ -15,6 +15,7 @@ const TopSection = ({
   const { preview } = useContext(PageContext);
   const date = calcDate(createdAt);
   const imageUrl = urlFor(image, preview).width(1200).url();
+  const [width, height] = dimensionsFor(image);
 
   return (
     <>
@@ -31,7 +32,7 @@ const TopSection = ({
       <section className={styles['image-background']}>
         <div className={styles['image-container']}>
           <div className={styles.image}>
-            <Image src={imageUrl} objectFit="contain" responsive />
+            <Image src={imageUrl} width={width} height={height} objectFit="contain" aspectConstrained />
           </div>
         </div>
       </section>
