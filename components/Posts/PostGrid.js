@@ -5,21 +5,22 @@ import Grid from 'components/Layout/Grid';
 import PostItem from './PostItem';
 
 const PostGrid = ({ posts }) => {
-  const postItems = [];
   if (!posts) return null;
 
-  posts.forEach(({
+  const postItems = posts.map(({
     _createdAt, slug, image, description, title, categories,
   }) => {
-    postItems.push(<PostItem
-      createdAt={_createdAt}
-      slug={slug}
-      image={image}
-      description={description}
-      title={title}
-      key={_createdAt}
-      categories={categories.length > 0 && categories[0]?.slug?.current ? categories : null}
-    />);
+    return (
+      <PostItem
+        createdAt={_createdAt}
+        slug={slug}
+        image={image}
+        description={description}
+        title={title}
+        key={_createdAt}
+        categories={categories.length > 0 && categories[0]?.slug?.current ? categories : null}
+      />
+    );
   });
 
   return (

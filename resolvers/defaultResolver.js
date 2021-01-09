@@ -54,30 +54,29 @@ const defaultResolver = (props, extra = {}) => {
   }
   case 'grid': {
     const { elements } = props;
-    const items = [];
     if (!elements || elements.length === 0) return null;
     switch (elements[0]?._type) {
     case 'person': {
-      elements.forEach(({
+      const items = elements.map(({
         image, name, linkedin, subtitle, _id,
       }) => {
-        items.push(<PersonItem image={image} name={name} linkedin={linkedin} key={_id} subtitle={subtitle} />);
+        return (<PersonItem image={image} name={name} linkedin={linkedin} key={_id} subtitle={subtitle} />);
       });
       return <Grid items={items} key={_key} noEvenSpace />;
     }
     case 'usefulLink': {
-      elements.forEach(({
+      const items = elements.map(({
         image, display, url, _key: key,
       }) => {
-        items.push(<UsefulLink image={image} display={display} url={url} key={key} />);
+        return (<UsefulLink image={image} display={display} url={url} key={key} />);
       });
       return <Grid items={items} key={_key} />;
     }
     case 'aboutIcon': {
-      elements.forEach(({
+      const items = elements.map(({
         image, description, display, _key: key,
       }) => {
-        items.push(<AboutItem image={image} display={display} description={description} key={key} />);
+        return (<AboutItem image={image} display={display} description={description} key={key} />);
       });
       return <Grid items={items} key={_key} noEvenSpace />;
     }
