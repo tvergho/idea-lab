@@ -12,7 +12,7 @@
 
 .opacity-control {
   transition: all 0.3s;
-  h5 { transition: all 0.3s; }
+  * { transition: all 0.3s; }
 
   &:hover {
     img {
