@@ -15,6 +15,12 @@ export default {
       description: 'Titles/short bio of this person (optional).',
     },
     {
+      name: 'description',
+      type: 'string',
+      title: 'Description',
+      description: 'Longer description displayed on hover.',
+    },
+    {
       name: 'linkedin',
       type: 'url',
       title: 'Linkedin Profile',

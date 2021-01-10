@@ -58,9 +58,9 @@ const defaultResolver = (props, extra = {}) => {
     switch (elements[0]?._type) {
     case 'person': {
       const items = elements.map(({
-        image, name, linkedin, subtitle, _id,
+        image, name, linkedin, subtitle, description, _id,
       }) => {
-        return (<PersonItem image={image} name={name} linkedin={linkedin} key={_id} subtitle={subtitle} />);
+        return (<PersonItem image={image} name={name} linkedin={linkedin} key={_id} subtitle={subtitle} description={description} />);
       });
       return <Grid items={items} key={_key} noEvenSpace />;
     }

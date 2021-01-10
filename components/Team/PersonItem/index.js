@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 const ANIMATION_DURATION = 500;
 
 const PersonItem = ({
-  image, name, linkedin, subtitle,
+  image, name, linkedin, subtitle, description,
 }) => {
   const { preview } = useContext(PageContext);
   const imageUrl = image ? urlFor(image, preview).width(600).height(600).url() : '/';
@@ -31,6 +31,7 @@ const PersonItem = ({
       <>
         <div className={styles.image}>
           <Image src={imageUrl} width={300} height={300} objectFit="cover" aspectConstrained responsive />
+          {description && <div className={styles.description}>{description}</div>}
         </div>
 
         <h5 className={styles.name}>{name}</h5>
@@ -74,6 +75,7 @@ PersonItem.propTypes = {
   name: PropTypes.string,
   linkedin: PropTypes.string,
   subtitle: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default PersonItem;
