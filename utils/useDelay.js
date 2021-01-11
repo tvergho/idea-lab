@@ -10,7 +10,7 @@ const useDelay = (prop, delay = 500, delayOpen = false, delayClose = true, useDe
 
   useEffect(() => {
     if ((!prop && delayClose) || (prop && delayOpen)) {
-      if (useDebounce) debounce(delayFunc, delay);
+      if (useDebounce) debounce(() => { setDelayedProp(prop); }, delay)();
       else delayFunc();
     } else setDelayedProp(prop);
   }, [prop]);

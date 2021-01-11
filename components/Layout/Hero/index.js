@@ -6,13 +6,18 @@ import styles from './styles.module.scss';
 const Hero = ({
   title, subtitle, illustration: Illustration, small, reverse,
 }) => {
+  const renderAsSpan = () => {
+    const words = title.split(' ');
+    return words.map((word) => (word === 'Lab' ? <span style={{ color: '#055B39' }} key={word}>{`${word} `}</span> : <span key={word}>{`${word} `}</span>));
+  };
+
   return (
     <section
       className={small ? `${styles['hero-section']} ${styles.small}` : styles['hero-section']}
       style={{ flexDirection: reverse ? 'column-reverse' : 'column', justifyContent: reverse ? 'flex-end' : 'flex-start' }}
     >
       <div className={styles['hero-text']}>
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={styles.title}>{renderAsSpan()}</h1>
         <div className={styles.subtitle}>
           <BlockContent className={styles.subtitle} blocks={subtitle} />
         </div>
