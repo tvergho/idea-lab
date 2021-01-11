@@ -22,6 +22,15 @@
   .generic-icon {
     width: 50%;
     margin-top: 30px;
-    padding: 5vw;
+    padding: 0 5vw;
+  }
+  .title {
+    margin-top: -5px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .title {
+    margin-top: 0;
   }
 }

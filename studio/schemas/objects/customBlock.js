@@ -10,6 +10,7 @@ export default {
       options: {
         list: [
           { title: 'Press Releases', value: 'Press Releases' },
+          { title: 'Quadruple Aim', value: 'Quadruple Aim' },
         ],
       },
     },
