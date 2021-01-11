@@ -4,6 +4,7 @@ import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
 import { PersonItem } from 'components/Team';
 import { AboutItem } from 'components/About';
+import GenericIcon from 'components/GenericIcon';
 import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
 import Contact from 'components/Contact';
@@ -77,6 +78,14 @@ const defaultResolver = (props, extra = {}) => {
         image, description, display, _key: key,
       }) => {
         return (<AboutItem image={image} display={display} description={description} key={key} />);
+      });
+      return <Grid items={items} key={_key} noEvenSpace />;
+    }
+    case 'genericIcon': {
+      const items = elements.map(({
+        title, description, icon, _key: key,
+      }) => {
+        return (<GenericIcon image={icon} title={title} description={description} key={key} />);
       });
       return <Grid items={items} key={_key} noEvenSpace />;
     }

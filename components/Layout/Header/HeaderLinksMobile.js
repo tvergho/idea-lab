@@ -84,8 +84,7 @@ const MobileBackdrop = ({ links, visible, onClick }) => {
   );
 };
 
-const HeaderLinksMobile = ({ links }) => {
-  const [visible, setVisible] = useState(false);
+const HeaderLinksMobile = ({ links, visible, setVisible }) => {
   const delayedVisible = useDelay(visible, ANIMATION_LENGTH);
 
   const toggle = () => setVisible((vis) => !vis);

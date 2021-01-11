@@ -23,16 +23,17 @@ const Logo = () => {
 const Header = ({ links }) => {
   const { width } = useWindowSize();
   const isMobile = !(width > 768);
-  const [visible, setVisible] = useState(true);
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [backdropVisible, setBackdropVisible] = useState(false);
   let lastPos = 0;
 
   const onScroll = () => {
     const scrollPos = window.scrollY;
 
     if (scrollPos > 100 && scrollPos > lastPos) {
-      setVisible(false);
+      setHeaderVisible(false);
     } else {
-      setVisible(true);
+      setHeaderVisible(true);
     }
 
     lastPos = window.scrollY;
@@ -44,11 +45,13 @@ const Header = ({ links }) => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const visible = headerVisible || backdropVisible;
+
   return (
     <div className={visible ? styles['header-container'] : `${styles['header-container']} ${styles['scroll-up']}`}>
       <nav className={visible ? styles.header : `${styles.header} ${styles['scroll-up']}`}>
         <Logo />
-        {isMobile ? <HeaderLinksMobile links={links} /> : <HeaderLinksDesktop links={links} />}
+        {isMobile ? <HeaderLinksMobile links={links} visible={backdropVisible} setVisible={setBackdropVisible} /> : <HeaderLinksDesktop links={links} />}
       </nav>
     </div>
   );
