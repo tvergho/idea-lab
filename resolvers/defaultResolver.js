@@ -4,6 +4,7 @@ import TwoColumn from 'components/TwoColumn';
 import { PostBlock } from 'components/Posts';
 import { PersonItem } from 'components/Team';
 import { AboutItem, QuadrupleAim } from 'components/About';
+import Hero from 'components/Layout/Hero';
 import GenericIcon from 'components/GenericIcon';
 import UsefulLink from 'components/UsefulLink';
 import Grid from 'components/Layout/Grid';
@@ -104,6 +105,12 @@ const defaultResolver = (props, extra = {}) => {
   case 'textBlock': {
     const { text, _key: key } = props;
     return <TextBlock content={text} key={key} />;
+  }
+  case 'hero': {
+    const {
+      title, subtitle, image, small, reverse, width, height, _key: key,
+    } = props;
+    return <Hero key={key} title={title} subtitle={subtitle} image={image} small={small} reverse={reverse} width={width} height={height} />;
   }
   default:
     return null;

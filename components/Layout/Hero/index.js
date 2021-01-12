@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
+import { ImageReferenceType } from 'lib/types';
+import { urlFor } from 'utils/client';
+import Image from 'components/Image';
 import styles from './styles.module.scss';
 
 const Hero = ({
-  title, subtitle, illustration: Illustration, small, reverse,
+  title, subtitle, illustration: Illustration, small, reverse, width = '', height = '', image,
 }) => {
+  let imageUrl = '';
+  if (image) imageUrl = urlFor(image).url();
+
+  // Function to add a lighter shade to the word 'Lab' to emulate the IDEA Lab logo colors.
   const renderAsSpan = () => {
     const words = title.split(' ');
     return words.map((word) => (word === 'Lab' ? <span style={{ color: '#055B39' }} key={word}>{`${word} `}</span> : <span key={word}>{`${word} `}</span>));
@@ -23,7 +30,8 @@ const Hero = ({
         </div>
       </div>
 
-      <Illustration />
+      {Illustration && <Illustration width={width} height={height} />}
+      {image && <div className={styles['image-container']}><Image src={imageUrl} width={width} height={height} /></div>}
     </section>
   );
 };
@@ -34,6 +42,9 @@ Hero.propTypes = {
   illustration: PropTypes.elementType,
   small: PropTypes.bool,
   reverse: PropTypes.bool,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  image: ImageReferenceType,
 };
 
 export default Hero;

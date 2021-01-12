@@ -31,8 +31,7 @@ export default {
       type: 'array',
       title: 'Page Builder',
       of: [
-        { type: 'heroHome' },
-        { type: 'heroAbout' },
+        { type: 'hero' },
         { type: 'textBlock' },
         { type: 'lightSection' },
         { type: 'twoColumn' },

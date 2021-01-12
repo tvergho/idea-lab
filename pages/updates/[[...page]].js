@@ -106,7 +106,7 @@ export const getStaticProps = async (context) => {
   if (!pageNum) pageNum = 1;
 
   const start = ((pageNum - 1) * ITEMS_ON_PAGE) + 1;
-  const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + 14 });
+  const posts = await client.fetch(postsQuery, { start: Math.max(1, start), end: start + (ITEMS_ON_PAGE - 1) });
   const featuredPost = await client.fetch(featuredPostQuery);
 
   const allPosts = await client.fetch(allPostsQuery) || [];

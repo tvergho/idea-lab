@@ -2,7 +2,6 @@ import React from 'react';
 import Page from 'components/Page';
 import PropTypes from 'prop-types';
 import { getClient } from 'utils/client';
-import { homeResolver } from 'resolvers';
 import { ElementType } from 'lib/types';
 
 const query = '*[_type == "page" && slug.current == "/"]';
@@ -16,7 +15,6 @@ const Home = ({
         title={title}
         description={description}
         pageBuilder={pageBuilder}
-        resolver={homeResolver}
         preview={preview}
       />
     </>

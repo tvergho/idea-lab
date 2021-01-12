@@ -16,6 +16,27 @@ const query = `
       ...,
       elements[]{
         ...,
+        _type == "textBlock" => {
+          ...,
+          text[]{
+            ..., 
+            asset->{
+              ...,
+              "_key": _id
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+const expandRefQuery = `
+  *[_type == "page" && slug.current == $slug]{
+    ..., 
+    pageBuilder[]{
+      ...,
+      elements[]{
+        ...,
         _type == "grid" => {
           ...,
           elements[]->
@@ -35,7 +56,8 @@ const query = `
   }
 `;
 
-const customPages = ['', '/', 'about', 'updates'];
+const customPages = ['', '/', 'updates'];
+const expandRefPages = ['team'];
 
 const CustomPage = ({
   title = '', description = '', pageBuilder, showTitle, preview,
@@ -65,7 +87,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { preview = false } = context;
   const { slug } = context.params;
-  const data = await getClient(preview).fetch(query, { slug }) || {};
+  const data = await getClient(preview).fetch(expandRefPages.includes(slug) ? expandRefQuery : query, { slug }) || {};
 
   const {
     title = null, description = null, pageBuilder = null, showTitle = null,

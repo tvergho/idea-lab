@@ -11,6 +11,18 @@
 }
 
 .small {
+  .image-container {
+    width: 70%;
+    max-width: 80%;
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.small {
   height: auto;
   max-height: calc(100vh - 150px);
 
@@ -38,7 +50,7 @@
 
 @media screen and (max-width: $container-width) {
   .hero-section {
-    svg {
+    svg, .image-container {
       width: 70%;
       height: auto;
     }
@@ -49,7 +61,7 @@
   .hero-section {
     margin-bottom: 0;
     
-    svg {
+    svg, .image-container {
       width: 90%;
     }
   }
@@ -78,7 +90,7 @@
   .hero-section, .small {
     height: auto;
 
-    svg {
+    svg, .image-container {
       max-width: 60%;
     }
   }
