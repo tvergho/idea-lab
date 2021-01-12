@@ -9,5 +9,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/404"
+  to = "/.netlify/functions/next_404"
   status = 404
