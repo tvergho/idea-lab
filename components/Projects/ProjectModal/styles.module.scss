@@ -1,0 +1,104 @@
+@use "variables" as *;
+
+.backdrop {
+  position: fixed;
+  background-color: black;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 200vh;
+  width: 100%;
+  z-index: 1000;
+}
+
+.modal {
+  width: 70vw;
+  height: auto;
+  min-height: 20px;
+  max-height: 90vh;
+  padding: 2vw 0;
+  background-color: white;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  overflow: scroll;
+}
+
+.title {
+  text-align: center;
+  padding: 0 40px;
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 1vw;
+}
+
+.underline {
+  border-bottom: 0.5px solid rgba(18, 49, 43, 0.5);
+  margin: 5px auto;
+  width: 0;
+}
+
+.metadata {
+  background-color: $background-gray;
+  width: 100%;
+  padding: 15px 2vw;
+  margin-top: 30px;
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.metadata-text {
+  margin-left: 10px;
+}
+
+.content {
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 0 2vw;
+  margin-top: 40px;
+}
+
+.text-container {
+  margin-top: -1rem;
+  width: 100%;
+}
+
+.image-container {
+  width: 45%;
+  height: 100%;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .content {
+    padding: 0 4vw;
+  }
+  .metadata {
+    padding: 15px 4vw;
+  }
+  .close-button {
+    top: 2vw;
+  }
+  .title {
+    padding: 0 60px;
+  }
+  .image-container {
+    width: 100%;
+  }
+  .modal {
+    width: 90vw;
+    padding: 4vw 0;
+  }
+}
