@@ -37,6 +37,7 @@ const expandRefQuery = `
     ..., 
     pageBuilder[]{
       ...,
+      projects[]->,
       elements[]{
         ...,
         _type == "grid" => {
@@ -59,7 +60,7 @@ const expandRefQuery = `
 `;
 
 const customPages = ['', '/', 'updates'];
-const expandRefPages = ['team'];
+const expandRefPages = ['team', 'projects'];
 
 /**
  * Default page renderer for site pages.

@@ -1,3 +1,3 @@
-import HeroProjects from './HeroProjects';
+import ProjectSection from './ProjectSection';
 
-export { HeroProjects };
+export { ProjectSection };

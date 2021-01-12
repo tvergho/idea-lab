@@ -1,0 +1,57 @@
+@use "variables" as *;
+
+.project-item {
+  display: flex;
+  padding-left: 6vw;
+  width: 80%;
+  margin: 30px 0;
+  justify-content: space-between;
+}
+
+.image-container {
+  width: 45%;
+}
+
+.text-section {
+  width: 50%;
+}
+
+.title {
+  color: $forest-green;
+  line-height: 1.6rem;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.8);
+}
+
+.button {
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: $mobile-width) {
+  .project-item {
+    flex-direction: column-reverse;
+    margin: 50px auto;
+    padding-left: 0;
+  }
+  .image-container, .text-section {
+    width: 100%;
+    text-align: center;
+  }
+  .text-section {
+    margin-bottom: 30px;
+  }
+  .button {
+    font-size: 0.9rem;
+  }
+  .desc {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+  }
+}
