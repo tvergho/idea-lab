@@ -9,7 +9,9 @@ import aboutIcon from './aboutIcon';
 import textBlock from './textBlock';
 import genericIcon from './genericIcon';
 import hero from './hero';
+import metadataItem from './metadataItem';
+import projectSection from './projectSection';
 
 export {
-  navLink, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, aboutIcon, textBlock, genericIcon, hero,
+  navLink, lightSection, twoColumn, customBlock, grid, usefulLink, contactInfo, aboutIcon, textBlock, genericIcon, hero, metadataItem, projectSection,
 };

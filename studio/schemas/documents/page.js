@@ -37,6 +37,7 @@ export default {
         { type: 'twoColumn' },
         { type: 'grid' },
         { type: 'contactInfo' },
+        { type: 'projectSection' },
       ],
     },
     {
