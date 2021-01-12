@@ -6,8 +6,9 @@ import { urlFor } from 'utils/client';
 import Image from 'components/Image';
 import styles from './styles.module.scss';
 
+// Note: direct SVG illustration support is deprecated. Pass in a Sanity ImageReference instead.
 const Hero = ({
-  title, subtitle, illustration: Illustration, small, reverse, width = '', height = '', image,
+  title, subtitle, illustration: Illustration, small, reverse, width = '100%', height = '100%', image,
 }) => {
   let imageUrl = '';
   if (image) imageUrl = urlFor(image).url();
@@ -31,7 +32,7 @@ const Hero = ({
       </div>
 
       {Illustration && <Illustration width={width} height={height} />}
-      {image && <div className={styles['image-container']}><Image src={imageUrl} width={width} height={height} /></div>}
+      {image && <div className={styles['image-container']}><Image src={imageUrl} /></div>}
     </section>
   );
 };

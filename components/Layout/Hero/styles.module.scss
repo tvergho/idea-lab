@@ -2,15 +2,13 @@
 
 .hero-section {
   align-items: center;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   margin-bottom: 50px;
-
-  svg {
-    max-width: 80%;
-  }
 }
 
 .small {
+  min-height: auto;
+
   .image-container {
     width: 70%;
     max-width: 80%;
@@ -20,11 +18,15 @@
 .image-container {
   display: flex;
   justify-content: center;
+
+  img {
+    width: auto;
+    height: auto;
+  }
 }
 
 .small {
   height: auto;
-  max-height: calc(100vh - 150px);
 
   .title {
     margin-bottom: 15px;
@@ -57,12 +59,19 @@
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: $mobile-width) {
   .hero-section {
     margin-bottom: 0;
     
     svg, .image-container {
       width: 90%;
+    }
+  }
+
+  .image-container {
+    img {
+      height: 100%;
+      width: 100%;
     }
   }
 }
@@ -75,7 +84,7 @@
 
 @media screen and (max-height: 800px) {
   .hero-text {
-    margin-top: 2vh;
+    margin: 2vh;
   }
   .small {
     margin-bottom: 10vh;

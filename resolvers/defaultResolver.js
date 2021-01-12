@@ -108,9 +108,9 @@ const defaultResolver = (props, extra = {}) => {
   }
   case 'hero': {
     const {
-      title, subtitle, image, small, reverse, width, height, _key: key,
+      title, subtitle, image, small, reverse, _key: key,
     } = props;
-    return <Hero key={key} title={title} subtitle={subtitle} image={image} small={small} reverse={reverse} width={width} height={height} />;
+    return <Hero key={key} title={title} subtitle={subtitle} image={image} small={small} reverse={reverse} />;
   }
   default:
     return null;

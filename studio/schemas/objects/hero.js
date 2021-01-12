@@ -32,17 +32,5 @@ export default {
       type: 'boolean',
       description: 'If checked, the words will appear below the image.',
     },
-    {
-      title: 'Width',
-      name: 'width',
-      type: 'string',
-      description: 'Optional. If provided, overrides the width of the SVG provided.',
-    },
-    {
-      title: 'Height',
-      name: 'height',
-      type: 'string',
-      description: 'Optional. If provided, overrides the height of the SVG provided.',
-    },
   ],
 };
