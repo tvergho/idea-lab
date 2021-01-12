@@ -9,6 +9,16 @@ import styles from './styles.module.scss';
 
 const ANIMATION_DURATION = 600;
 
+/**
+ * Renders a section on the page.
+ * Component that corresponds to the 'lightSection' element in Sanity CMS.
+ * Can render sub-elements of its own through the default resolver.
+ *
+ * @param {array} elements Array of elements to be processed and rendered by the default resolver.
+ * @param {string} color Sets the background color – light gray ('light') or dark green ('emphasis').
+ * @param {string} title Title of the section to display.
+ * @param {boolean} animatedUnderline If true, displays an animated underline underneath the title.
+ */
 const Section = ({
   elements, color, title, children, animatedUnderline,
 }) => {
@@ -19,6 +29,7 @@ const Section = ({
 
   const underlineWidth = width > 1000 ? '15%' : '30%';
 
+  // Allows for dynamic resolution of the CSS styling and background color for the section.
   useEffect(() => {
     switch (color) {
     case 'light':

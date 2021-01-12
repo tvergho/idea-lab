@@ -5,6 +5,9 @@ import Header from './Header';
 import Footer from './Footer';
 import styles from './styles.module.scss';
 
+/**
+ * Global site layout for every page on the site.
+ */
 const Layout = ({
   children, header, footer,
 }) => {

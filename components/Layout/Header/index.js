@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { NavLinkType } from 'lib/types';
 import PropTypes from 'prop-types';
@@ -25,18 +25,20 @@ const Header = ({ links }) => {
   const isMobile = !(width > 768);
   const [headerVisible, setHeaderVisible] = useState(true);
   const [backdropVisible, setBackdropVisible] = useState(false);
-  let lastPos = 0;
+  const lastPos = useRef(0); // Instance variable to keep track of the last scroll position.
 
+  // Controlls the scrolling behavior of the header.
   const onScroll = () => {
     const scrollPos = window.scrollY;
 
-    if (scrollPos > 100 && scrollPos > lastPos) {
+    // Moves the header out of view if the user continues to scroll down on the page.
+    if (scrollPos > 100 && scrollPos > lastPos.current) {
       setHeaderVisible(false);
     } else {
       setHeaderVisible(true);
     }
 
-    lastPos = window.scrollY;
+    lastPos.current = window.scrollY;
   };
 
   useEffect(() => {

@@ -28,12 +28,21 @@ const Dropdown = ({ links, visible, onClick }) => {
   );
 };
 
+/**
+ * Navigation link item in the mobile backdrop.
+ *
+ * @param {string} display Text to display for the link.
+ * @param {string} link URL to navigate to when clicked.
+ * @param {array} dropdown Optional. Array of NavLinks to display as the submenu for this navigation item.
+ * @param {function} onClick Optional. Function that is also called when this item is clicked.
+ * @param {number} index Index of this item in the navigation menu, for animation purposes.
+ */
 const NavLink = ({
   display, link, dropdown, onClick, index,
 }) => {
   const isDropdown = !!dropdown && dropdown.length > 0;
   const [visibleDropdown, setVisibleDropdown] = useState(false);
-  const delayedVisible = useDelay(visibleDropdown, ANIMATION_LENGTH);
+  const delayedVisible = useDelay(visibleDropdown, ANIMATION_LENGTH); // Delays removing the dropdown from the DOM until after the animation.
 
   const toggle = () => setVisibleDropdown((vis) => !vis);
 
@@ -84,11 +93,18 @@ const MobileBackdrop = ({ links, visible, onClick }) => {
   );
 };
 
+/**
+ * Hamburger menu and mobile backdrop for navigation on screen smaller than 768px.
+ *
+ * @param {boolean} visible Determines whether the mobile navigation backdrop is visible.
+ * @param {function} setVisible Function to toggle the visibility of the mobile backdrop.
+ */
 const HeaderLinksMobile = ({ links, visible, setVisible }) => {
   const delayedVisible = useDelay(visible, ANIMATION_LENGTH);
 
   const toggle = () => setVisible((vis) => !vis);
 
+  // Disables scrolling the document in the background when the mobile backdrop is visible.
   useEffect(() => {
     if (visible) {
       document.documentElement.style.overflow = 'hidden';
@@ -97,6 +113,7 @@ const HeaderLinksMobile = ({ links, visible, setVisible }) => {
     }
   }, [visible]);
 
+  // Uses animation from https://jonsuh.com/hamburgers/.
   return (
     <>
       <button className={`hamburger hamburger--squeeze ${visible ? 'is-active' : ''} transparent ${styles.toggle}`} type="button" onClick={toggle} name="hamburger-menu">

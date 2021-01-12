@@ -20,18 +20,30 @@ const searchQuery = '*[_type == "post" && [title, description, body] match $quer
 
 const ITEMS_ON_PAGE = 15;
 
+/**
+ * Controls display and pagination for the updates page, which displays a list of all posts and press releases on the site.
+ * Valid URL paths are /updates, /updates/1, /updates/2, etc.
+ *
+ * @param {string} title Title of the page.
+ * @param {string} description Description of the page, for SEO purposes.
+ * @param {showTitle} showTitle Override the default to show the title at the top of the page.
+ * @param {array} posts Array of Posts to display on the page.
+ * @param {PostType} featuredPost Most recent post, to display as the featured post at the top of the page.
+ * @param {number} numPages Total number of pages for all the posts.
+ * @param {number} pageNum Current page number being displayed.
+ */
 const Updates = ({
   title = '', description = '', showTitle = true, posts, featuredPost, numPages, pageNum,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchPosts, setSearchPosts] = useState([]);
-  const [useSearch, setUseSearch] = useState(false);
-  const [searched, setSearched] = useState(false);
+  const [useSearch, setUseSearch] = useState(false); // If true, overrides the posts prop and displays searchPosts instead.
+  const [searched, setSearched] = useState(false); // A search has already been conducted on this page.
   const router = useRouter();
 
   const search = async (query) => {
     const term = query || searchTerm;
-    router.push(`/updates?query=${term}`, undefined, { shallow: true });
+    router.push(`/updates?query=${term}`, undefined, { shallow: true }); // Update the URL in the address bar without reloading the page.
     const result = await client.fetch(searchQuery, { query: term }) || [];
     setSearchPosts(result);
 
@@ -39,7 +51,9 @@ const Updates = ({
     setUseSearch(true);
   };
 
+  // Trigger a search on page load based upon the URL.
   useEffect(() => {
+    // Only trigger a new search if there's a query in the URL that differs from the current search term.
     if (router?.query?.query && router?.query?.query !== searchTerm) {
       const { query } = router.query;
       router.push(`/updates?query=${query}`, undefined, { shallow: true });
@@ -49,6 +63,7 @@ const Updates = ({
     }
   }, [router]);
 
+  // Clears the search and reverts to the default of displaying posts chronologically when the search term is cleared.
   useLayoutEffect(() => {
     if (searchTerm.length === 0 && searched) {
       router.push('/updates', undefined, { shallow: true });

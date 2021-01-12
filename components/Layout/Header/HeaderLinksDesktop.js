@@ -14,7 +14,7 @@ const defaultPath = '/';
 
 const NavLink = ({ link, display, dropdown }) => {
   const [hovering, setHovering] = useState(false);
-  const visible = useDelay(hovering, ANIMATION_LENGTH, false, true, false);
+  const visible = useDelay(hovering, ANIMATION_LENGTH);
   const isDropdown = !!dropdown && dropdown.length > 0;
 
   return (

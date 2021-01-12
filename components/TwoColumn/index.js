@@ -15,6 +15,21 @@ import styles from './styles.module.scss';
 
 export const ANIMATION_DURATION = 400;
 
+/**
+ * Component that renders a flexible, responsive two-column layout.
+ * Supports Sanity block content on one side and an image on the other.
+ *
+ * @param {string} button Optional. If defined, renders a button that displays the specified text.
+ * @param {array} content Sanity block content to render on the text side of the component.
+ * @param {ImageReferenceType} icon Optional. If defined, renders an icon to the left of the section title.
+ * @param {ImageReferenceType} image Main image to render for the component.
+ * @param {string} side 'left' or 'right' – the side on which the image renders.
+ * @param {string} title Title of the two column layout.
+ * @param {SlugType} buttonPage URL to which to navigate when the button is clicked.
+ * @param {boolean} fullPage If true, modifies the styling to render as a child of the full page (as opposed to the child of a section).
+ * @param {boolean} isTextButton If true, displays the button as clickable text.
+ * @param {boolean} linkTitle If true, links the title to the button URL.
+ */
 const TwoColumn = ({
   button, content, icon, image, side, title, buttonPage, fullPage, isTextButton, linkTitle,
 }) => {
@@ -35,6 +50,7 @@ const TwoColumn = ({
     if (scrolled) setVisible(true);
   }, [scrolled]);
 
+  // Programatically controls the top padding just because it's complicated to manage with CSS alone.
   useEffect(() => {
     if (fullPage) setPaddingTop(isMobile ? '25px' : '50px');
     else setPaddingTop(isMobile ? '60px' : '110px');

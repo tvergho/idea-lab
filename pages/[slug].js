@@ -30,6 +30,8 @@ const query = `
     }
   }
 `;
+
+// Addresses a bug whereby expanding references for elements of a grid nulls grid elements that aren't external references.
 const expandRefQuery = `
   *[_type == "page" && slug.current == $slug]{
     ..., 
@@ -59,6 +61,16 @@ const expandRefQuery = `
 const customPages = ['', '/', 'updates'];
 const expandRefPages = ['team'];
 
+/**
+ * Default page renderer for site pages.
+ * Fallback for all slugs that don't match a specific page in the pages folder.
+ *
+ * @param {string} title Title of the page.
+ * @param {string} description Description of the page, for SEO purposes.
+ * @param {array} pageBuilder Array of elements to render.
+ * @param {boolean} showTitle If true, displays the title at the top of the page.
+ * @param {boolean} preview If true, displays the page in preview mode.
+ */
 const CustomPage = ({
   title = '', description = '', pageBuilder, showTitle, preview,
 }) => {

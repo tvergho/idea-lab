@@ -9,6 +9,14 @@ import { urlFor, dimensionsFor } from 'utils/client';
 import Categories from '../Categories';
 import styles from './styles.module.scss';
 
+/**
+ * Renders the section at the top of an individual post page with a dark green background.
+ *
+ * @param {string} title Title of the post.
+ * @param {string} createdAt Date of the post's creation. Must be in a format that is parseable by the default Javascript Date constructor.
+ * @param {ImageReferenceType} image Featured image to display.
+ * @param {arrayOf(CategoryType)} categories List of categories associated with this post.
+ */
 const TopSection = ({
   title, createdAt, image, categories,
 }) => {

@@ -11,6 +11,14 @@ import Grid from 'components/Layout/Grid';
 import Contact from 'components/Contact';
 import TextBlock from 'components/TextBlock';
 
+/**
+ * Function that matches Sanity CMS objects with the corresponding React elements.
+ * If an object is not defined in both Sanity CMS and the resolver, it will not be rendered.
+ * Can be combined with other resolvers that correspond to particular pages.
+ *
+ * @param {object} props Props to be passed along to the React element.
+ * @param {object} extra Optional properties that can be passed along from the parent element which invokes this resolver.
+ */
 const defaultResolver = (props, extra = {}) => {
   if (!props) return null;
   const { _type, _key } = props;

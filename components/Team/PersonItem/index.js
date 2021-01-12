@@ -13,6 +13,16 @@ import styles from './styles.module.scss';
 
 const ANIMATION_DURATION = 500;
 
+/**
+ * Item that displays with a circular profile picture and name on the team page.
+ * Corresponds to a Person in Sanity CMS.
+ *
+ * @param {ImageReferenceType} image Image to display for the profile. Will display as a square aspect ratio, should set crop and hotspot accordingly.
+ * @param {string} name Name to display underneath the image.
+ * @param {string} linkedin Optional URL to open on click.
+ * @param {string} subtitle Short phrase to display underneath the name.
+ * @param {string} description Displays upon hover on the desktop version of the site.
+ */
 const PersonItem = ({
   image, name, linkedin, subtitle, description,
 }) => {
@@ -22,6 +32,7 @@ const PersonItem = ({
   const scrolled = useScrollPosition(ref, 180);
   const [visible, setVisible] = useState(false);
 
+  // Animates the component to fade in upon scrolling to its position on the page.
   useEffect(() => {
     if (scrolled) setVisible(true);
   }, [scrolled]);
@@ -46,6 +57,7 @@ const PersonItem = ({
     );
   };
 
+  // Only wraps the component in an <a> tag if a URL is actually provided.
   const withLinkedin = (child) => {
     if (!linkedin) return child;
     else {

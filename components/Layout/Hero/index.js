@@ -7,6 +7,18 @@ import Image from 'components/Image';
 import styles from './styles.module.scss';
 
 // Note: direct SVG illustration support is deprecated. Pass in a Sanity ImageReference instead.
+
+/**
+ * Component for displaying a hero image at the top of a page.
+ *
+ * @param {string} title Header to display as the main text for this hero image.
+ * @param {string} subtitle Subheader to display under the main title.
+ * @param {boolean} small If true, the component takes up only the space needed instead of the entire viewport.
+ * @param {boolean} reverse If true, the text is displayed below the main image.
+ * @param {ImageReferenceType} image Reference to a Sanity ImageReference to display.
+ * @param {string} width Deprecated.
+ * @param {string} height Deprecated.
+ */
 const Hero = ({
   title, subtitle, illustration: Illustration, small, reverse, width = '100%', height = '100%', image,
 }) => {
