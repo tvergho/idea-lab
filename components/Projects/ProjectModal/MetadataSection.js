@@ -10,7 +10,7 @@ const MetadataItem = ({ icon, label, value }) => {
 
   return (
     <div className={styles['metadata-item']}>
-      <Image width={30} height={30} src={iconUrl} />
+      {icon && <Image width={30} height={30} src={iconUrl} />}
       <div className={styles['metadata-text']}><span style={{ fontWeight: 600 }}>{`${label}: `}</span>{value}</div>
     </div>
   );
