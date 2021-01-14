@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "echo 'Building Sanity to public/studio…' && cd studio && sanity install && sanity build ../public/studio -y && cd .. && next build"
+    "export": "echo 'Building Sanity to public/studio…' && cd studio && sanity install && sanity build ../public/studio -y && cd .. && next build && node lib/404ToHTML.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",

@@ -14,8 +14,8 @@ export default function useWindowSize() {
   }
 
   React.useEffect(() => {
-    changeWindowSize();
     window.addEventListener('resize', changeWindowSize, { passive: true });
+    changeWindowSize();
 
     return () => {
       window.removeEventListener('resize', changeWindowSize);
