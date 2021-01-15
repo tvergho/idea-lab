@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
 import { ImageReferenceType } from 'lib/types';
 import { urlFor, dimensionsFor } from 'utils/client';
+import useWindowSize from 'utils/useWindowSize';
 import Image from 'components/Image';
 import styles from './styles.module.scss';
 
@@ -24,6 +25,7 @@ const Hero = ({
   if (image) imageUrl = urlFor(image).url();
 
   const [width, height] = dimensionsFor(image);
+  const { isMobile } = useWindowSize();
 
   // Function to add a lighter shade to the word 'Lab' to emulate the IDEA Lab logo colors.
   const renderAsSpan = () => {
@@ -44,7 +46,7 @@ const Hero = ({
       </div>
 
       {Illustration && <Illustration width={width} height={height} />}
-      {image && <div className={styles['image-container']}><Image src={imageUrl} width={width} height={height} /></div>}
+      {image && <div className={styles['image-container']}><Image src={imageUrl} width={isMobile ? '100%' : width} height={isMobile ? '100%' : height} /></div>}
     </section>
   );
 };
