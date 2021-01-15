@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const projectUrl = __DEV__ ? 'http://localhost:3000' : 'https://dartmouthidealab.netlify.app';
+const projectUrl = __DEV__ ? 'http://localhost:3000' : 'https://dartmouthidea.org';
 const secret = process.env.SANITY_STUDIO_PREVIEW_SECRET;
 
 export default function resolveProductionUrl(document) {

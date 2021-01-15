@@ -2,7 +2,8 @@
 
 .hero-section {
   align-items: center;
-  min-height: calc(100vh - 100px);
+  // min-height: calc(100vh - 100px);
+  padding-bottom: 50px;
   margin-bottom: 50px;
 }
 
@@ -31,7 +32,7 @@
 .hero-text {
   max-width: 60%;
   text-align: center;
-  margin: 4vh auto;
+  margin: 40px auto;
 }
 
 .title {
@@ -77,13 +78,11 @@
 
 @media screen and (max-height: 800px) {
   .hero-text {
-    margin: 2vh;
+    margin: 20px;
   }
   .small {
-    margin-bottom: 5vh;
-
     .hero-text {
-      margin-top: 4vh;
+      margin-top: 40px;
     }
   }
 }
