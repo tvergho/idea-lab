@@ -10,11 +10,22 @@ import styles from './styles.module.scss';
 
 export const ANIMATION_DURATION = 300;
 
+/**
+ * Renders a modal that includes the full details of a project defined in Sanity CMS.
+ *
+ * @param {boolean} visible Toggles the visibility of the modal. This is a controlled component, but animations are handled automatically.
+ * @param {function} toggle Function to toggle the visibility of the modal.
+ * @param {string} title Title of the project.
+ * @param {arrayOf(object)} content Sanity block content to render in the body of the modal.
+ * @param {ImageReferenceType} image Reference to an image associated with the project.
+ * @param {arrayOf(MetadataType)} metadata Metadata associated with this project.
+ */
 const ProjectModal = ({
   visible, toggle, title, content, image, metadata,
 }) => {
   const delayedVisible = useDelay(visible, ANIMATION_DURATION);
 
+  // Disables scrolling the page when the modal is visible.
   useEffect(() => {
     if (visible) {
       document.documentElement.style.overflow = 'hidden';
