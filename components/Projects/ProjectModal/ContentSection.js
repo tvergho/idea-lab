@@ -7,7 +7,7 @@ import Image from 'components/Image';
 import styles from './styles.module.scss';
 
 const ContentSection = ({ image, content }) => {
-  const imageUrl = urlFor(image).width(700).height(466).url();
+  const imageUrl = urlFor(image).width(680).height(453).url();
 
   return (
     <div className={styles.content}>

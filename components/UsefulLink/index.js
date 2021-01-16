@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const UsefulLink = ({ display, url, image }) => {
   const { preview } = useContext(PageContext);
-  const imageUrl = image ? urlFor(image, preview).width(800).url() : '/';
+  const imageUrl = image ? urlFor(image, preview).width(600).url() : '/';
   return (
     <div className={styles['useful-link']}>
       <a href={url} className="no-hover" target="_blank" rel="noreferrer">

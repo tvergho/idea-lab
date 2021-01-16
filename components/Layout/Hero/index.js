@@ -46,7 +46,7 @@ const Hero = ({
       </div>
 
       {Illustration && <Illustration width={width} height={height} />}
-      {image && <div className={styles['image-container']}><Image src={imageUrl} width={isMobile ? '100%' : width} height={isMobile ? '100%' : height} /></div>}
+      {image && <div className={styles['image-container']}><Image src={imageUrl} responsive={isMobile} width={width} height={height} /></div>}
     </section>
   );
 };

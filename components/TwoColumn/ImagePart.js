@@ -6,7 +6,7 @@ import { isSvg } from 'utils/slugParsers';
 import { ANIMATION_DURATION } from './index';
 import styles from './styles.module.scss';
 
-const ImagePart = ({ visible, fullPage, imageUrl }) => {
+const ImagePart = ({ visible, fullPage, imageUrl, width, height }) => {
   return (
     <motion.div
       className={styles['main-image']}
@@ -14,7 +14,7 @@ const ImagePart = ({ visible, fullPage, imageUrl }) => {
       transition={{ duration: (ANIMATION_DURATION + 200) / 1000, ease: 'easeOut' }}
       style={{ width: fullPage ? '50%' : '45%' }}
     >
-      <Image src={imageUrl} width="100%" height="auto" objectFit={fullPage || isSvg(imageUrl) ? 'contain' : 'cover'} />
+      <Image src={imageUrl} width={width} height={height} responsive objectFit={fullPage || isSvg(imageUrl) ? 'contain' : 'cover'} />
     </motion.div>
   );
 };

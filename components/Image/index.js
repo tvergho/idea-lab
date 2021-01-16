@@ -1,5 +1,5 @@
 import React from 'react';
-import useWindowSize from 'utils/useWindowSize';
+import styles from './styles.module.scss';
 
 /**
  * Custom image component for easy image display and optimization.
@@ -10,8 +10,7 @@ import useWindowSize from 'utils/useWindowSize';
  * @param {string} src Required. Image source.
  * @param {string} alt Image alt text.
  * @param {boolean} responsive If true, overrides specified width and height attributes and makes the image take up the full width of the container.
- * @param {boolean} heightConstrained Constrains a responsive image by the specified height on devices greater than 1200px in width.
- * @param {boolean} widthConstrained Constrains a responsive image by the specified width.
+ * @param {boolean} fullHeight Has an image occupy the full height of its container.
  * @param {boolean} aspectConstrained Uses the CSS padding-bottom trick to render an image the size of its container but locked to one aspect ratio.
  * @param {string} minHeight Minimum height.
  * @param {string} minWidth Minimum width.
@@ -19,10 +18,11 @@ import useWindowSize from 'utils/useWindowSize';
  * @param {string} className Applied to the image or image container.
  */
 const Image = ({
-  width, height, objectFit, src, alt, responsive, heightConstrained, widthConstrained, aspectConstrained, minHeight, minWidth, style, className,
+  width, height, objectFit, src, alt, responsive, fullHeight, aspectConstrained, minHeight, minWidth, style, className,
 }) => {
-  const { width: windowWidth } = useWindowSize();
-  const heightLocked = heightConstrained && windowWidth > 1200;
+  let finalClass = className || '';
+  if (responsive) finalClass += ` ${styles.responsive}`;
+  if (fullHeight) finalClass += ` ${styles['full-height']}`;
 
   if (aspectConstrained) {
     return (
@@ -31,15 +31,15 @@ const Image = ({
           style={{
             ...style,
             objectFit,
-            width: responsive && !widthConstrained ? '100%' : width,
-            height: responsive && !heightLocked ? '100%' : height,
             maxWidth: responsive ? '100%' : 'auto',
             maxHeight: responsive ? '100%' : 'auto',
             minHeight,
             minWidth,
           }}
+          width={width}
+          height={height}
           alt={alt || ''}
-          className="image-square"
+          className={styles['image-square']}
         />
       </div>
     );
@@ -49,15 +49,15 @@ const Image = ({
       style={{
         ...style,
         objectFit,
-        width: (responsive && !widthConstrained) ? '100%' : width,
-        height: (responsive && !heightLocked) ? '100%' : height,
         maxWidth: responsive ? '100%' : 'auto',
         maxHeight: responsive ? '100%' : 'auto',
         minHeight,
         minWidth,
       }}
+      width={width}
+      height={height}
       alt={alt || ''}
-      className={className || ''}
+      className={finalClass}
     />
   );
 };

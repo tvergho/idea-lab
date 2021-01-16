@@ -1,6 +1,6 @@
 import React from 'react';
 import BlockContent from '@sanity/block-content-to-react';
-import { urlFor } from 'utils/client';
+import { urlFor, dimensionsFor } from 'utils/client';
 import Image from 'components/Image';
 import PropTypes from 'prop-types';
 
@@ -8,7 +8,8 @@ const serializers = {
   types: {
     image: (props) => {
       const imageUrl = urlFor(props.node).width(1200).url();
-      return <Image src={imageUrl} responsive />;
+      const [width, height] = dimensionsFor(props.node);
+      return <Image src={imageUrl} width={width} height={height} responsive />;
     },
   },
 };

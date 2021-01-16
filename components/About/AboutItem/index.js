@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const AboutItem = ({ image, display, description }) => {
   const { preview } = useContext(PageContext);
-  const imageUrl = urlFor(image, preview).width(200).url();
+  const imageUrl = urlFor(image, preview).width(100).url();
 
   return (
     <div className={styles['about-item']}>

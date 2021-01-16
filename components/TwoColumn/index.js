@@ -4,7 +4,7 @@ import React, {
 import PageContext from 'lib/PageContext';
 import PropTypes from 'prop-types';
 import { ImageReferenceType, SlugType } from 'lib/types';
-import { urlFor } from 'utils/client';
+import { urlFor, dimensionsFor } from 'utils/client';
 import useScrollPosition from 'utils/useScrollPosition';
 import useWindowSize from 'utils/useWindowSize';
 import ButtonPart from './ButtonPart';
@@ -42,7 +42,8 @@ const TwoColumn = ({
   const { isMobile } = useWindowSize();
   const isReversed = side === 'right';
 
-  const imageUrl = image ? urlFor(image, preview).width(1200).url() : '/';
+  const imageUrl = image ? urlFor(image, preview).width(1080).url() : '/';
+  const [width, height] = dimensionsFor(image);
   const iconUrl = urlFor(icon, preview).url();
   const buttonUrl = buttonPage?.current || '/';
 
@@ -62,7 +63,7 @@ const TwoColumn = ({
       style={{ flexDirection: isReversed ? 'row-reverse' : 'row', paddingTop }}
       ref={ref}
     >
-      <ImagePart visible={visible} fullPage={fullPage} imageUrl={imageUrl} />
+      <ImagePart visible={visible} fullPage={fullPage} imageUrl={imageUrl} width={width} height={height} />
       <div className={styles.text}>
         <HeaderPart visible={visible} iconUrl={iconUrl} title={title} linkTitle={linkTitle} buttonUrl={buttonUrl} />
         <ContentPart visible={visible} content={content} />

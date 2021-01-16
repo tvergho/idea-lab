@@ -258,13 +258,6 @@ p {
   align-self: flex-start;
 }
 
-.image-square {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
 .preview {
   background-color: rgba(0,0,0,0.4);
   position: fixed;

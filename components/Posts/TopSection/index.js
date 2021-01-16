@@ -22,7 +22,7 @@ const TopSection = ({
 }) => {
   const { preview } = useContext(PageContext);
   const date = calcDate(createdAt);
-  const imageUrl = urlFor(image, preview).width(1200).url();
+  const imageUrl = urlFor(image, preview).width(840).url();
   const [width, height] = dimensionsFor(image);
 
   return (
