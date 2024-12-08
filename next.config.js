@@ -17,4 +17,5 @@ module.exports = withPlugins([
       },
     ];
   },
+  distDir: 'out',
 });
