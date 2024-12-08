@@ -8,14 +8,4 @@ module.exports = withPlugins([
     domains: ['cdn.sanity.io'],
   },
   target: 'experimental-serverless-trace',
-  async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/',
-          destination: '/home',
-        },
-      ],
-    };
-  },
 });
