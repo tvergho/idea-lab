@@ -9,11 +9,13 @@ module.exports = withPlugins([
   },
   target: 'experimental-serverless-trace',
   async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: '/',
+          destination: '/home',
+        },
+      ],
+    };
   },
 });
