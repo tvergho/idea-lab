@@ -8,5 +8,4 @@ module.exports = withPlugins([
     domains: ['cdn.sanity.io'],
   },
   target: 'experimental-serverless-trace',
-  distDir: 'out',
 });
